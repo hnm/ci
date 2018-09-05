@@ -1,0 +1,282 @@
+{
+    "ci\\bo\\image\\ContentImage": {
+        "id": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\IntegerPropDef",
+            "props": {
+                "size": "32",
+                "signed": false
+            }
+        },
+        "title": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "fileImage": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\ManagedFilePropDef",
+            "props": {
+                "length": "255"
+            }
+        },
+        "caption": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "altDescription": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "page": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\relation\\ManyToOnePropDef",
+            "props": {
+                "props": {
+                    "targetEntityClass": "page\\bo\\Page",
+                    "cascadeType": [],
+                    "fetchType": "lazy"
+                }
+            }
+        },
+        "link": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "openLytebox": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "showLink": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        }
+    },
+    "ci\\bo\\image\\TwoImages": {
+        "firstImage": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\relation\\ManyToOnePropDef",
+            "props": {
+                "props": {
+                    "targetEntityClass": "bstmpl\\controller\\TmplPageController",
+                    "cascadeType": {
+                        "1": "1"
+                    },
+                    "fetchType": "lazy"
+                }
+            }
+        },
+        "secondImage": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\relation\\ManyToOnePropDef",
+            "props": {
+                "props": {
+                    "targetEntityClass": "bstmpl\\controller\\TmplPageController",
+                    "cascadeType": [],
+                    "fetchType": "lazy"
+                }
+            }
+        }
+    },
+    "ci\\bo\\image\\CiTwoImages": {
+        "firstImage": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\relation\\OneToOnePropDef",
+            "props": {
+                "props": {
+                    "targetEntityClass": "ci\\bo\\image\\ContentImage",
+                    "mappedBy": null,
+                    "cascadeType": {
+                        "1": "1"
+                    },
+                    "fetchType": "lazy",
+                    "orphanRemoval": true
+                }
+            }
+        },
+        "secondImage": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\relation\\OneToOnePropDef",
+            "props": {
+                "props": {
+                    "targetEntityClass": "ci\\bo\\image\\ContentImage",
+                    "mappedBy": null,
+                    "cascadeType": {
+                        "1": "1"
+                    },
+                    "fetchType": "lazy",
+                    "orphanRemoval": true
+                }
+            }
+        }
+    },
+    "ci\\bo\\image\\CiThreeImages": {
+        "thirdImage": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\relation\\OneToOnePropDef",
+            "props": {
+                "props": {
+                    "targetEntityClass": "bstmpl\\controller\\TmplPageController",
+                    "mappedBy": null,
+                    "cascadeType": {
+                        "1": "1"
+                    },
+                    "fetchType": "lazy",
+                    "orphanRemoval": true
+                }
+            }
+        }
+    },
+    "ci\\bo\\CiGoogleMaps": {
+        "lat": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "lng": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "title": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "description": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\TextPropDef",
+            "props": {
+                "size": "524280",
+                "charset": null
+            }
+        }
+    },
+    "ci\\bo\\CiHeroImage": {
+        "fileImage": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\ManagedFilePropDef",
+            "props": {
+                "length": "255"
+            }
+        },
+        "boxText": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "linkDescription": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "pageLink": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\relation\\OneToOnePropDef",
+            "props": {
+                "targetEntityClass": "page\\bo\\util\\PageLink",
+                "mappedBy": null,
+                "cascadeType": [],
+                "fetchType": "lazy",
+                "orphanRemoval": false
+            }
+        }
+    },
+    "ci\\bo\\TeaserBox": {
+        "id": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\IntegerPropDef",
+            "props": {
+                "size": "32",
+                "signed": false
+            }
+        },
+        "fileImage": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\ManagedFilePropDef",
+            "props": {
+                "length": "255"
+            }
+        },
+        "title": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "textHtml": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\TextPropDef",
+            "props": {
+                "size": "524280",
+                "charset": null
+            }
+        },
+        "pageLink": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\relation\\OneToOnePropDef",
+            "props": {
+                "targetEntityClass": "page\\bo\\util\\PageLink",
+                "mappedBy": null,
+                "cascadeType": {
+                    "1": "1",
+                    "2": "2",
+                    "4": "4",
+                    "8": "8",
+                    "16": "16"
+                },
+                "fetchType": "lazy",
+                "orphanRemoval": true
+            }
+        }
+    },
+    "ci\\bo\\CiStartTeaserBoxes": {
+        "teaserBoxes": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\relation\\OneToManyPropDef",
+            "props": {
+                "targetEntityClass": "ci\\bo\\TeaserBox",
+                "mappedBy": null,
+                "cascadeType": {
+                    "1": "1",
+                    "2": "2",
+                    "4": "4",
+                    "8": "8",
+                    "16": "16"
+                },
+                "fetchType": "lazy",
+                "orphanRemoval": true
+            }
+        }
+    },
+    "ci\\bo\\CiTeaser": {
+        "teaserBox": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\relation\\OneToOnePropDef",
+            "props": {
+                "targetEntityClass": "ci\\bo\\TeaserBox",
+                "mappedBy": null,
+                "cascadeType": {
+                    "1": "1",
+                    "2": "2",
+                    "4": "4",
+                    "8": "8",
+                    "16": "16"
+                },
+                "fetchType": "lazy",
+                "orphanRemoval": true
+            }
+        }
+    }
+}
