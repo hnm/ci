@@ -1,0 +1,697 @@
+{
+    "scripts": {
+        "ci-attachment": {
+            "type": "entity",
+            "label": "Attachment",
+            "pluralLabel": "Attachment",
+            "typeChangeMode": null,
+            "entity": "ci\\model\\CiAttachment",
+            "dataSourceName": "default",
+            "historySaved": 0,
+            "knownStringPattern": "{panel} [{id}]",
+            "defaultSort": [],
+            "previewControllerClassName": null,
+            "fields": {
+                "fName": {
+                    "class": "rocket\\script\\entity\\field\\impl\\string\\StringScriptField",
+                    "label": "Name",
+                    "props": {
+                        "maxlength": null,
+                        "multiline": false,
+                        "displayInListView": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "readOnly": false,
+                        "optional": false,
+                        "translation": false
+                    },
+                    "property": "fName",
+                    "entityProperty": "fName"
+                },
+                "fDescription": {
+                    "class": "rocket\\script\\entity\\field\\impl\\string\\StringScriptField",
+                    "label": "Beschreibung",
+                    "props": {
+                        "maxlength": null,
+                        "multiline": false,
+                        "displayInListView": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "readOnly": false,
+                        "optional": true,
+                        "translation": false
+                    },
+                    "property": "fDescription",
+                    "entityProperty": "fDescription"
+                },
+                "fFile": {
+                    "class": "rocket\\script\\entity\\field\\impl\\file\\FileScriptField",
+                    "label": "Datei",
+                    "props": {
+                        "allowedExtensions": [],
+                        "thumbDimensions": [],
+                        "displayInListView": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "readOnly": false,
+                        "optional": false,
+                        "translation": false
+                    },
+                    "property": "fFile",
+                    "entityProperty": "fFile"
+                }
+            },
+            "commands": [],
+            "constraints": [],
+            "listeners": [],
+            "defaultMaskId": null
+        },
+        "ci-wysiwyg": {
+            "type": "entity",
+            "label": "Freitext (WYSIWYG)",
+            "pluralLabel": "Freitexte (WYSIWYG)",
+            "typeChangeMode": null,
+            "entity": "ci\\model\\CiWysiwyg",
+            "dataSourceName": "default",
+            "historySaved": 0,
+            "knownStringPattern": "{panel} [{id}]",
+            "defaultSort": [],
+            "previewControllerClassName": null,
+            "fields": {
+                "contentHtml": {
+                    "class": "rocket\\script\\entity\\field\\impl\\string\\wysiwyg\\WysiwygScriptField",
+                    "label": "Content Html",
+                    "props": {
+                        "maxlength": null,
+                        "mode": "normal",
+                        "linkConfig": [],
+                        "cssConfig": null,
+                        "tableEditing": true,
+                        "bbcode": false,
+                        "displayInListView": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "readOnly": false,
+                        "optional": false,
+                        "translation": false
+                    },
+                    "property": "contentHtml",
+                    "entityProperty": "contentHtml"
+                }
+            },
+            "commands": [],
+            "constraints": [],
+            "listeners": [],
+            "defaultMaskId": null
+        },
+        "ci-youtube": {
+            "type": "entity",
+            "label": "Youtube Video",
+            "pluralLabel": "Youtube Video",
+            "typeChangeMode": null,
+            "entity": "ci\\model\\CiYoutube",
+            "dataSourceName": "default",
+            "historySaved": 0,
+            "knownStringPattern": "{panel} [{id}]",
+            "defaultSort": [],
+            "previewControllerClassName": null,
+            "fields": {
+                "youtubeId": {
+                    "class": "rocket\\script\\entity\\field\\impl\\string\\YoutubeScriptField",
+                    "label": "Youtube Id",
+                    "props": {
+                        "maxlength": null,
+                        "displayInListView": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "readOnly": false,
+                        "optional": false,
+                        "translation": false
+                    },
+                    "property": "youtubeId",
+                    "entityProperty": "youtubeId"
+                }
+            },
+            "commands": [],
+            "constraints": [],
+            "listeners": [],
+            "defaultMaskId": null
+        },
+        "ci-html-snippet": {
+            "type": "entity",
+            "label": "HTML Snippet",
+            "pluralLabel": "HTML Snippet",
+            "typeChangeMode": null,
+            "entity": "ci\\model\\CiHtmlSnippet",
+            "dataSourceName": "default",
+            "historySaved": 0,
+            "knownStringPattern": "{panel} [{id}]",
+            "defaultSort": [],
+            "previewControllerClassName": null,
+            "fields": {
+                "html": {
+                    "class": "rocket\\script\\entity\\field\\impl\\string\\StringScriptField",
+                    "label": "Html",
+                    "props": {
+                        "maxlength": null,
+                        "multiline": true,
+                        "displayInListView": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "readOnly": false,
+                        "optional": false,
+                        "translation": false
+                    },
+                    "property": "html",
+                    "entityProperty": "html"
+                }
+            },
+            "commands": [],
+            "constraints": [],
+            "listeners": [],
+            "defaultMaskId": null
+        },
+        "ci-article": {
+            "type": "entity",
+            "label": "Article",
+            "pluralLabel": "Articles",
+            "typeChangeMode": null,
+            "entity": "ci\\model\\CiArticle",
+            "dataSourceName": "default",
+            "historySaved": 0,
+            "knownStringPattern": "[unknown]",
+            "defaultSort": [],
+            "previewControllerClassName": null,
+            "fields": {
+                "title": {
+                    "class": "rocket\\script\\entity\\field\\impl\\string\\StringScriptField",
+                    "label": "Title",
+                    "props": {
+                        "displayInListView": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "helpText": null,
+                        "readOnly": false,
+                        "required": true,
+                        "draft": false,
+                        "translation": false,
+                        "maxlength": null,
+                        "multiline": false
+                    },
+                    "property": "title",
+                    "entityProperty": "title"
+                },
+                "descriptionHtml": {
+                    "class": "rocket\\script\\entity\\field\\impl\\string\\wysiwyg\\WysiwygScriptField",
+                    "label": "Description Html",
+                    "props": {
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "helpText": null,
+                        "readOnly": false,
+                        "required": false,
+                        "translation": false,
+                        "draft": false,
+                        "mode": null,
+                        "linkConfig": [],
+                        "cssConfig": null,
+                        "tableEditing": false,
+                        "bbcode": false
+                    },
+                    "property": "descriptionHtml",
+                    "entityProperty": "descriptionHtml"
+                },
+                "fileImage": {
+                    "class": "rocket\\script\\entity\\field\\impl\\file\\FileScriptField",
+                    "label": "File Image",
+                    "props": {
+                        "displayInListView": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "helpText": null,
+                        "readOnly": false,
+                        "required": true,
+                        "draft": false,
+                        "translation": false,
+                        "allowedExtensions": [
+                            "jpg",
+                            "jpeg",
+                            "png",
+                            "gif"
+                        ],
+                        "thumbDimensions": [],
+                        "checkImageResourceMemory": true
+                    },
+                    "property": "fileImage",
+                    "entityProperty": "fileImage"
+                },
+                "picPos": {
+                    "class": "rocket\\script\\entity\\field\\impl\\enum\\EnumScriptField",
+                    "label": "Pic Pos",
+                    "props": {
+                        "displayInListView": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "helpText": null,
+                        "readOnly": false,
+                        "required": true,
+                        "draft": false,
+                        "translation": false,
+                        "options": [
+                            {
+                                "value": "left",
+                                "label": "Links"
+                            },
+                            {
+                                "value": "right",
+                                "label": "Rechts"
+                            }
+                        ]
+                    },
+                    "property": "picPos",
+                    "entityProperty": "picPos"
+                },
+                "linkType": {
+                    "class": "page\\rocket\\script\\field\\LinkTypeScriptField",
+                    "label": "Link Type",
+                    "props": {
+                        "displayInListView": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "helpText": null,
+                        "noValueAllowed": true,
+                        "pageScriptField": "linkedPage",
+                        "linkScriptField": "linkExternal",
+                        "hideFieldsIfTypeNone": []
+                    },
+                    "property": null,
+                    "entityProperty": null
+                },
+                "linkedPage": {
+                    "class": "rocket\\script\\entity\\field\\impl\\relation\\ManyToOneScriptField",
+                    "label": "Linked Page",
+                    "props": {
+                        "displayInListView": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "helpText": null,
+                        "readOnly": false,
+                        "required": false,
+                        "embeddedAddEnabled": false
+                    },
+                    "property": "linkedPage",
+                    "entityProperty": "linkedPage"
+                },
+                "linkExternal": {
+                    "class": "rocket\\script\\entity\\field\\impl\\string\\LinkScriptField",
+                    "label": "Link External",
+                    "props": {
+                        "displayInListView": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "helpText": null,
+                        "readOnly": false,
+                        "required": false,
+                        "draft": false,
+                        "translation": false,
+                        "maxlength": null
+                    },
+                    "property": "linkExternal",
+                    "entityProperty": "linkExternal"
+                }
+            },
+            "commands": [],
+            "constraints": [],
+            "listeners": [],
+            "defaultMaskId": null
+        },
+        "ci-multiple-images": {
+            "type": "entity",
+            "label": "Multi Bild",
+            "pluralLabel": "Multi Bilder",
+            "typeChangeMode": null,
+            "entity": "ci\\model\\image\\MultipleImages",
+            "dataSourceName": "default",
+            "historySaved": 0,
+            "knownStringPattern": "[unknown]",
+            "defaultSort": [],
+            "previewControllerClassName": null,
+            "fields": {
+                "id": {
+                    "class": "rocket\\script\\entity\\field\\impl\\string\\StringScriptField",
+                    "label": "Id",
+                    "props": {
+                        "displayInListView": false,
+                        "displayInDetailView": true,
+                        "displayInEditView": false,
+                        "displayInAddView": false,
+                        "helpText": null,
+                        "readOnly": true,
+                        "required": true,
+                        "draft": false,
+                        "translation": true,
+                        "maxlength": null,
+                        "multiline": false
+                    },
+                    "property": "id",
+                    "entityProperty": "id"
+                }
+            },
+            "commands": [],
+            "constraints": [],
+            "listeners": [],
+            "defaultMaskId": null
+        },
+        "ci-content-image": {
+            "type": "entity",
+            "label": "Bild",
+            "pluralLabel": "Bilder",
+            "typeChangeMode": null,
+            "entity": "ci\\model\\image\\ContentImage",
+            "dataSourceName": "default",
+            "historySaved": 0,
+            "knownStringPattern": "[unknown]",
+            "defaultSort": [],
+            "previewControllerClassName": null,
+            "fields": {
+                "id": {
+                    "class": "rocket\\script\\entity\\field\\impl\\string\\StringScriptField",
+                    "label": "Id",
+                    "props": {
+                        "displayInListView": false,
+                        "displayInDetailView": true,
+                        "displayInEditView": false,
+                        "displayInAddView": false,
+                        "helpText": null,
+                        "readOnly": true,
+                        "required": true,
+                        "draft": false,
+                        "translation": false,
+                        "maxlength": null,
+                        "multiline": false
+                    },
+                    "property": "id",
+                    "entityProperty": "id"
+                },
+                "fileImage": {
+                    "class": "rocket\\script\\entity\\field\\impl\\file\\FileScriptField",
+                    "label": "Bild Datei",
+                    "props": {
+                        "displayInListView": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "helpText": null,
+                        "readOnly": false,
+                        "required": true,
+                        "draft": false,
+                        "translation": true,
+                        "allowedExtensions": [
+                            "jpg",
+                            "png",
+                            "gif"
+                        ],
+                        "thumbDimensions": [],
+                        "checkImageResourceMemory": true
+                    },
+                    "property": "fileImage",
+                    "entityProperty": "fileImage"
+                },
+                "title": {
+                    "class": "rocket\\script\\entity\\field\\impl\\string\\StringScriptField",
+                    "label": "Titel",
+                    "props": {
+                        "displayInListView": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "helpText": null,
+                        "readOnly": false,
+                        "required": false,
+                        "draft": false,
+                        "translation": true,
+                        "maxlength": null,
+                        "multiline": false
+                    },
+                    "property": "title",
+                    "entityProperty": "title"
+                },
+                "description": {
+                    "class": "rocket\\script\\entity\\field\\impl\\string\\StringScriptField",
+                    "label": "Beschreibung",
+                    "props": {
+                        "displayInListView": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "helpText": null,
+                        "readOnly": false,
+                        "required": false,
+                        "draft": false,
+                        "translation": true,
+                        "maxlength": null,
+                        "multiline": false
+                    },
+                    "property": "description",
+                    "entityProperty": "description"
+                },
+                "link": {
+                    "class": "page\\rocket\\script\\field\\LinkTypeScriptField",
+                    "label": "Link Typ",
+                    "props": {
+                        "displayInListView": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "helpText": null,
+                        "noValueAllowed": true,
+                        "pageScriptField": "page",
+                        "linkScriptField": "linkExt",
+                        "hideFieldsIfTypeNone": []
+                    },
+                    "property": null,
+                    "entityProperty": null
+                },
+                "page": {
+                    "class": "rocket\\script\\entity\\command\\impl\\tree\\field\\relation\\TreeManyToOneScriptField",
+                    "label": "Page",
+                    "props": {
+                        "displayInListView": false,
+                        "displayInDetailView": false,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "helpText": null,
+                        "readOnly": false,
+                        "required": false,
+                        "embeddedAddEnabled": false
+                    },
+                    "property": "page",
+                    "entityProperty": "page"
+                },
+                "linkExt": {
+                    "class": "rocket\\script\\entity\\field\\impl\\string\\LinkScriptField",
+                    "label": "Link Ext",
+                    "props": {
+                        "displayInListView": false,
+                        "displayInDetailView": false,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "helpText": null,
+                        "readOnly": false,
+                        "required": false,
+                        "draft": false,
+                        "translation": true,
+                        "maxlength": null
+                    },
+                    "property": "linkExt",
+                    "entityProperty": "linkExt"
+                }
+            },
+            "commands": [],
+            "constraints": [],
+            "listeners": [],
+            "defaultMaskId": null
+        },
+        "ci-two-images": {
+            "type": "entity",
+            "label": "Zwei Bilder",
+            "pluralLabel": "Zwei Bilder",
+            "typeChangeMode": null,
+            "entity": "ci\\model\\image\\TwoImages",
+            "dataSourceName": "default",
+            "historySaved": 0,
+            "knownStringPattern": "[unknown]",
+            "defaultSort": [],
+            "previewControllerClassName": null,
+            "fields": {
+                "firstImage": {
+                    "class": "rocket\\script\\entity\\field\\impl\\relation\\EmbeddedOneToOneScriptField",
+                    "label": "erstes Bild",
+                    "props": {
+                        "displayInListView": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "helpText": null,
+                        "readOnly": false,
+                        "required": true,
+                        "draft": false,
+                        "translation": true,
+                        "targetMaskId": null,
+                        "filtered": true,
+                        "replaceable": false
+                    },
+                    "property": "firstImage",
+                    "entityProperty": "firstImage"
+                },
+                "secondImage": {
+                    "class": "rocket\\script\\entity\\field\\impl\\relation\\EmbeddedOneToOneScriptField",
+                    "label": "zweites Bild",
+                    "props": {
+                        "displayInListView": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "helpText": null,
+                        "readOnly": false,
+                        "required": false,
+                        "draft": false,
+                        "translation": true,
+                        "targetMaskId": null,
+                        "filtered": true,
+                        "replaceable": false
+                    },
+                    "property": "secondImage",
+                    "entityProperty": "secondImage"
+                }
+            },
+            "commands": [],
+            "constraints": [],
+            "listeners": [],
+            "defaultMaskId": null
+        },
+        "ci-three-image": {
+            "type": "entity",
+            "label": "Drei Bilder",
+            "pluralLabel": "Drei Bilder",
+            "typeChangeMode": null,
+            "entity": "ci\\model\\image\\ThreeImages",
+            "dataSourceName": "default",
+            "historySaved": 0,
+            "knownStringPattern": "[unknown]",
+            "defaultSort": [],
+            "previewControllerClassName": null,
+            "fields": {
+                "firstImage": {
+                    "class": "rocket\\script\\entity\\field\\impl\\relation\\EmbeddedOneToOneScriptField",
+                    "label": "erstes Bild",
+                    "props": {
+                        "displayInListView": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "helpText": null,
+                        "readOnly": false,
+                        "required": true,
+                        "draft": false,
+                        "translation": true,
+                        "targetMaskId": null,
+                        "filtered": true,
+                        "replaceable": false
+                    },
+                    "property": "firstImage",
+                    "entityProperty": "firstImage"
+                },
+                "secondImage": {
+                    "class": "rocket\\script\\entity\\field\\impl\\relation\\EmbeddedOneToOneScriptField",
+                    "label": "zweites Bild",
+                    "props": {
+                        "displayInListView": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "helpText": null,
+                        "readOnly": false,
+                        "required": false,
+                        "draft": false,
+                        "translation": true,
+                        "targetMaskId": null,
+                        "filtered": true,
+                        "replaceable": false
+                    },
+                    "property": "secondImage",
+                    "entityProperty": "secondImage"
+                },
+                "thirdImage": {
+                    "class": "rocket\\script\\entity\\field\\impl\\relation\\EmbeddedOneToOneScriptField",
+                    "label": "drittes Bild",
+                    "props": {
+                        "displayInListView": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "helpText": null,
+                        "readOnly": false,
+                        "required": false,
+                        "draft": false,
+                        "translation": true,
+                        "targetMaskId": null,
+                        "filtered": true,
+                        "replaceable": false
+                    },
+                    "property": "thirdImage",
+                    "entityProperty": "thirdImage"
+                }
+            },
+            "commands": [],
+            "constraints": [],
+            "listeners": [],
+            "defaultMaskId": null
+        },
+        "ci-images": {
+            "type": "entity",
+            "label": "Bilder",
+            "pluralLabel": "Bilder",
+            "typeChangeMode": null,
+            "entity": "ci\\model\\image\\CiImages",
+            "dataSourceName": "default",
+            "historySaved": 0,
+            "knownStringPattern": "[unknown]",
+            "defaultSort": [],
+            "previewControllerClassName": null,
+            "fields": {
+                "multipleImages": {
+                    "class": "rocket\\script\\entity\\field\\impl\\relation\\EmbeddedOneToOneScriptField",
+                    "label": "Bilder",
+                    "props": {
+                        "displayInListView": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "helpText": null,
+                        "readOnly": false,
+                        "required": true,
+                        "draft": false,
+                        "translation": true,
+                        "targetMaskId": null,
+                        "filtered": true,
+                        "replaceable": false
+                    },
+                    "property": "multipleImages",
+                    "entityProperty": "multipleImages"
+                }
+            },
+            "commands": [],
+            "constraints": [],
+            "listeners": [],
+            "defaultMaskId": null
+        }
+    }
+}
