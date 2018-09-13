@@ -9,7 +9,6 @@ use n2n\persistence\orm\annotation\AnnoOneToMany;
 use n2n\persistence\orm\CascadeType;
 use n2n\persistence\orm\annotation\AnnoOrderBy;
 use n2n\persistence\orm\annotation\AnnoTable;
-use ci\bo\columns\NestedContentItem;
 use n2n\persistence\orm\annotation\AnnoEntityListeners;
 use n2n\web\http\orm\ResponseCacheClearer;
 

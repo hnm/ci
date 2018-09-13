@@ -13,7 +13,6 @@ use n2n\persistence\orm\annotation\AnnoEntityListeners;
 use n2n\persistence\orm\annotation\AnnoOneToOne;
 use n2n\persistence\orm\CascadeType;
 use n2n\impl\web\ui\view\html\HtmlUtils;
-use n2n\impl\web\ui\view\html\img\ImgComposer;
 use ch\hnm\util\page\bo\ExplPageLink;
 use page\bo\util\PageLink;
 use rocket\ei\manage\preview\model\PreviewModel;
