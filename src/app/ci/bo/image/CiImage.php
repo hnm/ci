@@ -16,12 +16,14 @@ use n2n\impl\web\ui\view\html\HtmlUtils;
 use ch\hnm\util\page\bo\ExplPageLink;
 use page\bo\util\PageLink;
 use rocket\ei\manage\preview\model\PreviewModel;
+use n2n\persistence\orm\annotation\AnnoTransient;
 
 class CiImage extends NestedContentItem {
 	private static function _annos(AnnoInit $ai) {
 		$ai->c(new AnnoEntityListeners(ResponseCacheClearer::getClass()));
 		$ai->p('explPageLink', new AnnoOneToOne(ExplPageLink::getClass(), null, CascadeType::ALL, null, true));
 		$ai->p('fileImage', new AnnoManagedFile());
+		$ai->p('nestedCiType', new AnnoTransient());
 	}
 	
 	const ALIGN_LEFT = 'left';
