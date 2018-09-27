@@ -60,14 +60,14 @@ class CiGoogleMaps extends ContentItem {
 	}
 
 	/**
-	 * @return the $showInfoWindow
+	 * @return bool
 	 */
 	public function isShowInfoWindow() {
 		return (bool) $this->showInfoWindow;
 	}
 
 	/**
-	 * @param field_type $showInfoWindow
+	 * @param bool $showInfoWindow
 	 */
 	public function setShowInfoWindow(bool $showInfoWindow) {
 		$this->showInfoWindow = (bool) $showInfoWindow;

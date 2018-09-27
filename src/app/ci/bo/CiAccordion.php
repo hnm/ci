@@ -23,37 +23,32 @@ class CiAccordion extends ContentItem {
      * @var ContentItem[]
      */
     private $contentItems = array();
-        
     
     /**
-     * @return the $title
+     * @return string
      */
-    public function getTitle()
-    {
+    public function getTitle() {
         return $this->title;
     }
 
     /**
-     * @param field_type $title
+     * @param string $title
      */
-    public function setTitle($title)
-    {
+    public function setTitle($title) {
         $this->title = $title;
     }
 
     /**
-     * @return the $contentItems
+     * @return ContentItem[] $contentItems
      */
-    public function getContentItems()
-    {
+    public function getContentItems() {
         return $this->contentItems;
     }
 
     /**
-     * @param multitype:\rocket\impl\ei\component\prop\ci\bo\ContentItem  $contentItems
+     * @param ContentItem[] $contentItems
      */
-    public function setContentItems($contentItems)
-    {
+    public function setContentItems($contentItems) {
         $this->contentItems = $contentItems;
     }
 
