@@ -1,16 +1,3 @@
--- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Server Version:               10.1.10-MariaDB - mariadb.org binary distribution
--- Server Betriebssystem:        Win32
--- HeidiSQL Version:             9.4.0.5125
--- --------------------------------------------------------
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8 */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-
 -- Exportiere Struktur von Tabelle mdl_template.ci_anchor
 CREATE TABLE IF NOT EXISTS `ci_anchor` (
   `id` int(10) unsigned NOT NULL,
@@ -98,8 +85,16 @@ CREATE TABLE IF NOT EXISTS `ci_two_columns` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Daten Export vom Benutzer nicht ausgewählt
--- Exportiere Struktur von Tabelle mdl_template.ci_two_columns_content_items
+CREATE TABLE IF NOT EXISTS `ci_nested_content_item` (
+  `id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `ci_simple_map` (
+  `id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE IF NOT EXISTS `ci_two_columns_content_items` (
   `ci_two_columns_id` int(10) unsigned NOT NULL,
   `content_item_id` int(10) unsigned NOT NULL,

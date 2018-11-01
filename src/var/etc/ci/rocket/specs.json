@@ -2,7 +2,7 @@
     "types": {
         "ci-ci-cke": {
             "nature": "entity",
-            "entity": "ci\\bo\\CiCke",
+            "entity": "ci\\common\\CiCke",
             "dataSourceName": null,
             "label": "Text-Editor",
             "pluralLabel": "Text-Editoren",
@@ -39,7 +39,7 @@
         },
         "ci-ci-youtube": {
             "nature": "entity",
-            "entity": "ci\\bo\\CiYoutube",
+            "entity": "ci\\video\\CiYoutube",
             "dataSourceName": null,
             "label": "Youtube-Video",
             "pluralLabel": "Youtube-Videos",
@@ -71,7 +71,7 @@
         },
         "ci-ci-article": {
             "nature": "entity",
-            "entity": "ci\\bo\\CiArticle",
+            "entity": "ci\\article\\CiArticle",
             "dataSourceName": null,
             "label": "Artikel",
             "pluralLabel": "Artikel",
@@ -209,7 +209,7 @@
         },
         "ci-ci-html-snippet": {
             "nature": "entity",
-            "entity": "ci\\bo\\CiHtmlSnippet",
+            "entity": "ci\\common\\CiHtmlSnippet",
             "dataSourceName": null,
             "label": "Html-Snippet",
             "pluralLabel": "Html-Snippets",
@@ -241,7 +241,7 @@
         },
         "ci-ci-attachment": {
             "nature": "entity",
-            "entity": "ci\\bo\\CiAttachment",
+            "entity": "ci\\common\\CiAttachment",
             "dataSourceName": null,
             "label": "Anhang",
             "pluralLabel": "Anh\u00e4nge",
@@ -311,7 +311,7 @@
         },
         "ci-ci-two-columns": {
             "nature": "entity",
-            "entity": "ci\\bo\\columns\\CiTwoColumns",
+            "entity": "ci\\columns\\CiTwoColumns",
             "dataSourceName": null,
             "label": "2 Spalten",
             "pluralLabel": "2 Spalten",
@@ -335,10 +335,6 @@
                             {
                                 "panelName": "column-1",
                                 "panelLabel": "Spalte 1",
-                                "allowedContentItemIds": {
-                                    "ci-ci-cke": "ci-ci-cke",
-                                    "ci-ci-image": "ci-ci-image"
-                                },
                                 "min": "0",
                                 "grid": {
                                     "colStart": "1",
@@ -350,10 +346,6 @@
                             {
                                 "panelName": "column-2",
                                 "panelLabel": "Spalte 2",
-                                "allowedContentItemIds": {
-                                    "ci-ci-cke": "ci-ci-cke",
-                                    "ci-ci-image": "ci-ci-image"
-                                },
                                 "min": "0",
                                 "grid": {
                                     "colStart": "2",
@@ -376,7 +368,7 @@
         },
         "ci-ci-three-columns": {
             "nature": "entity",
-            "entity": "ci\\bo\\columns\\CiThreeColumns",
+            "entity": "ci\\columns\\CiThreeColumns",
             "dataSourceName": null,
             "label": "3 Spalten",
             "pluralLabel": "3 Spalten",
@@ -400,11 +392,6 @@
                             {
                                 "panelName": "column-1",
                                 "panelLabel": "Spalte 1",
-                                "allowedContentItemIds": {
-                                    "ci-ci-cke": "ci-ci-cke",
-                                    "ci-ci-youtube": "ci-ci-youtube",
-                                    "ci-ci-image": "ci-ci-image"
-                                },
                                 "min": "0",
                                 "grid": {
                                     "colStart": "1",
@@ -416,10 +403,6 @@
                             {
                                 "panelName": "column-2",
                                 "panelLabel": "Spalte 2",
-                                "allowedContentItemIds": {
-                                    "ci-ci-cke": "ci-ci-cke",
-                                    "ci-ci-image": "ci-ci-image"
-                                },
                                 "min": "0",
                                 "grid": {
                                     "colStart": "2",
@@ -431,10 +414,6 @@
                             {
                                 "panelName": "column-3",
                                 "panelLabel": "Spalte 3",
-                                "allowedContentItemIds": {
-                                    "ci-ci-cke": "ci-ci-cke",
-                                    "ci-ci-image": "ci-ci-image"
-                                },
                                 "min": "0",
                                 "grid": {
                                     "colStart": "3",
@@ -457,7 +436,7 @@
         },
         "ci-ci-image": {
             "nature": "entity",
-            "entity": "ci\\bo\\image\\CiImage",
+            "entity": "ci\\image\\CiImage",
             "dataSourceName": null,
             "label": "Bild",
             "pluralLabel": "Bild",
@@ -614,7 +593,7 @@
         },
         "ci-ci-google-maps": {
             "nature": "entity",
-            "entity": "ci\\bo\\CiGoogleMaps",
+            "entity": "ci\\gmap\\CiGoogleMaps",
             "dataSourceName": null,
             "label": "Karte (Google Maps)",
             "pluralLabel": "Karten (Google Maps)",
@@ -733,7 +712,7 @@
         },
         "ci-ci-accordion": {
             "nature": "entity",
-            "entity": "ci\\bo\\CiAccordion",
+            "entity": "ci\\accordion\\CiAccordion",
             "dataSourceName": null,
             "label": "Inhalts-Akkordeon",
             "pluralLabel": "Inhalts-Akkordeon",
@@ -793,6 +772,16 @@
             "partialControlOrder": [],
             "overallControlOrder": [],
             "entryControlOrder": []
+        },
+        "ci-nested-content-item": {
+            "nature": "entity",
+            "entity": "ci\\columns\\NestedContentItem",
+            "dataSourceName": null,
+            "label": "Nested Content Item",
+            "pluralLabel": "Nested Content Items",
+            "iconType": null,
+            "fields": [],
+            "commands": []
         }
     },
     "eiTypeExtensions": [],
