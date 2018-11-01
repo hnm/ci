@@ -15,7 +15,6 @@ use n2n\persistence\orm\CascadeType;
 use n2n\impl\web\ui\view\html\HtmlUtils;
 use ch\hnm\util\page\bo\ExplPageLink;
 use page\bo\util\PageLink;
-use rocket\ei\manage\preview\model\PreviewModel;
 use n2n\persistence\orm\annotation\AnnoTransient;
 
 class CiImage extends NestedContentItem {
@@ -133,7 +132,8 @@ class CiImage extends NestedContentItem {
 	public function determineAltTag() {
 		if ($this->altTag) return $this->altTag;
 		if ($this->caption) return $this->caption;
-		if ($this->fileImage) return $this->fileImage->getOriginalName();
+		if ($this->fileImage && $this->fileImage->isValid()) return $this->fileImage->getOriginalName();
+		
 		return '';
 	}
 	
@@ -285,9 +285,5 @@ class CiImage extends NestedContentItem {
 	
 	public function createUiComponent(HtmlView $view) {
 		return $view->getImport('\ci\view\image\ciImage.html', array('image' => $this));
-	}
-	
-	public function createEditablePreviewUiComponent(PreviewModel $previewModel,HtmlView $view) {
-		return null;
 	}
 }

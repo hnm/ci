@@ -15,13 +15,13 @@
     "require": {
         "php": ">=7.0",
         "n2n/n2n-composer-module-installer": "dev-master",
-        "n2n/rocket": "dev-master",
+        "n2n/page": "dev-master",
         "hnm/ch-hnm-util": "dev-master",
-        "hnm/simplefile": "dev-master"
+        "hnm/simplefile": "dev-master",
+        "hnm/bstmpl": "dev-master",
+        "n2n/n2nutil-bootstrap": "dev-master"
     },
-    "autoload": {
-        "psr-4": {
-            "ci\\": "src/app/ci"
-        }
-    }
+	"require-dev" : {
+		"n2n/hangar" : "dev-master"
+	}
 }

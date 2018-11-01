@@ -1,5 +1,9 @@
-n2nutil-jquery
-n2n-impl-web-ui
-n2n-impl-web-dispatch
-n2n
-rocket
+/n2nutil-jquery
+/n2n-impl-web-ui
+/n2n-impl-web-dispatch
+/n2n
+/rocket
+/page
+/ch-hnm-util
+/n2nutil-bootstrap
+/bstmpl
