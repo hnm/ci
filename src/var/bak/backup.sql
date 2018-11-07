@@ -1,6 +1,6 @@
 -- Mysql Backup of mdl_ci
--- Date 2018-11-01T16:53:41+01:00
--- Backup by 
+-- Date 2018-11-07T11:31:56+01:00
+-- Backup by http://www.the-hangar-project.com
 
 DROP TABLE IF EXISTS `bstmpl_contact_page_controller`;
 CREATE TABLE `bstmpl_contact_page_controller` ( 
