@@ -1,10 +1,11 @@
 <?php
-namespace ci\image;
+namespace ci\bo\image;
 
 use n2n\impl\web\ui\view\html\HtmlView;
 use n2n\reflection\annotation\AnnoInit;
-use n2n\io\managed\File;
+use \n2n\io\managed\File;
 use n2n\persistence\orm\annotation\AnnoManagedFile;
+use ci\bo\columns\NestedContentItem;
 use n2nutil\bootstrap\img\MimgBs;
 use n2n\impl\web\ui\view\html\img\Mimg;
 use n2n\web\http\orm\ResponseCacheClearer;
@@ -12,17 +13,16 @@ use n2n\persistence\orm\annotation\AnnoEntityListeners;
 use n2n\persistence\orm\annotation\AnnoOneToOne;
 use n2n\persistence\orm\CascadeType;
 use n2n\impl\web\ui\view\html\HtmlUtils;
+use n2n\impl\web\ui\view\html\img\ImgComposer;
 use ch\hnm\util\page\bo\ExplPageLink;
 use page\bo\util\PageLink;
-use n2n\persistence\orm\annotation\AnnoTransient;
-use ci\columns\NestedContentItem;
+use rocket\ei\manage\preview\model\PreviewModel;
 
 class CiImage extends NestedContentItem {
 	private static function _annos(AnnoInit $ai) {
 		$ai->c(new AnnoEntityListeners(ResponseCacheClearer::getClass()));
 		$ai->p('explPageLink', new AnnoOneToOne(ExplPageLink::getClass(), null, CascadeType::ALL, null, true));
 		$ai->p('fileImage', new AnnoManagedFile());
-		$ai->p('nestedCiType', new AnnoTransient());
 	}
 	
 	const ALIGN_LEFT = 'left';
@@ -32,9 +32,8 @@ class CiImage extends NestedContentItem {
 	const FORMAT_LANDSCAPE = 'landscape';
 	const FORMAT_PORTRAIT = 'portrait';
 	
-	const IMAGE_FACTOR_DEFAULT = 1;
 	const IMAGE_FACTOR_SMALL= 0.6;
-	const IMAGE_ASPEKT_RATIO = 3/4;
+	const IMAGE_ASPEKT_RATIO = 4/3;
 	
 	private $nestedCiType;
 	private $fileImage;
@@ -133,7 +132,6 @@ class CiImage extends NestedContentItem {
 		if ($this->altTag) return $this->altTag;
 		if ($this->caption) return $this->caption;
 		if ($this->fileImage && $this->fileImage->isValid()) return $this->fileImage->getOriginalName();
-		
 		return '';
 	}
 	
@@ -194,7 +192,7 @@ class CiImage extends NestedContentItem {
 			return MimgBs::xs(Mimg::crop(263, 176));
 		}
 		
-		$imgWidth = array('xs' => 545, 'sm' => 510);
+		$imgWidth = array('xs' => 545, 'sm' => 364);
 		
 		if (null !== $this->nestedCiType) {
 			
@@ -217,31 +215,15 @@ class CiImage extends NestedContentItem {
 	}
 	
 	private function createImgComposer(array $widths) {
-		$format = self::IMAGE_ASPEKT_RATIO;
-		$crop = false;
-		$scaleUp = false;
 		
-		$widthMultiplier = 1;
-		$heightMultiplier = 1 / $format;
+		$widthMultiplier = $this->determineWidthMultiplier();
+		$heightMultiplier = $this->determineHeightMultiplier();
 		
 		$imgVariations = array();
-		
-		switch ($this->format) {
-			case self::FORMAT_LANDSCAPE:
-				$crop = true;
-				$heightMultiplier = $format;
-				break;
-			case self::FORMAT_PORTRAIT:
-				$crop = true;
-				$widthMultiplier = $format;
-				break;
-		}
-		
 		foreach ($widths as $key => $width) {
+			$fac = 1;
 			if (in_array($key, array('md', 'lg', 'xl')) && $this->isAlignmentApplied()) {
 				$fac = self::IMAGE_FACTOR_SMALL;
-			} else {
-				$fac = self::IMAGE_FACTOR_DEFAULT;
 			}
 			
 			$imgVariations[$key] = array(
@@ -250,11 +232,29 @@ class CiImage extends NestedContentItem {
 			);
 		};
 		
-		
-		$imgComposer = $this->createImgComposerVariations($imgVariations, $crop);
+		$imgComposer = $this->createImgComposerVariations($imgVariations, $this->isCrop());
 		
 		
 		return $imgComposer;
+	}
+	
+	private function isCrop() {
+		if (null === $this->format) return false;
+		
+		return true;
+	}
+	
+	private function determineWidthMultiplier() {
+		if ($this->format === self::FORMAT_PORTRAIT) return 1 / self::IMAGE_ASPEKT_RATIO;
+		
+		return 1;
+	}
+	
+	private function determineHeightMultiplier() {
+		if (null === $this->format) return self::IMAGE_ASPEKT_RATIO;
+		if ($this->format === self::FORMAT_LANDSCAPE) return 1 / self::IMAGE_ASPEKT_RATIO;
+		
+		return 1;
 	}
 	
 	private function createImgComposerVariations(array $variations, $crop = true) {
@@ -284,6 +284,10 @@ class CiImage extends NestedContentItem {
 	}
 	
 	public function createUiComponent(HtmlView $view) {
-		return $view->getImport('\ci\image\ciImage.html', array('image' => $this));
+		return $view->getImport('\ci\view\image\ciImage.html', array('image' => $this));
+	}
+	
+	public function createEditablePreviewUiComponent(PreviewModel $previewModel,HtmlView $view) {
+		return null;
 	}
 }
