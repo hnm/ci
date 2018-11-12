@@ -33,7 +33,7 @@ class CiImage extends NestedContentItem {
 	const FORMAT_PORTRAIT = 'portrait';
 	
 	const IMAGE_FACTOR_SMALL= 0.6;
-	const IMAGE_ASPEKT_RATIO = 4/3;
+	const IMAGE_ASPEKT_RATIO = 3/2;
 	
 	private $nestedCiType;
 	private $fileImage;
@@ -192,7 +192,7 @@ class CiImage extends NestedContentItem {
 			return MimgBs::xs(Mimg::crop(263, 176));
 		}
 		
-		$imgWidth = array('xs' => 545, 'sm' => 364);
+		$imgWidth = array('xs' => 545, 'sm' => 510);
 		
 		if (null !== $this->nestedCiType) {
 			
@@ -206,7 +206,7 @@ class CiImage extends NestedContentItem {
 					break;
 			}
 		} else {
-			$imgWidth = array_merge($imgWidth, array('md' => 690, 'lg' => 775, 'xl' => 833));
+			$imgWidth = array_merge($imgWidth, array('md' => 690, 'lg' => 770, 'xl' => 823));
 		}
 		
 		$imgComposer = $this->createImgComposer($imgWidth);
@@ -216,19 +216,12 @@ class CiImage extends NestedContentItem {
 	
 	private function createImgComposer(array $widths) {
 		
-		$widthMultiplier = $this->determineWidthMultiplier();
-		$heightMultiplier = $this->determineHeightMultiplier();
-		
 		$imgVariations = array();
 		foreach ($widths as $key => $width) {
-			$fac = 1;
-			if (in_array($key, array('md', 'lg', 'xl')) && $this->isAlignmentApplied()) {
-				$fac = self::IMAGE_FACTOR_SMALL;
-			}
-			
+			$tmpWidth =  (int) round($width * $this->determineWidthMultiplier($key));
 			$imgVariations[$key] = array(
-					'width' => (int) round($width * $widthMultiplier * $fac),
-					'height' => (int) round($width * $heightMultiplier * $fac)
+					'width' => $tmpWidth,
+					'height' => $this->calcHeight($tmpWidth)
 			);
 		};
 		
@@ -244,17 +237,24 @@ class CiImage extends NestedContentItem {
 		return true;
 	}
 	
-	private function determineWidthMultiplier() {
-		if ($this->format === self::FORMAT_PORTRAIT) return 1 / self::IMAGE_ASPEKT_RATIO;
+	private function determineWidthMultiplier(string $resolution) {
+		// Immer wenn die auflösung grösser als md und
+		if (in_array($resolution, ['md', 'lg', 'xl'])) {
+			// das bild ausgerichtet ist dann auf eine bestimmte breite
+			if ($this->isAlignmentApplied()) return self::IMAGE_FACTOR_SMALL;
+			
+			// im Hochformat ist dann nur so breit wie im querformat die höhe ist
+			if ($this->isPortrait()) return 1 / self::IMAGE_ASPEKT_RATIO;
+		}
 		
 		return 1;
 	}
 	
-	private function determineHeightMultiplier() {
-		if (null === $this->format) return self::IMAGE_ASPEKT_RATIO;
-		if ($this->format === self::FORMAT_LANDSCAPE) return 1 / self::IMAGE_ASPEKT_RATIO;
+	private function calcHeight(string $width) {
+		if ($this->format === self::FORMAT_LANDSCAPE) return $width / self::IMAGE_ASPEKT_RATIO;
 		
-		return 1;
+		
+		return $width * self::IMAGE_ASPEKT_RATIO;
 	}
 	
 	private function createImgComposerVariations(array $variations, $crop = true) {
@@ -281,6 +281,10 @@ class CiImage extends NestedContentItem {
 		
 		
 		return $imgComposer;
+	}
+	
+	public function isPortrait() {
+		return $this->format === self::FORMAT_PORTRAIT;
 	}
 	
 	public function createUiComponent(HtmlView $view) {
