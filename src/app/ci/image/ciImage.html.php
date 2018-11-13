@@ -4,7 +4,7 @@
 	use bstmpl\ui\TemplateHtmlBuilder;
 	use n2n\impl\web\ui\view\html\HtmlUtils;
 	use ch\hnm\util\page\bo\ExplPageLink;
-	use ci\bo\image\CiImage;
+	use ci\image\CiImage;
 
 	/**
 	 * @var \n2n\web\ui\view\View $view

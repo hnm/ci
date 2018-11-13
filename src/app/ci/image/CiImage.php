@@ -1,5 +1,5 @@
 <?php
-namespace ci\bo\image;
+namespace ci\image;
 
 use n2n\impl\web\ui\view\html\HtmlView;
 use n2n\reflection\annotation\AnnoInit;
