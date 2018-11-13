@@ -51,7 +51,7 @@ abstract class NestedContentItem extends ContentItem {
 	}
 
 	public function getNestedCiType() {
-		return $this->contentItemContainer;
+		return $this->contentItemContainer->getNestedCiType();
 	}
 
 	public function isNested() {
@@ -71,11 +71,11 @@ abstract class NestedContentItem extends ContentItem {
 	}
 	
 	public function hasTwoColumns() {
-		return $this->nestedCiType === self::NESTED_TWO_COLUMNS;
+		return $this->getNestedCiType() === self::NESTED_TWO_COLUMNS;
 	}
 	
 	public function hasThreeColumns() {
-		return $this->nestedCiType === self::NESTED_THREE_COLUMNS;
+		return $this->getNestedCiType() === self::NESTED_THREE_COLUMNS;
 	}
 	
 	public function hasPrevContentItem() {

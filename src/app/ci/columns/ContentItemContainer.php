@@ -49,7 +49,7 @@ abstract class ContentItemContainer extends ContentItem {
 	 */
 	public function getNextContentItem(int $orderIndex, string $panel = null) {
 		$tContentItem = null;
-		foreach ($this->getContentItems as $contentItem) {
+		foreach ($this->getContentItems() as $contentItem) {
 			if ($contentItem->getOrderIndex() <= $orderIndex) continue;
 			if (null !== $panel && $contentItem->getPanel() !== $panel) continue;
 			if (null !== $tContentItem && $tContentItem->getOrderIndex() >= $contentItem->getOrderIndex()) continue;
