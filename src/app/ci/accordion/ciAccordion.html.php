@@ -17,11 +17,11 @@
 	$html->meta()->bodyEnd()->addJs('js/functions.js');
 ?>
 
-<div class="ci-accordion">
-	<div class="ci-accordion-title">
+<div class="ci-item ci-accordion">
+	<div class="ci-accordion__head">
 		<?php $html->out($ciAccordion->getTitle()) ?>
 	</div>
-	<div class="ci-accordion-content">
+	<div class="ci-accordion__body">
 		<?php $ciHtml->contentItems($ciAccordion->getContentItems(), 'main') ?>
 	</div>
 </div>

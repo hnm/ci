@@ -53,6 +53,6 @@ class CiAccordion extends ContentItem {
     }
 
     public function createUiComponent(HtmlView $view) {
-        return $view->getImport('\ci\view\ciAccordion.html', array('ciAccordion' => $this));
+        return $view->getImport('\ci\accordion\ciAccordion.html', array('ciAccordion' => $this));
     }
 }
