@@ -141,13 +141,13 @@ class CiImage extends NestedContentItem {
 	public function getContainerAttrs(array $attrs = null, $overwrite = false) {
 		$baseAttrs = array('class' => 'ci-image');
 		
+		$baseAttrs = HtmlUtils::mergeAttrs($baseAttrs, array('class' => $this->isNested() ? 'ci-item-nested' : 'ci-item'));
 		if (null !== $this->getCssFormatClass()) {
 			$baseAttrs = HtmlUtils::mergeAttrs($baseAttrs, array('class' => $this->getCssFormatClass()));
 		}
 		
 		if (null !== $this->getCssAlignmentClass()) {
 			$baseAttrs = HtmlUtils::mergeAttrs($baseAttrs, array('class' => $this->getCssAlignmentClass()));
-			
 		}
 		
 		
@@ -191,21 +191,26 @@ class CiImage extends NestedContentItem {
 			return MimgBs::xs(Mimg::crop(263, 176));
 		}
 		
+		
+		// mobile 
 		$imgWidth = array('xs' => 545, 'sm' => 510);
 		
 		if (null !== $this->nestedCiType) {
 			
 			switch($this->nestedCiType) {
 				case self::NESTED_TWO_COLUMNS:
-					$imgWidth = array_merge($imgWidth, array('md' => 320, 'lg' => 450, 'xl' => 540));
+				    // 2 Spalten
+					$imgWidth = array_merge($imgWidth, array('md' => 330, 'lg' => 450, 'xl' => 540));
 					break;
 					
 				case self::NESTED_THREE_COLUMNS:
+				    // 3 Spalten
 					$imgWidth = array_merge($imgWidth, array('md' => 210, 'lg' => 290, 'xl' => 350));
 					break;
 			}
 		} else {
-			$imgWidth = array_merge($imgWidth, array('md' => 690, 'lg' => 770, 'xl' => 823));
+		    // volle Breite
+			$imgWidth = array_merge($imgWidth, array('md' => 690, 'lg' => 930, 'xl' => 1110));
 		}
 		
 		$imgComposer = $this->createImgComposer($imgWidth);
@@ -287,7 +292,7 @@ class CiImage extends NestedContentItem {
 	}
 	
 	public function createUiComponent(HtmlView $view) {
-		return $view->getImport('\ci\view\image\ciImage.html', array('image' => $this));
+		return $view->getImport('\ci\image\ciImage.html', array('image' => $this));
 	}
 	
 	public function createEditablePreviewUiComponent(PreviewModel $previewModel,HtmlView $view) {

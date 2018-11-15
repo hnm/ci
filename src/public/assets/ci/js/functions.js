@@ -5,39 +5,52 @@
 	(function() {
 		Accordion = function(jqElem) {
 			this.jqElem = jqElem;
-			this.jqElemTitle = jqElem.find(".ci-accordion__head:first");
+			this.jqElemHead = $("<div/>", {
+				"class": "ci-accordion__head", 
+				"role": "button", 
+				"aria-expanded": "false", 
+				"tabindex": 0}).prependTo(this.jqElem);
+			this.jqElemTitle = jqElem.find(".ci-accordion__title:first");
 			this.jqElemContent = this.jqElemTitle.next();
+			this.jqElemTitle.appendTo(this.jqElemHead);
 			this.isOpen = false;
 			
 			(function(_obj) {
-				_obj.closeContent(-1);
-				_obj.jqElemTitle.click(function() {
-					if (_obj.isOpen) {
-						_obj.closeContent();
-					} else {
-						_obj.openContent();
+				_obj.jqElemHead.keypress(function(e) {
+					$key = e.which;
+					//13 enter, 32 space
+					if ($key === 13 || $key === 32) {
+						e.preventDefault();
+						_obj.toggleContent();
 					}
+				});
+				_obj.jqElemHead.click(function(e) {
+					e.preventDefault();
+					_obj.toggleContent();
 				});
 				
 			}).call(this, this);
 		};
 		
-		Accordion.CLOSE_CLASSNAME = 'ci-accordion--closed';
-		Accordion.OPEN_CLASSNAME = 'ci-accordion--open';
+		Accordion.prototype.toggleContent = function() {
+			if (this.isOpen) {
+				this.closeContent();
+			} else {
+				this.openContent();
+			}
+		}
 		
 		Accordion.prototype.openContent = function(speed) {
 			var _obj = this;
-			this.jqElemContent.stop(true, true).slideDown(speed || '');
-			this.jqElem.addClass(Accordion.OPEN_CLASSNAME);
-			this.jqElem.removeClass(Accordion.CLOSE_CLASSNAME);
+			this.jqElemContent.stop(true).slideDown(speed || '');
+			this.jqElem.attr('aria-expanded', true);
 			this.isOpen = true;
 		}
 		
 		Accordion.prototype.closeContent = function(speed) {
 			var _obj = this;
-			this.jqElemContent.stop(true, true).slideUp(speed || '', function() {
-				_obj.jqElem.removeClass(Accordion.OPEN_CLASSNAME);
-				_obj.jqElem.addClass(Accordion.CLOSE_CLASSNAME);
+			this.jqElemContent.stop(true).slideUp(speed || '', function() {
+				_obj.jqElem.attr('aria-expanded', false);
 			});
 			this.isOpen = false;
 		}

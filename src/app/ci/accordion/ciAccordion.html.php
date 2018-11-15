@@ -18,9 +18,7 @@
 ?>
 
 <div class="ci-item ci-accordion">
-	<div class="ci-accordion__head">
-		<?php $html->out($ciAccordion->getTitle()) ?>
-	</div>
+	<h2 class="ci-accordion__title"><?php $html->out($ciAccordion->getTitle()) ?></h2>
 	<div class="ci-accordion__body">
 		<?php $ciHtml->contentItems($ciAccordion->getContentItems(), 'main') ?>
 	</div>
