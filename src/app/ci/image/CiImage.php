@@ -32,7 +32,7 @@ class CiImage extends NestedContentItem {
 	const FORMAT_PORTRAIT = 'portrait';
 	
 	const IMAGE_FACTOR_SMALL= 0.6;
-	const IMAGE_ASPEKT_RATIO = 3/2;
+	const IMAGE_ASPEKT_RATIO = 4/3;
 	
 	private $nestedCiType;
 	private $fileImage;
