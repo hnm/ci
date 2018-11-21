@@ -130,7 +130,7 @@ class CiArticle extends NestedContentItem {
 			return $view->getImport('\ci\article\ciArticleNested.html', array('article' => $this));
 		}
 		
-		return $view->getImport('\ci\carticle\ciArticle.html', array('article' => $this));
+		return $view->getImport('\ci\article\ciArticle.html', array('article' => $this));
 	}
 	
 	public function createEditablePreviewUiComponent(PreviewModel $previewModel, HtmlView $view) {

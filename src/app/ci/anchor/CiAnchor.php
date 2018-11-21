@@ -37,6 +37,6 @@ class CiAnchor extends ContentItem {
 		$view->assert($anchorState instanceof AnchorState);
 		
 		$id = $anchorState->addAnchor($this->pathPart, $this->title);
-		return new HtmlElement('div', array('id' => $id, 'class' => 'ci-anchor'), '');
+		return new HtmlElement('div', array('id' => $id), '');
 	}
 }

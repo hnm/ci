@@ -59,7 +59,7 @@ class CiAttachment extends ContentItem {
 			$aAttr = HtmlUtils::mergeAttrs($aAttr, array('class' => $this->file->getOriginalExtension()));
 		}
 		
-		$div = new HtmlElement('div', array('class' => 'ci-attachment'));
+		$div = new HtmlElement('div', array('class' => 'ci-item ci-attachment'));
 		if (N2N::isDevelopmentModeOn() && $this->file === null) {
 		    $div->appendContent($this->getLabel());
 		} else {

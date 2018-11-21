@@ -23,7 +23,6 @@
 	$explUrl = null;
 	$altTag = $article->determineAltTag();
 	$target = $article->determineTarget();
-	$rel = $article->determineRel();
 	$showExplicit = null;
 	if (null !== ($explPageLink = $article->getExplPageLink())) {
 	    $view->assert($explPageLink instanceof ExplPageLink);
@@ -42,15 +41,15 @@
 	$ckeHtml = new CkeHtmlBuilder($view);
 ?>
 
-<article class="row ci-article<?php $html->out($title ? ' has-title' : '') ?>">
+<article class="row ci-item ci-article<?php $html->out($title ? ' ci-article--has-title' : '') ?>">
 	<div class="col-sm-4<?php $html->out($classImage) ?>">
-		<figure class="ci-article-image">
+		<figure class="ci-article__image">
 			<?php if ($isOpenLytebox): ?>
 				<?php $tmplHtml->fancyImage($fileImage, $imgComposer, null, array('class' => 'd-none d-sm-block'), 
 						array('title' => $title, 'alt' => $altTag)) ?>
 			<?php endif ?>
 			
-			<?php $html->linkStart($explUrl, array('target' => $target, 'rel' => $rel), 'div') ?>
+			<?php $html->linkStart($explUrl, array('target' => $target), 'div') ?>
 			
     			<?php if (null !== $fileImage): ?>
     				<?php $html->image($fileImage, $imgComposer, 
@@ -61,12 +60,12 @@
 			<?php $html->linkEnd() ?>
 		</figure>
 	</div>
-	<div class="col-sm-8 ci-article-text">
+	<div class="col-sm-8 ci-article__text">
 		<?php if ($article->hasTitle()): ?>
-			<h2 class="ci-article-title">
+			<h2 class="ci-article__title">
 				<?php if ($explUrl): ?>
 					<?php $html->link($explUrl, $title, 
-							array('target' => $target, 'rel' => $rel)) ?>
+							array('target' => $target)) ?>
 				<?php else: ?>
 					<?php $html->out($title) ?>
 				<?php endif ?>
@@ -74,7 +73,7 @@
 		<?php endif ?>
 		<?php $ckeHtml->out($article->getDescriptionHtml()) ?>
 		<?php if ($explUrl && $showExplicit): ?>
-			<?php $html->link($explUrl, $explLabel, array('class' => 'btn btn-primary', 'target' => $target, 'rel' => $rel)) ?>
+			<?php $html->link($explUrl, $explLabel, array('class' => 'btn btn-primary', 'target' => $target)) ?>
 		<?php endif ?>
 	</div>
 </article>

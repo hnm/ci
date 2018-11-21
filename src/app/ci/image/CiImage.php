@@ -1,11 +1,10 @@
 <?php
-namespace ci\bo\image;
+namespace ci\image;
 
 use n2n\impl\web\ui\view\html\HtmlView;
 use n2n\reflection\annotation\AnnoInit;
 use \n2n\io\managed\File;
 use n2n\persistence\orm\annotation\AnnoManagedFile;
-use ci\bo\columns\NestedContentItem;
 use n2nutil\bootstrap\img\MimgBs;
 use n2n\impl\web\ui\view\html\img\Mimg;
 use n2n\web\http\orm\ResponseCacheClearer;
@@ -13,10 +12,10 @@ use n2n\persistence\orm\annotation\AnnoEntityListeners;
 use n2n\persistence\orm\annotation\AnnoOneToOne;
 use n2n\persistence\orm\CascadeType;
 use n2n\impl\web\ui\view\html\HtmlUtils;
-use n2n\impl\web\ui\view\html\img\ImgComposer;
 use ch\hnm\util\page\bo\ExplPageLink;
 use page\bo\util\PageLink;
 use rocket\ei\manage\preview\model\PreviewModel;
+use ci\columns\NestedContentItem;
 
 class CiImage extends NestedContentItem {
 	private static function _annos(AnnoInit $ai) {
@@ -33,7 +32,7 @@ class CiImage extends NestedContentItem {
 	const FORMAT_PORTRAIT = 'portrait';
 	
 	const IMAGE_FACTOR_SMALL= 0.6;
-	const IMAGE_ASPEKT_RATIO = 3/2;
+	const IMAGE_ASPEKT_RATIO = 4/3;
 	
 	private $nestedCiType;
 	private $fileImage;
@@ -142,13 +141,13 @@ class CiImage extends NestedContentItem {
 	public function getContainerAttrs(array $attrs = null, $overwrite = false) {
 		$baseAttrs = array('class' => 'ci-image');
 		
+		$baseAttrs = HtmlUtils::mergeAttrs($baseAttrs, array('class' => $this->isNested() ? 'ci-item-nested' : 'ci-item'));
 		if (null !== $this->getCssFormatClass()) {
 			$baseAttrs = HtmlUtils::mergeAttrs($baseAttrs, array('class' => $this->getCssFormatClass()));
 		}
 		
 		if (null !== $this->getCssAlignmentClass()) {
 			$baseAttrs = HtmlUtils::mergeAttrs($baseAttrs, array('class' => $this->getCssAlignmentClass()));
-			
 		}
 		
 		
@@ -192,21 +191,26 @@ class CiImage extends NestedContentItem {
 			return MimgBs::xs(Mimg::crop(263, 176));
 		}
 		
+		
+		// mobile 
 		$imgWidth = array('xs' => 545, 'sm' => 510);
 		
 		if (null !== $this->nestedCiType) {
 			
 			switch($this->nestedCiType) {
 				case self::NESTED_TWO_COLUMNS:
-					$imgWidth = array_merge($imgWidth, array('md' => 320, 'lg' => 450, 'xl' => 540));
+				    // 2 Spalten
+					$imgWidth = array_merge($imgWidth, array('md' => 330, 'lg' => 450, 'xl' => 540));
 					break;
 					
 				case self::NESTED_THREE_COLUMNS:
+				    // 3 Spalten
 					$imgWidth = array_merge($imgWidth, array('md' => 210, 'lg' => 290, 'xl' => 350));
 					break;
 			}
 		} else {
-			$imgWidth = array_merge($imgWidth, array('md' => 690, 'lg' => 770, 'xl' => 823));
+		    // volle Breite
+			$imgWidth = array_merge($imgWidth, array('md' => 690, 'lg' => 930, 'xl' => 1110));
 		}
 		
 		$imgComposer = $this->createImgComposer($imgWidth);
@@ -288,7 +292,7 @@ class CiImage extends NestedContentItem {
 	}
 	
 	public function createUiComponent(HtmlView $view) {
-		return $view->getImport('\ci\view\image\ciImage.html', array('image' => $this));
+		return $view->getImport('\ci\image\ciImage.html', array('image' => $this));
 	}
 	
 	public function createEditablePreviewUiComponent(PreviewModel $previewModel,HtmlView $view) {

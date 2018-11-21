@@ -9,13 +9,13 @@
 ?>
 
 <?php //Add another anchor manually somewhere like that: ?>
-<div id="<?php $html->out($anchorState->addAnchor('example-acnhor-id', 'example-label')) ?>" class="ci-anchor"></div>
+<div id="<?php $html->out($anchorState->addAnchor('example-acnhor-id', 'example-label')) ?>" class="ci-anchor-target"></div>
 
 <?php //print the anchors - be sure all anchors get added before that call: ?>
 <?php if (null !== ($anchors = $anchorState->getAnchors()) && !empty($anchorState->getAnchors())): ?>
-	<ul class="list-inline ci-anchors d-none d-md-inline">
+	<ul class="ci-item ci-anchors list-inline d-none d-md-inline">
 		<?php foreach($anchors as $anchor): ?>
-			<li class="list-inline-item">
+			<li class="ci-anchor">
 				<a href="#<?php $html->out($anchor->getHref()) ?>" class="btn btn-primary"><?php $html->out($anchor->getTitle()) ?></a>
 			</li>
 		<?php endforeach ?>

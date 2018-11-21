@@ -18,7 +18,7 @@
 	$meta->bodyEnd()->addJs('js/gmaps.js', 'bstmpl');
 	
 ?>
-<div class="tmpl-map ci-gmaps" 
+<div class="tmpl-map ci-item ci-gmaps" 
 		data-lat=<?php $html->out($ciGoogleMaps->getLat()) ?> 
 		data-lng=<?php $html->out($ciGoogleMaps->getLng()) ?> 
 		data-locations="<?php $html->out(StringUtils::jsonEncode($ciGoogleMaps->getLocations())) ?>" 

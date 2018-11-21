@@ -10,6 +10,6 @@
 	$html->meta()->bodyEnd()->addJs('js/youtube.js', 'ci');
 	
 ?>
-<div class="embed-responsive embed-responsive-16by9 ci-video <?php $html->out(null !== $youtube->getNestedCiType() ? ' align-self-start' : '') ?>" data-video-id="<?php $html->out($youtubeId) ?>" 
+<div class="embed-responsive embed-responsive-16by9 ci-item ci-video <?php $html->out(null !== $youtube->getNestedCiType() ? ' align-self-start' : '') ?>" data-video-id="<?php $html->out($youtubeId) ?>" 
 		data-width="940" data-height="529">
 </div>

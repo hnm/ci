@@ -44,25 +44,23 @@
 		$containerAttrs = HtmlUtils::mergeAttrs($containerAttrs, array('class' => 'clearfix'));
 	}
 ?>
-<div <?php $view->out(HtmlElement::buildAttrsHtml($containerAttrs)) ?>>
-	<figure>
-		<?php if ($isOpenLytebox): ?>
-			<?php $tmplHtml->fancyImage($fileImage, $imgComposer, null, array('class' => 'd-none d-md-block'), array('alt' => $image->determineAltTag())) ?>
+<figure <?php $view->out(HtmlElement::buildAttrsHtml($containerAttrs)) ?>>
+	<?php if ($isOpenLytebox): ?>
+		<?php $tmplHtml->fancyImage($fileImage, $imgComposer, null, array('class' => 'd-none d-md-block'), array('alt' => $image->determineAltTag())) ?>
+	<?php endif ?>
+	
+	<?php $html->linkStart($explUrl, array('target' => $target, 'rel' => $rel), 'div') ?>
+		<?php if (null !== $fileImage): ?>
+			<?php $html->image($fileImage, $imgComposer, array(
+					'class' => 'img-fluid' . (true === $isOpenLytebox ? ' d-md-none' : ''), 
+					'alt' => $image->determineAltTag())) ?>
 		<?php endif ?>
+	<?php $html->linkEnd() ?>
 		
-		<?php $html->linkStart($explUrl, array('target' => $target, 'rel' => $rel), 'div') ?>
-    		<?php if (null !== $fileImage): ?>
-    			<?php $html->image($fileImage, $imgComposer, array(
-    					'class' => 'img-fluid' . (true === $isOpenLytebox ? ' d-md-none' : ''), 
-    					'alt' => $image->determineAltTag())) ?>
-    		<?php endif ?>
-		<?php $html->linkEnd() ?>
-			
-		<?php if (null !== ($caption = $image->getCaption())): ?>
-			<figcaption><?php $html->out($caption) ?></figcaption>
-		<?php endif ?>
-		<?php if ($explUrl): ?>
-			<?php $html->link($explUrl, null, array('target' => $target, 'rel' => $rel)) ?>
-		<?php endif ?>
-	</figure>
-</div>
+	<?php if (null !== ($caption = $image->getCaption())): ?>
+		<figcaption><?php $html->out($caption) ?></figcaption>
+	<?php endif ?>
+	<?php if ($explUrl): ?>
+		<?php $html->link($explUrl, null, array('target' => $target, 'rel' => $rel)) ?>
+	<?php endif ?>
+</figure>

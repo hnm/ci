@@ -41,7 +41,7 @@ class CiTwoColumns extends ContentItemContainer {
 	}
 
 	public function createUiComponent(HtmlView $view) {
-		return $view->getImport('\ci\view\columns\ciTwoColumns.html', array('ciTwoColumns' => $this));
+		return $view->getImport('\ci\columns\ciTwoColumns.html', array('ciTwoColumns' => $this));
 	}
 	
 	public function getPanels() {
