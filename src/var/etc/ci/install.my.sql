@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `ci_three_columns` (
 -- Exportiere Struktur von Tabelle mdl_template.ci_three_columns_content_items
 CREATE TABLE IF NOT EXISTS `ci_three_columns_content_items` (
   `ci_three_columns_id` int(10) unsigned NOT NULL,
-  `content_item_id` int(10) unsigned NOT NULL,
+  `nested_content_item_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`ci_three_columns_id`,`content_item_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `ci_simple_map` (
 
 CREATE TABLE IF NOT EXISTS `ci_two_columns_content_items` (
   `ci_two_columns_id` int(10) unsigned NOT NULL,
-  `content_item_id` int(10) unsigned NOT NULL,
+  `nested_content_item_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`ci_two_columns_id`,`content_item_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
