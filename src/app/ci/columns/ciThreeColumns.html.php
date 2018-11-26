@@ -11,6 +11,7 @@
 	
 	$ciThreeColumns = $view->getParam('ciThreeColumns');
 	$view->assert($ciThreeColumns instanceof CiThreeColumns);
+	
 	$contentItems = $ciThreeColumns->getContentItems();
 	if (empty($contentItems)) return null;
 	

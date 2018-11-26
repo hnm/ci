@@ -1,8 +1,8 @@
 <?php
 	use ci\columns\CiTwoColumns;
-	use n2n\impl\web\ui\view\html\HtmlView;
 	use ci\ui\CiHtmlBuilder;
 	use ci\columns\NestedContentItem;
+	use n2n\impl\web\ui\view\html\HtmlView;
 	
 	$view = HtmlView::view($this);
 	$html = HtmlView::html($view);
