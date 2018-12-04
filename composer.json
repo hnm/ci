@@ -18,7 +18,7 @@
         "hnm/ch-hnm-util": "7.2.x-dev",
         "hnm/simplefile": "1.3.x-dev",
         "hnm/bstmpl": "2.0.x-dev",
-        "n2n/n2nutil-bootstrap": "4.0.x"
+        "n2n/n2nutil-bootstrap": "4.1.x"
     },
     "autoload": {
         "psr-4": {
