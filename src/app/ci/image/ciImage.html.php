@@ -31,7 +31,7 @@
 	$explPageLink = $image->getExplPageLink();
 	if (null !== $explPageLink) {
 		$view->assert($explPageLink instanceof ExplPageLink);
-		$explUrl = $explPageLink->isShowExplicit() ? $view->buildUrl($explPageLink, false, $explLabel) : null;
+		$explUrl = $view->buildUrl($explPageLink, false, $explLabel);
 	}
 	
 	$isOpenLytebox = $image->isOpenLytebox();
@@ -49,7 +49,7 @@
 		<?php $tmplHtml->fancyImage($fileImage, $imgComposer, null, array('class' => 'd-none d-md-block'), array('alt' => $image->determineAltTag())) ?>
 	<?php endif ?>
 	
-	<?php $html->linkStart($explPageLink, array('target' => $target), 'div') ?>
+	<?php $html->linkStart($explUrl, array('target' => $target), 'div') ?>
 		<?php if (null !== $fileImage): ?>
 			<?php $html->image($fileImage, $imgComposer, array(
 					'class' => 'img-fluid' . (true === $isOpenLytebox ? ' d-md-none' : ''), 
@@ -61,6 +61,6 @@
 		<figcaption><?php $html->out($caption) ?></figcaption>
 	<?php endif ?>
 	<?php if (null !== $explPageLink && $explPageLink->isShowExplicit()): ?>
-		<?php $html->link($explUrl, null, array('target' => $target)) ?>
+		<?php $html->link($explUrl, $explLabel, array('target' => $target)) ?>
 	<?php endif ?>
 </figure>
