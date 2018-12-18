@@ -48,14 +48,17 @@
 	<?php if ($isOpenLytebox): ?>
 		<?php $tmplHtml->fancyImage($fileImage, $imgComposer, null, array('class' => 'd-none d-md-block'), array('alt' => $image->determineAltTag())) ?>
 	<?php endif ?>
-	
-	<?php $html->linkStart($explUrl, array('target' => $target), 'div') ?>
+	<?php if (null !== $explUrl): ?>
+		<?php $html->linkStart($explUrl, array('target' => $target)) ?>
+	<?php endif ?>
 		<?php if (null !== $fileImage): ?>
 			<?php $html->image($fileImage, $imgComposer, array(
 					'class' => 'img-fluid' . (true === $isOpenLytebox ? ' d-md-none' : ''), 
 					'alt' => $image->determineAltTag())) ?>
 		<?php endif ?>
-	<?php $html->linkEnd() ?>
+		<?php if (null !== $explUrl): ?>
+			<?php $html->linkEnd() ?>
+		<?php endif ?>
 		
 	<?php if (null !== ($caption = $image->getCaption())): ?>
 		<figcaption><?php $html->out($caption) ?></figcaption>

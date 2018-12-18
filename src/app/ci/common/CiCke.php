@@ -26,6 +26,6 @@ class CiCke extends NestedContentItem {
 	
 	public function createUiComponent(HtmlView $view) {
 		$ckeHtml = new CkeHtmlBuilder($view);
-		return new HtmlElement('div', array('class' => 'ci-item ci-cke'), $ckeHtml->getOut($this->contentHtml));
+		return new HtmlElement('div', array('class' => ($this->isNested() ? 'ci-item-nested' : 'ci-item') .  ' ci-cke'), $ckeHtml->getOut($this->contentHtml));
 	}
 }
