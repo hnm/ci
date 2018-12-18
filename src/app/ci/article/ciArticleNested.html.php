@@ -69,6 +69,6 @@
 		<?php $ckeHtml->out($article->getDescriptionHtml()) ?>
 		<?php if ($explUrl && $showExplicit): ?>
 			<?php $html->link($explUrl, '', array('class' => 'ci-article-nested__link','target' => $target)) ?>
-			<?php $html->link($explUrl, $explLabel, array('class' => 'btn btn-md btn-primary mt-auto align-self-start align-self-sm-stretch', 'target' => $target)) ?>
+			<?php $html->link($explUrl, $explLabel, array('class' => 'btn btn-md btn-primary mt-auto align-self-start', 'target' => $target)) ?>
 		<?php endif ?>
 </article>
