@@ -54,9 +54,9 @@
                         "displayInAddView": true,
                         "constant": false,
                         "readOnly": false,
-                        "mandatory": false,
+                        "mandatory": true,
                         "draftable": false,
-                        "maxlength": null,
+                        "maxlength": 32,
                         "multiline": false
                     },
                     "label": "Youtube Id",
