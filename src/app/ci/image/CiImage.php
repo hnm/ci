@@ -27,11 +27,14 @@ class CiImage extends NestedContentItem {
 	const ALIGN_LEFT = 'left';
 	const ALIGN_CENTER = 'center';
 	const ALIGN_RIGHT = 'right';
+	const ALIGN_FULL_WIDTH = 'full-width';
 	const CSS_CLASS_PREFIX = 'ci-image-';
 	const FORMAT_LANDSCAPE = 'landscape';
 	const FORMAT_PORTRAIT = 'portrait';
 	
 	const IMAGE_FACTOR_SMALL= 0.6;
+	
+	const IMAGE_ASPEKT_RATIO_FULL_WIDTH = 4/1;
 	const IMAGE_ASPEKT_RATIO = 4/3;
 	
 	private $nestedCiType;
@@ -141,7 +144,13 @@ class CiImage extends NestedContentItem {
 	public function getContainerAttrs(array $attrs = null, $overwrite = false) {
 		$baseAttrs = array('class' => 'ci-image');
 		
-		$baseAttrs = HtmlUtils::mergeAttrs($baseAttrs, array('class' => $this->isNested() ? 'ci-item-nested' : 'ci-item'));
+		if ($this->alignment === self::ALIGN_FULL_WIDTH) {
+			$baseAttrs = HtmlUtils::mergeAttrs($baseAttrs, array('class' => 'ci-item-full-width'));
+		} else {
+			$baseAttrs = HtmlUtils::mergeAttrs($baseAttrs, array('class' => $this->isNested() ? 'ci-item-nested' : 'ci-item'));
+		}
+		
+		
 		if (null !== $this->getCssFormatClass()) {
 			$baseAttrs = HtmlUtils::mergeAttrs($baseAttrs, array('class' => $this->getCssFormatClass()));
 		}
@@ -168,6 +177,9 @@ class CiImage extends NestedContentItem {
 			case CiImage::ALIGN_RIGHT:
 				$alignmentClass = self::CSS_CLASS_PREFIX . 'r';
 				break;
+			case CiImage::ALIGN_FULL_WIDTH:
+				$alignmentClass = self::CSS_CLASS_PREFIX . 'full-width';
+				break;
 			default:
 				$alignmentClass = null;
 		}
@@ -186,6 +198,12 @@ class CiImage extends NestedContentItem {
 	
 	public function getImgComposer() {
 		$imgComposer = null;
+		
+		
+		if (!$this->isNested() && $this->getPanel() !== 'aside' && $this->alignment === self::ALIGN_FULL_WIDTH) {
+			$imageFullWidth = 575;
+			return MimgBs::xs(Mimg::crop($imageFullWidth, ($imageFullWidth /self::IMAGE_ASPEKT_RATIO_FULL_WIDTH)))->sm(767)->md(991)->lg(1199)->xl(1920);
+		}
 		
 		if ($this->getPanel() === 'aside') {
 			return MimgBs::xs(Mimg::crop(263, 176));

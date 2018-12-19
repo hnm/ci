@@ -553,10 +553,11 @@
                         "mandatory": false,
                         "draftable": false,
                         "options": {
-                            "": "Volle Breite",
+                            "": "Volle Container Breite",
                             "center": "Mitte",
                             "left": "Links",
-                            "right": "Rechts"
+                            "right": "Rechts",
+                            "full-width": "Volle Browser-Breite"
                         },
                         "associatedGuiProps": []
                     },
