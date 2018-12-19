@@ -144,7 +144,7 @@ class CiImage extends NestedContentItem {
 	public function getContainerAttrs(array $attrs = null, $overwrite = false) {
 		$baseAttrs = array('class' => 'ci-image');
 		
-		if ($this->alignment === self::ALIGN_FULL_WIDTH) {
+		if (!$this->isNested() && !$this->isAside() && $this->alignment === self::ALIGN_FULL_WIDTH) {
 			$baseAttrs = HtmlUtils::mergeAttrs($baseAttrs, array('class' => 'ci-item-full-width'));
 		} else {
 			$baseAttrs = HtmlUtils::mergeAttrs($baseAttrs, array('class' => $this->isNested() ? 'ci-item-nested' : 'ci-item'));
@@ -178,7 +178,7 @@ class CiImage extends NestedContentItem {
 				$alignmentClass = self::CSS_CLASS_PREFIX . 'r';
 				break;
 			case CiImage::ALIGN_FULL_WIDTH:
-				if (!$this->isNested() && $this->getPanel() !== 'aside') {
+				if (!$this->isNested() && !$this->isAside()) {
 					$alignmentClass = self::CSS_CLASS_PREFIX . 'full-width';
 				}
 				break;
@@ -202,12 +202,12 @@ class CiImage extends NestedContentItem {
 		$imgComposer = null;
 		
 		
-		if (!$this->isNested() && $this->getPanel() !== 'aside' && $this->alignment === self::ALIGN_FULL_WIDTH) {
+		if (!$this->isNested() && !$this->isAside() && $this->alignment === self::ALIGN_FULL_WIDTH) {
 			$imageFullWidth = 575;
 			return MimgBs::xs(Mimg::crop($imageFullWidth, ($imageFullWidth /self::IMAGE_ASPEKT_RATIO_FULL_WIDTH)))->sm(767)->md(991)->lg(1199)->xl(1920);
 		}
 		
-		if ($this->getPanel() === 'aside') {
+		if ($this->isAside()) {
 			return MimgBs::xs(Mimg::crop(263, 176));
 		}
 		
@@ -309,6 +309,11 @@ class CiImage extends NestedContentItem {
 	
 	public function isPortrait() {
 		return $this->format === self::FORMAT_PORTRAIT;
+	}
+	
+	
+	public function isAside() {
+		return $this->getPanel() === 'aside';
 	}
 	
 	public function createUiComponent(HtmlView $view) {
