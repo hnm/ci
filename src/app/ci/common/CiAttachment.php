@@ -2,17 +2,14 @@
 namespace ci\common;
 
 use n2n\impl\web\ui\view\html\HtmlView;
-use n2n\core\N2N;
-use n2n\impl\web\ui\view\html\HtmlElement;
 use n2n\reflection\annotation\AnnoInit;
 use n2n\persistence\orm\annotation\AnnoManagedFile;
 use n2n\io\managed\File;
-use n2n\impl\web\ui\view\html\HtmlUtils;
 use n2n\persistence\orm\annotation\AnnoEntityListeners;
 use n2n\web\http\orm\ResponseCacheClearer;
-use rocket\impl\ei\component\prop\ci\model\ContentItem;
+use ci\columns\NestedContentItem;
 
-class CiAttachment extends ContentItem {
+class CiAttachment extends NestedContentItem {
 	private static function _annos(AnnoInit $ai) {
 		$ai->c(new AnnoEntityListeners(ResponseCacheClearer::getClass()));
 		$ai->p('file', new AnnoManagedFile());
