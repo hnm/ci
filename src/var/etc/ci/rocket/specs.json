@@ -717,7 +717,13 @@
             "dataSourceName": null,
             "label": "Inhalts-Akkordeon",
             "pluralLabel": "Inhalts-Akkordeon",
-            "iconType": null,
+            "iconType": "fa fa-expand",
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
             "props": {
                 "title": {
                     "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
@@ -747,6 +753,7 @@
                         "constant": false,
                         "readOnly": false,
                         "draftable": false,
+                        "targetExtensions": [],
                         "targetRemovalStrategy": "prevent",
                         "orphansAllowed": false,
                         "reduced": true,
@@ -793,7 +800,7 @@
             "dataSourceName": null,
             "label": "Anker",
             "pluralLabel": "Ankers",
-            "iconType": null,
+            "iconType": "fa fa-anchor",
             "filterData": {
                 "useAnd": true,
                 "items": [],
