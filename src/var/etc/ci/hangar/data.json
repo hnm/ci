@@ -278,5 +278,21 @@
                 "orphanRemoval": true
             }
         }
+    },
+    "ci\\anchor\\CiAnchor": {
+        "title": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "pathPart": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        }
     }
 }
