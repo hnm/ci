@@ -47,29 +47,13 @@ class CiAttachment extends ContentItem {
 	}
 	
 	public function getLabel() {
-		if (null === $this->name) {
+		if (null === $this->name && null !== $this->file && $this->file->isValid()) {
 			return $this->file->getOriginalName();
 		}
 		return $this->name;
 	}
 
 	public function createUiComponent(HtmlView $view) {
-		$aAttr = array('target' => 'blank', 'class' => 'file');
-		if (null !== $this->file) {
-			$aAttr = HtmlUtils::mergeAttrs($aAttr, array('class' => $this->file->getOriginalExtension()));
-		}
-		
-		$div = new HtmlElement('div', array('class' => 'ci-item ci-attachment'));
-		if (N2N::isDevelopmentModeOn() && $this->file === null) {
-		    $div->appendContent($this->getLabel());
-		} else {
-    		$div->appendContent($view->getHtmlBuilder()->getLink(
-    				$this->file, $this->getLabel(), $aAttr));
-		}
-		
-		if (null !== ($desc = $this->getDescription())) {
-			$div->appendContent(new HtmlElement('p', null, $desc));
-		}
-		return $div;
+		return $view->getImport('\ci\common\ciAttachment.html', array('ciAttachment' => $this));
 	}
 }
