@@ -180,8 +180,6 @@ class CiImage extends NestedContentItem {
 			case CiImage::ALIGN_FULL_WIDTH:
 				if (!$this->isNested() && $this->getPanel() !== 'aside') {
 					$alignmentClass = self::CSS_CLASS_PREFIX . 'full-width';
-				} else {
-					$alignmentClass = null;
 				}
 				break;
 			default:
