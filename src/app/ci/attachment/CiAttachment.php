@@ -1,5 +1,5 @@
 <?php
-namespace ci\common;
+namespace ci\attachment;
 
 use n2n\impl\web\ui\view\html\HtmlView;
 use n2n\reflection\annotation\AnnoInit;
@@ -51,6 +51,6 @@ class CiAttachment extends NestedContentItem {
 	}
 
 	public function createUiComponent(HtmlView $view) {
-		return $view->getImport('\ci\common\ciAttachment.html', array('ciAttachment' => $this));
+		return $view->getImport('\ci\attachment\ciAttachment.html', array('ciAttachment' => $this));
 	}
 }
