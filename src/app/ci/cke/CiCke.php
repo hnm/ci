@@ -1,5 +1,5 @@
 <?php
-namespace ci\common;
+namespace ci\cke;
 
 use n2n\impl\web\ui\view\html\HtmlView;
 use n2n\impl\web\ui\view\html\HtmlElement;
