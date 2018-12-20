@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `ci_anchor` (
 -- Exportiere Struktur von Tabelle mdl_template.ci_article
 CREATE TABLE IF NOT EXISTS `ci_article` (
   `id` int(10) unsigned NOT NULL,
-  `title` varchar(128) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
   `description_html` text DEFAULT NULL,
   `file_image` varchar(255) NOT NULL,
   `pic_pos` enum('left','right') NOT NULL DEFAULT 'left',

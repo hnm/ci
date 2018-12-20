@@ -1,15 +1,21 @@
 <?php
 	use n2n\impl\web\ui\view\html\HtmlView;
 	use ci\video\CiYoutube;
+use n2n\impl\web\ui\view\html\HtmlUtils;
+use n2n\impl\web\ui\view\html\HtmlElement;
 
 	$view = HtmlView::view($view);
 	$html = HtmlView::html($view);
-	$youtube = $view->getParam('youtube');
-	$view->assert($youtube instanceof CiYoutube);
-	$youtubeId = $youtube->getyoutubeId();
+	$ciYoutube = $view->getParam('ciYoutube');
+	$view->assert($ciYoutube instanceof CiYoutube);
 	$html->meta()->bodyEnd()->addJs('js/youtube.js', 'ci');
 	
+	$attrs = ['class' => 'embed-responsive embed-responsive-16by9 ci-video', 'data-video-id' => $ciYoutube->getYoutubeId(), 'data-width' => '940', 'data-height' => '529'];
+	$attrs = HtmlUtils::mergeAttrs($attrs, ['class' => $ciYoutube->isNested() ? 'ci-item-nested' : 'ci-item']);
+	if (null !== $ciYoutube->getNestedCiType()) {
+		$attrs = HtmlUtils::mergeAttrs($attrs, ['class' => 'align-self-start']);
+	}
+	
 ?>
-<div class="embed-responsive embed-responsive-16by9 ci-item ci-video <?php $html->out(null !== $youtube->getNestedCiType() ? ' align-self-start' : '') ?>" data-video-id="<?php $html->out($youtubeId) ?>" 
-		data-width="940" data-height="529">
+<div <?php $view->out(HtmlElement::buildAttrsHtml($attrs)) ?>>
 </div>

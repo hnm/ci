@@ -23,10 +23,6 @@ class CiYoutube extends NestedContentItem {
 		return $this->youtubeId;
 	}
 	
-	public function createUiComponent(HtmlView $view) {
-		return $view->getImport('\ci\view\ciYoutube.html', array('youtube' => $this));
-	}
-	
 	public function getNestedCiType() {
 		return $this->nestedCiType;
 	}
@@ -35,5 +31,8 @@ class CiYoutube extends NestedContentItem {
 		$this->nestedCiType = $nestedCiType;
 	}
 	
+	public function createUiComponent(HtmlView $view) {
+		return $view->getImport('\ci\video\ciYoutube.html', array('ciYoutube' => $this));
+	}
 
 }

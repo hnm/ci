@@ -12,31 +12,31 @@ class CiAnchor extends ContentItem {
 	private static function _annos(AnnoInit $ai) {
 		$ai->c(new AnnoEntityListeners(ResponseCacheClearer::getClass()));
 	}
-	
+
 	private $title;
 	private $pathPart;
-	
-	public function getTitle() {
-		return $this->title;
-	}
-	
-	public function setTitle($title) {
-		$this->title = $title;
-	}
-	
+
 	public function getPathPart() {
 		return $this->pathPart;
 	}
 
-	public function setPathPart($pathPart) {
+	public function setPathPart(string $pathPart = null) {
 		$this->pathPart = $pathPart;
 	}
-	
+
 	public function createUiComponent(HtmlView $view) {
 		$anchorState = $view->lookup(AnchorState::class);
 		$view->assert($anchorState instanceof AnchorState);
 		
 		$id = $anchorState->addAnchor($this->pathPart, $this->title);
 		return new HtmlElement('div', array('id' => $id), '');
+	}
+
+	public function getTitle() {
+		return $this->title;
+	}
+
+	public function setTitle(string $title = null) {
+		$this->title = $title;
 	}
 }

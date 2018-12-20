@@ -2,12 +2,12 @@
     "types": {
         "ci-ci-cke": {
             "nature": "entity",
-            "entity": "ci\\common\\CiCke",
+            "entity": "ci\\cke\\CiCke",
             "dataSourceName": null,
             "label": "Text-Editor",
             "pluralLabel": "Text-Editoren",
             "iconType": "fa fa-align-left",
-            "fields": {
+            "props": {
                 "contentHtml": {
                     "class": "rocket\\impl\\ei\\component\\prop\\string\\cke\\CkeEiProp",
                     "props": {
@@ -44,7 +44,7 @@
             "label": "Youtube-Video",
             "pluralLabel": "Youtube-Videos",
             "iconType": "fa fa-video-camera",
-            "fields": {
+            "props": {
                 "youtubeId": {
                     "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
                     "props": {
@@ -76,7 +76,7 @@
             "label": "Artikel",
             "pluralLabel": "Artikel",
             "iconType": "fa fa-dedent",
-            "fields": {
+            "props": {
                 "title": {
                     "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
                     "props": {
@@ -88,7 +88,7 @@
                         "readOnly": false,
                         "mandatory": false,
                         "draftable": false,
-                        "maxlength": null,
+                        "maxlength": 255,
                         "multiline": false
                     },
                     "label": "Titel",
@@ -209,12 +209,12 @@
         },
         "ci-ci-html-snippet": {
             "nature": "entity",
-            "entity": "ci\\common\\CiHtmlSnippet",
+            "entity": "ci\\htmlsnippet\\CiHtmlSnippet",
             "dataSourceName": null,
             "label": "Html-Snippet",
             "pluralLabel": "Html-Snippets",
             "iconType": "fa fa-code",
-            "fields": {
+            "props": {
                 "html": {
                     "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
                     "props": {
@@ -241,12 +241,12 @@
         },
         "ci-ci-attachment": {
             "nature": "entity",
-            "entity": "ci\\common\\CiAttachment",
+            "entity": "ci\\attachment\\CiAttachment",
             "dataSourceName": null,
             "label": "Anhang",
             "pluralLabel": "Anh\u00e4nge",
             "iconType": "fa fa-paperclip",
-            "fields": {
+            "props": {
                 "name": {
                     "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
                     "props": {
@@ -258,7 +258,7 @@
                         "readOnly": false,
                         "mandatory": false,
                         "draftable": false,
-                        "maxlength": null,
+                        "maxlength": 255,
                         "multiline": false
                     },
                     "label": "Name",
@@ -296,7 +296,7 @@
                         "readOnly": false,
                         "mandatory": false,
                         "draftable": false,
-                        "maxlength": null,
+                        "maxlength": 255,
                         "multiline": false
                     },
                     "label": "Beschreibung",
@@ -316,7 +316,7 @@
             "label": "2 Spalten",
             "pluralLabel": "2 Spalten",
             "iconType": "fa fa-columns",
-            "fields": {
+            "props": {
                 "contentItems": {
                     "class": "rocket\\impl\\ei\\component\\prop\\ci\\ContentItemsEiProp",
                     "props": {
@@ -373,7 +373,7 @@
             "label": "3 Spalten",
             "pluralLabel": "3 Spalten",
             "iconType": "fa fa-columns",
-            "fields": {
+            "props": {
                 "contentItems": {
                     "class": "rocket\\impl\\ei\\component\\prop\\ci\\ContentItemsEiProp",
                     "props": {
@@ -441,7 +441,7 @@
             "label": "Bild",
             "pluralLabel": "Bild",
             "iconType": "fa fa-image",
-            "fields": {
+            "props": {
                 "fileImage": {
                     "class": "rocket\\impl\\ei\\component\\prop\\file\\FileEiProp",
                     "props": {
@@ -553,10 +553,11 @@
                         "mandatory": false,
                         "draftable": false,
                         "options": {
-                            "": "Volle Breite",
+                            "": "Volle Container Breite",
                             "center": "Mitte",
                             "left": "Links",
-                            "right": "Rechts"
+                            "right": "Rechts",
+                            "full-width": "Volle Browser-Breite"
                         },
                         "associatedGuiProps": []
                     },
@@ -598,7 +599,7 @@
             "label": "Karte (Google Maps)",
             "pluralLabel": "Karten (Google Maps)",
             "iconType": "fa fa-map-marker",
-            "fields": {
+            "props": {
                 "zoom": {
                     "class": "rocket\\impl\\ei\\component\\prop\\numeric\\IntegerEiProp",
                     "props": {
@@ -716,8 +717,14 @@
             "dataSourceName": null,
             "label": "Inhalts-Akkordeon",
             "pluralLabel": "Inhalts-Akkordeon",
-            "iconType": null,
-            "fields": {
+            "iconType": "fa fa-expand",
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
+            "props": {
                 "title": {
                     "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
                     "props": {
@@ -746,12 +753,13 @@
                         "constant": false,
                         "readOnly": false,
                         "draftable": false,
+                        "targetExtensions": [],
                         "targetRemovalStrategy": "prevent",
                         "orphansAllowed": false,
                         "reduced": true,
                         "panels": [
                             {
-                                "panelName": "main",
+                                "panelName": "ci-accordion-panel-main",
                                 "panelLabel": "Inhalt",
                                 "allowedContentItemIds": {
                                     "ci-ci-cke": "ci-ci-cke",
@@ -780,8 +788,68 @@
             "label": "Nested Content Item",
             "pluralLabel": "Nested Content Items",
             "iconType": null,
-            "fields": [],
-            "commands": []
+            "props": [],
+            "commands": [],
+            "partialControlOrder": [],
+            "overallControlOrder": [],
+            "entryControlOrder": []
+        },
+        "ci-ci-anchor": {
+            "nature": "entity",
+            "entity": "ci\\anchor\\CiAnchor",
+            "dataSourceName": null,
+            "label": "Anker",
+            "pluralLabel": "Ankers",
+            "iconType": "fa fa-anchor",
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
+            "props": {
+                "title": {
+                    "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
+                    "props": {
+                        "displayInOverview": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "constant": false,
+                        "readOnly": false,
+                        "mandatory": false,
+                        "draftable": false,
+                        "maxlength": "255",
+                        "multiline": false
+                    },
+                    "label": "Title",
+                    "objectProperty": "title",
+                    "entityProperty": "title"
+                },
+                "pathPart": {
+                    "class": "rocket\\impl\\ei\\component\\prop\\string\\PathPartEiProp",
+                    "props": {
+                        "displayInOverview": false,
+                        "displayInDetailView": false,
+                        "displayInEditView": true,
+                        "displayInAddView": false,
+                        "constant": false,
+                        "readOnly": false,
+                        "draftable": false,
+                        "maxlength": "255",
+                        "basePropertyFieldId": "panel",
+                        "allowEmpty": false,
+                        "critical": false
+                    },
+                    "label": "Path Part",
+                    "objectProperty": "pathPart",
+                    "entityProperty": "pathPart"
+                }
+            },
+            "commands": [],
+            "partialControlOrder": [],
+            "overallControlOrder": [],
+            "entryControlOrder": []
         }
     },
     "eiTypeExtensions": [],

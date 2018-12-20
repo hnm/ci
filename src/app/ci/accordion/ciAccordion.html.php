@@ -20,6 +20,6 @@
 <div class="ci-item ci-accordion">
 	<h2 class="ci-accordion__title"><?php $html->out($ciAccordion->getTitle()) ?></h2>
 	<div class="ci-accordion__body">
-		<?php $ciHtml->contentItems($ciAccordion->getContentItems(), 'main') ?>
+		<?php $ciHtml->contentItems($ciAccordion->getContentItems(), 'ci-accordion-panel-main') ?>
 	</div>
 </div>
