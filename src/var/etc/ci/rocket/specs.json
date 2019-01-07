@@ -2,7 +2,7 @@
     "types": {
         "ci-ci-cke": {
             "nature": "entity",
-            "entity": "ci\\common\\CiCke",
+            "entity": "ci\\cke\\CiCke",
             "dataSourceName": null,
             "label": "Text-Editor",
             "pluralLabel": "Text-Editoren",
@@ -209,7 +209,7 @@
         },
         "ci-ci-html-snippet": {
             "nature": "entity",
-            "entity": "ci\\common\\CiHtmlSnippet",
+            "entity": "ci\\htmlsnippet\\CiHtmlSnippet",
             "dataSourceName": null,
             "label": "Html-Snippet",
             "pluralLabel": "Html-Snippets",
@@ -241,7 +241,7 @@
         },
         "ci-ci-attachment": {
             "nature": "entity",
-            "entity": "ci\\common\\CiAttachment",
+            "entity": "ci\\attachment\\CiAttachment",
             "dataSourceName": null,
             "label": "Anhang",
             "pluralLabel": "Anh\u00e4nge",
