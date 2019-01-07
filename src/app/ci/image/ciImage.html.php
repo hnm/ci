@@ -51,19 +51,25 @@
 	<?php if (null !== $explUrl): ?>
 		<?php $html->linkStart($explUrl, array('target' => $target)) ?>
 	<?php endif ?>
-		<?php if (null !== $fileImage): ?>
-			<?php $html->image($fileImage, $imgComposer, array(
-					'class' => 'img-fluid' . (true === $isOpenLytebox ? ' d-md-none' : ''), 
-					'alt' => $image->determineAltTag())) ?>
-		<?php endif ?>
-		<?php if (null !== $explUrl): ?>
-			<?php $html->linkEnd() ?>
-		<?php endif ?>
-		
-	<?php if (null !== ($caption = $image->getCaption())): ?>
-		<figcaption class="figure-caption"><?php $html->out($caption) ?></figcaption>
+	
+	<?php if (null !== $fileImage): ?>
+		<?php $html->image($fileImage, $imgComposer, array(
+				'class' => 'img-fluid' . (true === $isOpenLytebox ? ' d-md-none' : ''), 
+				'alt' => $image->determineAltTag())) ?>
 	<?php endif ?>
-	<?php if (null !== $explPageLink && $explPageLink->isShowExplicit()): ?>
-		<?php $html->link($explUrl, $explLabel, array('target' => $target)) ?>
+		
+	<?php if (null !== $explUrl): ?>
+		<?php $html->linkEnd() ?>
+	<?php endif ?>
+	
+	<?php if (null !== ($caption = $image->getCaption()) || (null !== $explPageLink && $explPageLink->isShowExplicit() && null !== $explUrl)): ?>
+		<figcaption class="figure-caption">
+			<?php if (null !== $caption): ?>
+				<?php $html->out($caption) ?>
+			<?php endif ?>
+			<?php if (null !== $explPageLink && $explPageLink->isShowExplicit() && null !== $explUrl): ?>
+				<?php $html->link($explUrl, $explLabel, array('target' => $target)) ?>
+			<?php endif ?>
+		</figcaption>
 	<?php endif ?>
 </figure>
