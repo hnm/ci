@@ -10,7 +10,7 @@ use n2n\persistence\orm\annotation\AnnoOrderBy;
 use n2n\persistence\orm\annotation\AnnoTable;
 use n2n\persistence\orm\annotation\AnnoEntityListeners;
 use n2n\web\http\orm\ResponseCacheClearer;
-use n2n\reflection\CastUtils;
+use n2n\util\type\CastUtils;
 
 class CiTwoColumns extends ContentItemContainer {
 	private static function _annos(AnnoInit $ai) {

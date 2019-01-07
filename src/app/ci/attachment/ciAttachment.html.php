@@ -11,7 +11,7 @@
 	
 	$file = $ciAttachment->getFile();
 	
-	$aAttr = array('target' => 'blank', 'class' => 'ci-attachment file', 'download' => '');
+	$aAttr = array('target' => '_blank', 'class' => 'ci-attachment file', 'download' => '');
 	
 	$aAttr = HtmlUtils::mergeAttrs($aAttr, array('class' => $ciAttachment->isNested() ? 'ci-item-nested' : 'ci-item'));
 	if (null !== $file && $file->isValid()) {
