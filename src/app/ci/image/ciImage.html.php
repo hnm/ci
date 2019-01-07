@@ -61,7 +61,7 @@
 		<?php endif ?>
 		
 	<?php if (null !== ($caption = $image->getCaption())): ?>
-		<figcaption><?php $html->out($caption) ?></figcaption>
+		<figcaption class="figure-caption"><?php $html->out($caption) ?></figcaption>
 	<?php endif ?>
 	<?php if (null !== $explPageLink && $explPageLink->isShowExplicit()): ?>
 		<?php $html->link($explUrl, $explLabel, array('target' => $target)) ?>
