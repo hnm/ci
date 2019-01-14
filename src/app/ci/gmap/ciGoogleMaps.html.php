@@ -1,7 +1,7 @@
 <?php 
-	use n2n\impl\web\ui\view\html\HtmlView;
 	use ci\gmap\CiGoogleMaps;
 	use n2n\util\StringUtils;
+	use n2n\impl\web\ui\view\html\HtmlView;
 	
 	$view = HtmlView::view($view);
 	$html = HtmlView::html($view);

@@ -4,9 +4,9 @@ namespace ci\columns;
 use n2n\reflection\annotation\AnnoInit;
 use n2n\persistence\orm\annotation\AnnoEntityListeners;
 use n2n\web\http\orm\ResponseCacheClearer;
-use rocket\impl\ei\component\prop\ci\model\ContentItem;
 use n2n\persistence\orm\annotation\AnnoTransient;
 use n2n\persistence\orm\annotation\AnnoTable;
+use rocket\impl\ei\component\prop\ci\model\ContentItem;
 
 abstract class NestedContentItem extends ContentItem {
 	private static function _annos(AnnoInit $ai) {

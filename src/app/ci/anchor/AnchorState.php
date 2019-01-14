@@ -1,6 +1,7 @@
 <?php
 namespace ci\anchor;
 
+
 use n2n\context\RequestScoped;
 
 class AnchorState implements RequestScoped {

@@ -1,11 +1,11 @@
 <?php
 namespace ci\gmap;
 
-use rocket\impl\ei\component\prop\ci\model\ContentItem;
 use n2n\impl\web\ui\view\html\HtmlView;
 use n2n\reflection\annotation\AnnoInit;
 use n2n\persistence\orm\annotation\AnnoEntityListeners;
 use n2n\web\http\orm\ResponseCacheClearer;
+use rocket\impl\ei\component\prop\ci\model\ContentItem;
 
 class CiGoogleMaps extends ContentItem {
 	private static function _annos(AnnoInit $ai) {
