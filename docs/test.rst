@@ -43,6 +43,3 @@ what
   The term is a one-line phrase, and the definition is one or more
   paragraphs or body elements, indented relative to the term.
   Blank lines are not allowed between term and definition.
-Dieser Satz dient zur Demonstration_ von `Hyperlinks in reST`_.
-.. _Demonstration: http://de.wikipedia.org/wiki/Demonstration
-.. _Hyperlinks in reST: http://docutils.sourceforge.net/docs/user/rst/quickref.html#hyperlink-targets
