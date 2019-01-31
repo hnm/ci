@@ -7,7 +7,6 @@ What
 ^^^^
 "Structured Text link":http://some/where
 Holeradio::
-
 asdfasfd
 asdfasf
 asdasfd
@@ -33,3 +32,14 @@ What do we monitor?
 - What
 - is
 - this
+
+[I'm an inline-style link](https://www.google.com)
+
+what
+  Definition lists associate a term with a definition.
+  
+
+*how*
+  The term is a one-line phrase, and the definition is one or more
+  paragraphs or body elements, indented relative to the term.
+  Blank lines are not allowed between term and definition.
