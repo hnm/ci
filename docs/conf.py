@@ -20,9 +20,6 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Content Items Module'
-copyright = '2019, Thomas Günther, Thomas Jansen'
-author = 'Thomas Günther, Thomas Jansen'
-
 # The short X.Y version
 version = ''
 # The full version, including alpha/beta/rc tags
