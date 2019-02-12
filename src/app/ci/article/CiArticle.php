@@ -2,7 +2,6 @@
 namespace ci\article;
 
 use n2n\impl\web\ui\view\html\HtmlView;
-use n2n\reflection\annotation\AnnoInit;
 use n2n\io\managed\File;
 use n2n\persistence\orm\annotation\AnnoEntityListeners;
 use n2n\web\http\orm\ResponseCacheClearer;
@@ -14,6 +13,7 @@ use n2n\l10n\N2nLocale;
 use page\bo\util\PageLink;
 use rocket\ei\manage\preview\model\PreviewModel;
 use ci\columns\NestedContentItem;
+use n2n\reflection\annotation\AnnoInit;
 
 class CiArticle extends NestedContentItem {
 	private static function _annos(AnnoInit $ai) {

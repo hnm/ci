@@ -3,13 +3,13 @@ namespace ci\columns;
 
 use rocket\impl\ei\component\prop\ci\model\ContentItem;
 use n2n\impl\web\ui\view\html\HtmlView;
-use n2n\reflection\annotation\AnnoInit;
 use n2n\persistence\orm\annotation\AnnoOneToMany;
 use n2n\persistence\orm\CascadeType;
 use n2n\persistence\orm\annotation\AnnoOrderBy;
 use n2n\persistence\orm\annotation\AnnoTable;
 use n2n\persistence\orm\annotation\AnnoEntityListeners;
 use n2n\web\http\orm\ResponseCacheClearer;
+use n2n\reflection\annotation\AnnoInit;
 
 class CiThreeColumns extends ContentItemContainer {
 	private static function _annos(AnnoInit $ai) {

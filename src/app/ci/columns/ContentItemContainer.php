@@ -1,9 +1,9 @@
 <?php
 namespace ci\columns;
 
-use rocket\impl\ei\component\prop\ci\model\ContentItem;
 use n2n\reflection\annotation\AnnoInit;
 use n2n\persistence\orm\annotation\AnnoMappedSuperclass;
+use rocket\impl\ei\component\prop\ci\model\ContentItem;
 
 abstract class ContentItemContainer extends ContentItem {
 	private static function _annos(AnnoInit $ai) {
