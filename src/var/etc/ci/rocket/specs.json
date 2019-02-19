@@ -11,7 +11,7 @@
                 "contentHtml": {
                     "class": "rocket\\impl\\ei\\component\\prop\\string\\cke\\CkeEiProp",
                     "props": {
-                        "displayInOverview": false,
+                        "displayInOverview": true,
                         "displayInDetailView": true,
                         "displayInEditView": true,
                         "displayInAddView": true,
@@ -124,7 +124,7 @@
                 "descriptionHtml": {
                     "class": "rocket\\impl\\ei\\component\\prop\\string\\cke\\CkeEiProp",
                     "props": {
-                        "displayInOverview": false,
+                        "displayInOverview": true,
                         "displayInDetailView": true,
                         "displayInEditView": true,
                         "displayInAddView": true,
