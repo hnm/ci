@@ -15,12 +15,8 @@
 	$image = $view->getParam('image');
 	$view->assert($image instanceof CiImage);
 	
-	$nestedType = $image->getNestedCiType();
-	
 	$tmplHtml = new TemplateHtmlBuilder($view);
 	
-	
-	$panel = $image->getPanel();
 	$alignment = $image->getAlignment();
 
 	$fileImage = $image->getFileImage();
