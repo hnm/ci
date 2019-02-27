@@ -58,7 +58,6 @@ CREATE TABLE IF NOT EXISTS `ci_image` (
   `format` varchar(255) DEFAULT NULL,
   `alignment` varchar(255) DEFAULT NULL,
   `open_lytebox` varchar(255) DEFAULT NULL,
-  `nested_ci_type` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `expl_page_link_id` (`expl_page_link_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
