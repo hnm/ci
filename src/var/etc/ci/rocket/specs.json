@@ -7,6 +7,13 @@
             "label": "Text-Editor",
             "pluralLabel": "Text-Editoren",
             "iconType": "fa fa-align-left",
+            "identityStringPattern": "",
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
             "props": {
                 "contentHtml": {
                     "class": "rocket\\impl\\ei\\component\\prop\\string\\cke\\CkeEiProp",
@@ -25,7 +32,8 @@
                             "simplefile\\model\\SimpleFileCkeLinkProvider"
                         ],
                         "cssConfig": "bstmpl\\model\\TmplCkeCssConfig",
-                        "tablesSupported": false
+                        "tablesSupported": false,
+                        "bbcode": false
                     },
                     "label": "Text",
                     "objectProperty": "contentHtml",
@@ -76,6 +84,13 @@
             "label": "Artikel",
             "pluralLabel": "Artikel",
             "iconType": "fa fa-dedent",
+            "identityStringPattern": "Artikel: {title}",
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
             "props": {
                 "title": {
                     "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
@@ -88,7 +103,7 @@
                         "readOnly": false,
                         "mandatory": false,
                         "draftable": false,
-                        "maxlength": 255,
+                        "maxlength": "255",
                         "multiline": false
                     },
                     "label": "Titel",
@@ -138,7 +153,8 @@
                             "simplefile\\model\\SimpleFileCkeLinkProvider"
                         ],
                         "cssConfig": "bstmpl\\model\\TmplCkeCssConfig",
-                        "tablesSupported": false
+                        "tablesSupported": false,
+                        "bbcode": false
                     },
                     "label": "Text",
                     "objectProperty": "descriptionHtml",
