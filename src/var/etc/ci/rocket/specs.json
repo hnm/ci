@@ -7,7 +7,7 @@
             "label": "Text-Editor",
             "pluralLabel": "Text-Editoren",
             "iconType": "fa fa-align-left",
-            "identityStringPattern": "",
+            "identityStringPattern": "Text: {contentHtml}",
             "filterData": {
                 "useAnd": true,
                 "items": [],
@@ -52,6 +52,13 @@
             "label": "Youtube-Video",
             "pluralLabel": "Youtube-Videos",
             "iconType": "fa fa-video-camera",
+            "identityStringPattern": "Youtube-Video: {youtubeId}",
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
             "props": {
                 "youtubeId": {
                     "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
@@ -64,7 +71,7 @@
                         "readOnly": false,
                         "mandatory": true,
                         "draftable": false,
-                        "maxlength": 32,
+                        "maxlength": "32",
                         "multiline": false
                     },
                     "label": "Youtube Id",
@@ -230,6 +237,13 @@
             "label": "Html-Snippet",
             "pluralLabel": "Html-Snippets",
             "iconType": "fa fa-code",
+            "identityStringPattern": "Html-Snippet: {id}",
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
             "props": {
                 "html": {
                     "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
@@ -262,6 +276,13 @@
             "label": "Anhang",
             "pluralLabel": "Anh\u00e4nge",
             "iconType": "fa fa-paperclip",
+            "identityStringPattern": "Anhang: {name}",
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
             "props": {
                 "name": {
                     "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
@@ -274,7 +295,7 @@
                         "readOnly": false,
                         "mandatory": false,
                         "draftable": false,
-                        "maxlength": 255,
+                        "maxlength": "255",
                         "multiline": false
                     },
                     "label": "Name",
@@ -312,7 +333,7 @@
                         "readOnly": false,
                         "mandatory": false,
                         "draftable": false,
-                        "maxlength": 255,
+                        "maxlength": "255",
                         "multiline": false
                     },
                     "label": "Beschreibung",
@@ -332,6 +353,13 @@
             "label": "2 Spalten",
             "pluralLabel": "2 Spalten",
             "iconType": "fa fa-columns",
+            "identityStringPattern": "2 Spalten",
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
             "props": {
                 "contentItems": {
                     "class": "rocket\\impl\\ei\\component\\prop\\ci\\ContentItemsEiProp",
@@ -389,6 +417,13 @@
             "label": "3 Spalten",
             "pluralLabel": "3 Spalten",
             "iconType": "fa fa-columns",
+            "identityStringPattern": "3 Spalten",
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
             "props": {
                 "contentItems": {
                     "class": "rocket\\impl\\ei\\component\\prop\\ci\\ContentItemsEiProp",
@@ -457,6 +492,13 @@
             "label": "Bild",
             "pluralLabel": "Bild",
             "iconType": "fa fa-image",
+            "identityStringPattern": "Bild: {id} {caption}",
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
             "props": {
                 "fileImage": {
                     "class": "rocket\\impl\\ei\\component\\prop\\file\\FileEiProp",
@@ -615,6 +657,13 @@
             "label": "Karte (Google Maps)",
             "pluralLabel": "Karten (Google Maps)",
             "iconType": "fa fa-map-marker",
+            "identityStringPattern": "Google Maps: {title}",
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
             "props": {
                 "zoom": {
                     "class": "rocket\\impl\\ei\\component\\prop\\numeric\\IntegerEiProp",
@@ -734,6 +783,7 @@
             "label": "Inhalts-Akkordeon",
             "pluralLabel": "Inhalts-Akkordeon",
             "iconType": "fa fa-expand",
+            "identityStringPattern": "Inhalts-Akkorden: {title}",
             "filterData": {
                 "useAnd": true,
                 "items": [],
@@ -817,6 +867,7 @@
             "label": "Anker",
             "pluralLabel": "Ankers",
             "iconType": "fa fa-anchor",
+            "identityStringPattern": "Anker: {title}",
             "filterData": {
                 "useAnd": true,
                 "items": [],
