@@ -46,7 +46,7 @@
             "iconType": "fa fa-video-camera",
             "props": {
                 "youtubeId": {
-                    "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
+                    "class": "ch\\hnm\\util\\rocket\\media\\YoutubeEiProp",
                     "props": {
                         "displayInOverview": true,
                         "displayInDetailView": true,

@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `ci_youtube` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE `ci_google_maps` (
+CREATE TABLE IF NOT EXISTS  `ci_google_maps` (
 	`id` INT(11) NOT NULL,
 	`lat` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8_unicode_ci',
 	`lng` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8_unicode_ci',
@@ -121,7 +121,7 @@ COLLATE='utf8_unicode_ci'
 ENGINE=InnoDB
 ;
 
-CREATE TABLE `ci_accordion` (
+CREATE TABLE IF NOT EXISTS  `ci_accordion` (
 	`id` INT(11) NOT NULL,
 	`title` VARCHAR(255) NULL DEFAULT NULL,
 	PRIMARY KEY (`id`)
@@ -131,7 +131,7 @@ ENGINE=InnoDB
 ;
 
 
-CREATE TABLE `ci_accordion_content_items` (
+CREATE TABLE IF NOT EXISTS `ci_accordion_content_items` (
 	`ci_accordion_id` INT(10) UNSIGNED NOT NULL,
 	`content_item_id` INT(10) UNSIGNED NOT NULL,
 	PRIMARY KEY (`ci_accordion_id`, `content_item_id`)
