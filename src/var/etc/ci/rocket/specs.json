@@ -515,7 +515,7 @@
             "label": "Bild",
             "pluralLabel": "Bild",
             "iconType": "fa fa-image",
-            "identityStringPattern": "Bild: {dateiname} ",
+            "identityStringPattern": "Bild: {fileImage}",
             "filterData": {
                 "useAnd": true,
                 "items": [],
