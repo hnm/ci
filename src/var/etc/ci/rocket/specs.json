@@ -49,10 +49,10 @@
             "nature": "entity",
             "entity": "ci\\video\\CiYoutube",
             "dataSourceName": null,
-            "label": "Youtube-Video",
-            "pluralLabel": "Youtube-Videos",
+            "label": "Youtube",
+            "pluralLabel": "Youtubes",
             "iconType": "fa fa-video-camera",
-            "identityStringPattern": "Youtube-Video: {youtubeId}",
+            "identityStringPattern": "Youtube: {youtubeId}",
             "filterData": {
                 "useAnd": true,
                 "items": [],
