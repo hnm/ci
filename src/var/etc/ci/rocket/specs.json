@@ -7,7 +7,7 @@
             "label": "Text-Editor",
             "pluralLabel": "Text-Editoren",
             "iconType": "fa fa-align-left",
-            "identityStringPattern": "",
+            "identityStringPattern": "Text: {contentHtml}",
             "filterData": {
                 "useAnd": true,
                 "items": [],
@@ -49,12 +49,19 @@
             "nature": "entity",
             "entity": "ci\\video\\CiYoutube",
             "dataSourceName": null,
-            "label": "Youtube-Video",
-            "pluralLabel": "Youtube-Videos",
+            "label": "Youtube",
+            "pluralLabel": "Youtubes",
             "iconType": "fa fa-video-camera",
+            "identityStringPattern": "Youtube: {youtubeId}",
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
             "props": {
                 "youtubeId": {
-                    "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
+                    "class": "ch\\hnm\\util\\rocket\\media\\YoutubeEiProp",
                     "props": {
                         "displayInOverview": true,
                         "displayInDetailView": true,
@@ -62,10 +69,8 @@
                         "displayInAddView": true,
                         "constant": false,
                         "readOnly": false,
-                        "mandatory": true,
-                        "draftable": false,
-                        "maxlength": 32,
-                        "multiline": false
+                        "mandatory": false,
+                        "draftable": false
                     },
                     "label": "Youtube Id",
                     "objectProperty": "youtubeId",
@@ -73,6 +78,13 @@
                 }
             },
             "commands": [],
+            "overviewOrder": [
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "youtubeId"
+                }
+            ],
             "partialControlOrder": [],
             "overallControlOrder": [],
             "entryControlOrder": []
@@ -83,7 +95,7 @@
             "dataSourceName": null,
             "label": "Artikel",
             "pluralLabel": "Artikel",
-            "iconType": "fa fa-dedent",
+            "iconType": "fa fa-indent",
             "identityStringPattern": "Artikel: {title}",
             "filterData": {
                 "useAnd": true,
@@ -172,7 +184,6 @@
                         "mandatory": true,
                         "draftable": false,
                         "options": {
-                            "left": "Links",
                             "right": "Rechts"
                         },
                         "associatedGuiProps": []
@@ -219,6 +230,18 @@
                 }
             },
             "commands": [],
+            "overviewOrder": [
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "fileImage"
+                },
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "title"
+                }
+            ],
             "partialControlOrder": [],
             "overallControlOrder": [],
             "entryControlOrder": []
@@ -227,9 +250,16 @@
             "nature": "entity",
             "entity": "ci\\htmlsnippet\\CiHtmlSnippet",
             "dataSourceName": null,
-            "label": "Html-Snippet",
-            "pluralLabel": "Html-Snippets",
+            "label": "Html-Code",
+            "pluralLabel": "Html-Code",
             "iconType": "fa fa-code",
+            "identityStringPattern": "Html-Code: eigener Quelltext",
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
             "props": {
                 "html": {
                     "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
@@ -262,6 +292,13 @@
             "label": "Anhang",
             "pluralLabel": "Anh\u00e4nge",
             "iconType": "fa fa-paperclip",
+            "identityStringPattern": "Anhang: {name}",
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
             "props": {
                 "name": {
                     "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
@@ -274,7 +311,7 @@
                         "readOnly": false,
                         "mandatory": false,
                         "draftable": false,
-                        "maxlength": 255,
+                        "maxlength": "255",
                         "multiline": false
                     },
                     "label": "Name",
@@ -312,7 +349,7 @@
                         "readOnly": false,
                         "mandatory": false,
                         "draftable": false,
-                        "maxlength": 255,
+                        "maxlength": "255",
                         "multiline": false
                     },
                     "label": "Beschreibung",
@@ -321,6 +358,13 @@
                 }
             },
             "commands": [],
+            "overviewOrder": [
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "file"
+                }
+            ],
             "partialControlOrder": [],
             "overallControlOrder": [],
             "entryControlOrder": []
@@ -332,6 +376,13 @@
             "label": "2 Spalten",
             "pluralLabel": "2 Spalten",
             "iconType": "fa fa-columns",
+            "identityStringPattern": "2 Spalten",
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
             "props": {
                 "contentItems": {
                     "class": "rocket\\impl\\ei\\component\\prop\\ci\\ContentItemsEiProp",
@@ -389,6 +440,13 @@
             "label": "3 Spalten",
             "pluralLabel": "3 Spalten",
             "iconType": "fa fa-columns",
+            "identityStringPattern": "3 Spalten",
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
             "props": {
                 "contentItems": {
                     "class": "rocket\\impl\\ei\\component\\prop\\ci\\ContentItemsEiProp",
@@ -457,6 +515,13 @@
             "label": "Bild",
             "pluralLabel": "Bild",
             "iconType": "fa fa-image",
+            "identityStringPattern": "Bild: {fileImage}",
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
             "props": {
                 "fileImage": {
                     "class": "rocket\\impl\\ei\\component\\prop\\file\\FileEiProp",
@@ -604,6 +669,13 @@
                 }
             },
             "commands": [],
+            "overviewOrder": [
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "fileImage"
+                }
+            ],
             "partialControlOrder": [],
             "overallControlOrder": [],
             "entryControlOrder": []
@@ -612,9 +684,16 @@
             "nature": "entity",
             "entity": "ci\\gmap\\CiGoogleMaps",
             "dataSourceName": null,
-            "label": "Karte (Google Maps)",
-            "pluralLabel": "Karten (Google Maps)",
+            "label": "Google Maps",
+            "pluralLabel": "Google Maps",
             "iconType": "fa fa-map-marker",
+            "identityStringPattern": "Google Maps Karte",
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
             "props": {
                 "zoom": {
                     "class": "rocket\\impl\\ei\\component\\prop\\numeric\\IntegerEiProp",
@@ -731,9 +810,10 @@
             "nature": "entity",
             "entity": "ci\\accordion\\CiAccordion",
             "dataSourceName": null,
-            "label": "Inhalts-Akkordeon",
-            "pluralLabel": "Inhalts-Akkordeon",
+            "label": "Akkordeon",
+            "pluralLabel": "Akkordeon",
             "iconType": "fa fa-expand",
+            "identityStringPattern": "Akkorden: {title}",
             "filterData": {
                 "useAnd": true,
                 "items": [],
@@ -817,6 +897,7 @@
             "label": "Anker",
             "pluralLabel": "Ankers",
             "iconType": "fa fa-anchor",
+            "identityStringPattern": "Anker: {title}",
             "filterData": {
                 "useAnd": true,
                 "items": [],
