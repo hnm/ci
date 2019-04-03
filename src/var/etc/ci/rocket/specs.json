@@ -686,7 +686,7 @@
             "dataSourceName": null,
             "label": "Google Maps",
             "pluralLabel": "Google Maps",
-            "iconType": "fa fa-map-marker",
+            "iconType": "fa fa-map",
             "identityStringPattern": "Google Maps Karte",
             "filterData": {
                 "useAnd": true,
@@ -802,6 +802,13 @@
                 }
             },
             "commands": [],
+            "overviewOrder": [
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "title"
+                }
+            ],
             "partialControlOrder": [],
             "overallControlOrder": [],
             "entryControlOrder": []
