@@ -873,6 +873,13 @@
                 }
             },
             "commands": [],
+            "overviewOrder": [
+                {
+                    "label": null,
+                    "type": null,
+                    "guiIdPath": "title"
+                }
+            ],
             "partialControlOrder": [],
             "overallControlOrder": [],
             "entryControlOrder": []
