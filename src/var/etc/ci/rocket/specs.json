@@ -184,6 +184,7 @@
                         "mandatory": true,
                         "draftable": false,
                         "options": {
+                            "left": "Links",
                             "right": "Rechts"
                         },
                         "associatedGuiProps": []
