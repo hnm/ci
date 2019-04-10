@@ -37,7 +37,6 @@ class CiImage extends NestedContentItem {
 	const IMAGE_ASPEKT_RATIO_FULL_WIDTH = 4/1;
 	const IMAGE_ASPEKT_RATIO = 4/3;
 	
-	private $nestedCiType;
 	private $fileImage;
 	private $caption;
 	private $altTag;
@@ -106,14 +105,6 @@ class CiImage extends NestedContentItem {
 	
 	public function setExplPageLink(ExplPageLink $explPageLink = null) {
 		$this->explPageLink = $explPageLink;
-	}
-	
-	public function getNestedCiType() {
-		return $this->nestedCiType;
-	}
-	
-	public function setNestedCiType($nestedCiType) {
-		$this->nestedCiType = $nestedCiType;
 	}
 	
 	public function determineTarget() {
@@ -215,9 +206,9 @@ class CiImage extends NestedContentItem {
 		// mobile 
 		$imgWidth = array('xs' => 545, 'sm' => 510);
 		
-		if (null !== $this->nestedCiType) {
+		if (null !== $this->getNestedCiType()) {
 			
-			switch($this->nestedCiType) {
+			switch($this->getNestedCiType()) {
 				case self::NESTED_TWO_COLUMNS:
 				    // 2 Spalten
 					$imgWidth = array_merge($imgWidth, array('md' => 330, 'lg' => 450, 'xl' => 540));
