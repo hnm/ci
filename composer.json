@@ -17,8 +17,7 @@
         "n2n/rocket": "dev-master",
         "hnm/ch-hnm-util": "dev-master",
         "hnm/simplefile": "dev-master",
-        "hnm/bstmpl": "dev-master",
-        "n2n/n2nutil-bootstrap": "dev-master"
+        "hnm/bstmpl": "dev-master"
     },
     "autoload": {
         "psr-4": {

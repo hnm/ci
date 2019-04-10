@@ -2,7 +2,6 @@
 namespace ci\cke;
 
 use n2n\impl\web\ui\view\html\HtmlView;
-use n2n\impl\web\ui\view\html\HtmlElement;
 use rocket\impl\ei\component\prop\string\cke\ui\CkeHtmlBuilder;
 use n2n\reflection\annotation\AnnoInit;
 use n2n\persistence\orm\annotation\AnnoEntityListeners;
@@ -26,6 +25,22 @@ class CiCke extends NestedContentItem {
 	
 	public function createUiComponent(HtmlView $view) {
 		$ckeHtml = new CkeHtmlBuilder($view);
-		return new HtmlElement('div', array('class' => ($this->isNested() ? 'ci-item-nested' : 'ci-item') .  ' ci-cke'), $ckeHtml->getOut($this->contentHtml));
+		return $ckeHtml->getOut($this->getParsedHtml());
+	}
+	
+	private function getParsedHtml() {
+		$dom = new \DOMDocument();
+		@$dom->loadHTML($this->contentHtml);
+		$uls = $dom->getElementsByTagName('ul');
+		foreach ($uls as $ul) {
+			$ul instanceof \DOMElement;
+			if ($ul->hasAttribute('class')) {
+				$ul->setAttribute('class', $ul->getAttribute('class') . ' hnm-list');
+			} else {
+				$ul->setAttribute('class', 'hnm-list');
+			}
+		}
+		
+		return $dom->saveHTML();
 	}
 }
