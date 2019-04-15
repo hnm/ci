@@ -6,6 +6,7 @@
 	use bstmpl\ui\TemplateHtmlBuilder;
 	use ch\hnm\util\page\bo\ExplPageLink;
 	use n2n\impl\web\ui\view\html\HtmlView;
+use ci\ui\CiUtils;
 	
 	/**
 	 * @var HtmlView $view
@@ -71,7 +72,7 @@
 				<?php endif ?>
 			</h2>
 		<?php endif ?>
-		<?php $ckeHtml->out($article->getDescriptionHtml()) ?>
+		<?php $ckeHtml->out(CiUtils::getParsedHtml($article->getDescriptionHtml())) ?>
 		<?php if ($explUrl && $showExplicit): ?>
 			<?php $html->link($explUrl, $explLabel, array('class' => 'btn btn-primary', 'target' => $target)) ?>
 		<?php endif ?>

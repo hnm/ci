@@ -7,6 +7,7 @@ use n2n\reflection\annotation\AnnoInit;
 use n2n\persistence\orm\annotation\AnnoEntityListeners;
 use n2n\web\http\orm\ResponseCacheClearer;
 use ci\columns\NestedContentItem;
+use ci\ui\CiUtils;
 
 class CiCke extends NestedContentItem {
 	private static function _annos(AnnoInit $ai) {
@@ -25,22 +26,6 @@ class CiCke extends NestedContentItem {
 	
 	public function createUiComponent(HtmlView $view) {
 		$ckeHtml = new CkeHtmlBuilder($view);
-		return $ckeHtml->getOut($this->getParsedHtml());
-	}
-	
-	private function getParsedHtml() {
-		$dom = new \DOMDocument();
-		@$dom->loadHTML($this->contentHtml);
-		$uls = $dom->getElementsByTagName('ul');
-		foreach ($uls as $ul) {
-			$ul instanceof \DOMElement;
-			if ($ul->hasAttribute('class')) {
-				$ul->setAttribute('class', $ul->getAttribute('class') . ' hnm-list');
-			} else {
-				$ul->setAttribute('class', 'hnm-list');
-			}
-		}
-		
-		return $dom->saveHTML();
+		return $ckeHtml->getOut(CiUtils::getParsedHtml($this->contentHtml));
 	}
 }
