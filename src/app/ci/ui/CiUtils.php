@@ -11,9 +11,9 @@ class CiUtils {
 		foreach ($uls as $ul) {
 			$ul instanceof \DOMElement;
 			if ($ul->hasAttribute('class')) {
-				$ul->setAttribute('class', $ul->getAttribute('class') . ' hnm-list');
+				$ul->setAttribute('class', $ul->getAttribute('class') . ' bstmpl-list');
 			} else {
-				$ul->setAttribute('class', 'hnm-list');
+				$ul->setAttribute('class', 'bstmpl-list');
 			}
 		}
 		
@@ -22,9 +22,9 @@ class CiUtils {
 		foreach ($blockquotes as $blockquote) {
 			$blockquote instanceof \DOMElement;
 			if ($blockquote->hasAttribute('class')) {
-				$blockquote->setAttribute('class', $blockquote->getAttribute('class') . ' fdt-blockquote');
+				$blockquote->setAttribute('class', $blockquote->getAttribute('class') . ' bstmpl-blockquote');
 			} else {
-				$blockquote->setAttribute('class', 'fdt-blockquote');
+				$blockquote->setAttribute('class', 'bstmpl-blockquote');
 			}
 		}
 		
