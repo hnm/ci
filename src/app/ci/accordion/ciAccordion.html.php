@@ -2,6 +2,7 @@
     use n2n\impl\web\ui\view\html\HtmlView;
     use ci\accordion\CiAccordion;
     use ci\ui\CiHtmlBuilder;
+	use bstmpl\model\BsTemplateModel;
 
     /**
     * @var HtmlView $view
@@ -14,7 +15,7 @@
 	
 	$ciHtml = new CiHtmlBuilder($view);
 	
-	$html->meta()->bodyEnd()->addJs('js/functions.js');
+	$html->meta()->bodyEnd()->addJs('js/functions.js?v=' . BsTemplateModel::ASSETS_VERSION);
 ?>
 
 <div class="ci-item ci-accordion">
