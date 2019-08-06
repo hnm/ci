@@ -4,7 +4,7 @@ class CiUtils {
 	
 	public static function getParsedHtml($contentHtml) {
 		$dom = new \DOMDocument();
-		@$dom->loadHTML($contentHtml);
+		$dom->loadHTML('<?xml encoding="utf-8">' . $contentHtml);
 		
 		//ul style
 		$uls = $dom->getElementsByTagName('ul');
@@ -28,7 +28,9 @@ class CiUtils {
 			}
 		}
 		
-		return  preg_replace("/(<\/?html>|<!DOCTYPE.+|<\/?body>)/", '', $dom->saveHTML());
+		
+		return preg_replace("/(<\/?html>|<\?xml encoding=\"utf-8\">|<\/xml>|<!DOCTYPE.+|<\/?body>)/", '',
+				$dom->saveHTML());
 		
 		// 		$dom->removeChild($dom->doctype);
 		
