@@ -4,7 +4,7 @@
 	use rocket\impl\ei\component\prop\string\cke\ui\CkeHtmlBuilder;
 	use bstmpl\ui\TemplateHtmlBuilder;
 	use ch\hnm\util\page\bo\ExplPageLink;
-	use n2nutil\bootstrap\img\MimgBs;
+	use bootstrap\img\MimgBs;
 	use n2n\impl\web\ui\view\html\img\Mimg;
 use ci\ui\CiUtils;
 		

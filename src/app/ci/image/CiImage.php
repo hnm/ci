@@ -5,7 +5,7 @@ use n2n\impl\web\ui\view\html\HtmlView;
 use n2n\reflection\annotation\AnnoInit;
 use \n2n\io\managed\File;
 use n2n\persistence\orm\annotation\AnnoManagedFile;
-use n2nutil\bootstrap\img\MimgBs;
+use bootstrap\img\MimgBs;
 use n2n\impl\web\ui\view\html\img\Mimg;
 use n2n\web\http\orm\ResponseCacheClearer;
 use n2n\persistence\orm\annotation\AnnoEntityListeners;

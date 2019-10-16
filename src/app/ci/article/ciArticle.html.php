@@ -1,7 +1,7 @@
 <?php
 	use ci\article\CiArticle;
 	use rocket\impl\ei\component\prop\string\cke\ui\CkeHtmlBuilder;
-	use n2nutil\bootstrap\img\MimgBs;
+	use bootstrap\img\MimgBs;
 	use n2n\impl\web\ui\view\html\img\Mimg;
 	use bstmpl\ui\TemplateHtmlBuilder;
 	use ch\hnm\util\page\bo\ExplPageLink;
