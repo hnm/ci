@@ -40,7 +40,7 @@ use ci\ui\CiUtils;
 	$ckeHtml = new CkeHtmlBuilder($view);
 ?>
 
-<article class="ci-item-nested ci-article-nested<?php $html->out($title ? ' ci-article-nested--has-title' : '') ?> d-flex flex-column w-100">
+<article class="ci-item-nested ci-article-nested<?php $html->out($title ? ' ci-article-nested--has-title' : '') ?> d-flex flex-column w-100 flex-fill">
 	<figure class="ci-article-nested__image">	
 		<?php if ($isOpenLytebox): ?>
 			<?php $tmplHtml->fancyImage($fileImage, $imgComposer, null, array('class' => 'd-none d-sm-block'), 
