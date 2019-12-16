@@ -4,7 +4,7 @@ class CiUtils {
 	
 	public static function getParsedHtml($contentHtml) {
 		$dom = new \DOMDocument();
-		$dom->loadHTML('<?xml encoding="utf-8">' . $contentHtml);
+		@$dom->loadHTML('<?xml encoding="utf-8">' . $contentHtml);
 		
 		//ul style
 		$uls = $dom->getElementsByTagName('ul');
