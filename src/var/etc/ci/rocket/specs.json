@@ -385,6 +385,50 @@
             },
             "defaultSort": [],
             "props": {
+                "alignment": {
+                    "class": "rocket\\impl\\ei\\component\\prop\\enum\\EnumEiProp",
+                    "props": {
+                        "displayInOverview": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "constant": false,
+                        "readOnly": false,
+                        "mandatory": true,
+                        "draftable": false,
+                        "options": {
+                            "top": "Inhalt oben ausrichten",
+                            "center": "Inhalt mittig ausrichten",
+                            "bottom": "Inhalt unten ausrichten"
+                        },
+                        "associatedGuiProps": []
+                    },
+                    "label": "\u2195 vertikale Ausrichtung",
+                    "objectProperty": "alignment",
+                    "entityProperty": "alignment"
+                },
+                "splitting": {
+                    "class": "rocket\\impl\\ei\\component\\prop\\enum\\EnumEiProp",
+                    "props": {
+                        "displayInOverview": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "constant": false,
+                        "readOnly": false,
+                        "mandatory": false,
+                        "draftable": false,
+                        "options": {
+                            "": "1:1",
+                            "three-two": "3:2",
+                            "two-three": "2:3"
+                        },
+                        "associatedGuiProps": []
+                    },
+                    "label": "Aufteilung\/Verh\u00e4ltnis",
+                    "objectProperty": "splitting",
+                    "entityProperty": "splitting"
+                },
                 "contentItems": {
                     "class": "rocket\\impl\\ei\\component\\prop\\ci\\ContentItemsEiProp",
                     "props": {
@@ -449,6 +493,28 @@
             },
             "defaultSort": [],
             "props": {
+                "alignment": {
+                    "class": "rocket\\impl\\ei\\component\\prop\\enum\\EnumEiProp",
+                    "props": {
+                        "displayInOverview": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "constant": false,
+                        "readOnly": false,
+                        "mandatory": true,
+                        "draftable": false,
+                        "options": {
+                            "top": "Inhalt oben ausrichten",
+                            "center": "Inhalt mittig ausrichten",
+                            "bottom": "Inhalt unten ausrichten"
+                        },
+                        "associatedGuiProps": []
+                    },
+                    "label": "\u2195 vertikale Ausrichtung",
+                    "objectProperty": "alignment",
+                    "entityProperty": "alignment"
+                },
                 "contentItems": {
                     "class": "rocket\\impl\\ei\\component\\prop\\ci\\ContentItemsEiProp",
                     "props": {

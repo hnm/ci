@@ -22,6 +22,7 @@ class CiThreeColumns extends ContentItemContainer {
 	 * @var ContentItem[]
 	 */
 	private $contentItems = array();
+	private $alignment;
 	
 	/**
 	 * @return ContentItem []
@@ -49,5 +50,21 @@ class CiThreeColumns extends ContentItemContainer {
 	
 	public function getNestedCiType() {
 		return NestedContentItem::NESTED_THREE_COLUMNS;
+	}
+	
+	public function getAlignmentClass() {
+		switch ($this->alignment) {
+			case NestedContentItem::ALIGNMENT_BOTTOM: return ' align-items-end';
+			case NestedContentItem::ALIGNMENT_CENTER: return ' align-items-center';
+			default: return null;
+		}
+	}
+	
+	public function getAlignment() {
+		return $this->alignment;
+	}
+	
+	public function setAlignment(string $alignment) {
+		$this->alignment = $alignment;
 	}
 }

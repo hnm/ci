@@ -23,6 +23,13 @@ abstract class NestedContentItem extends ContentItem {
 	const NESTED_PANEL_NAME_2 = 'column-2';
 	const NESTED_PANEL_NAME_3 = 'column-3';
 	
+	const ALIGNMENT_TOP = 'top';
+	const ALIGNMENT_CENTER = 'center';
+	const ALIGNMENT_BOTTOM = 'bottom';
+	
+	const SPLITTING_TWO_THREE = "two-three";
+	const SPLITTING_THREE_TWO = "three-two";
+	
 	private $contentItemContainer;
 	
 	static function getConstants() {

@@ -16,6 +16,8 @@ use ch\hnm\util\page\bo\ExplPageLink;
 use page\bo\util\PageLink;
 use rocket\ei\manage\preview\model\PreviewModel;
 use ci\columns\NestedContentItem;
+use ci\columns\CiTwoColumns;
+use n2n\util\type\CastUtils;
 
 class CiImage extends NestedContentItem {
 	private static function _annos(AnnoInit $ai) {
@@ -210,9 +212,29 @@ class CiImage extends NestedContentItem {
 			
 			switch($this->getNestedCiType()) {
 				case self::NESTED_TWO_COLUMNS:
+					
+					$contentItemContainer = $this->getContentItemContainer();
+					CastUtils::assertTrue($contentItemContainer instanceof CiTwoColumns);
+					
 				    // 2 Spalten
-					$imgWidth = array_merge($imgWidth, array('md' => 330, 'lg' => 450, 'xl' => 540));
-					break;
+					if ($this->getContentItemContainer()->getSplitting() === null) {
+						$imgWidth = array_merge($imgWidth, array('md' => 330, 'lg' => 450, 'xl' => 540));
+						break;
+					}
+					
+					// Layout/Splitting 3:2 <-> 2:3
+					if ($this->getPanel() === NestedContentItem::NESTED_PANEL_NAME_1 && $this->getContentItemContainer()->getSplitting() === NestedContentItem::SPLITTING_THREE_TWO ||
+							$this->getPanel() === NestedContentItem::NESTED_PANEL_NAME_2 && $this->getContentItemContainer()->getSplitting() === NestedContentItem::SPLITTING_TWO_THREE) {
+				    	$imgWidth = array_merge($imgWidth, array('md' => 450, 'lg' => 610, 'xl' => 730));
+				    	break;
+					}
+					
+					if ($this->getPanel() === NestedContentItem::NESTED_PANEL_NAME_1 && $this->getContentItemContainer()->getSplitting() === NestedContentItem::SPLITTING_TWO_THREE ||
+							$this->getPanel() === NestedContentItem::NESTED_PANEL_NAME_2 && $this->getContentItemContainer()->getSplitting() === NestedContentItem::SPLITTING_THREE_TWO) {
+						$imgWidth = array_merge($imgWidth, array('md' => 210, 'lg' => 290, 'xl' => 350));
+						break;
+					}
+							
 					
 				case self::NESTED_THREE_COLUMNS:
 				    // 3 Spalten

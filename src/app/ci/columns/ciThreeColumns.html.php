@@ -17,7 +17,7 @@
 	
 	$isMultiNested = $ciHtml->hasCiMultipleNestedCis($contentItems, $ciThreeColumns->getPanels());
 ?>
-<div class="row ci-col ci-3-col<?php $html->out($isMultiNested ? ' ci-has-multi': '') ?>">
+<div class="row ci-col ci-3-col<?php $html->out($isMultiNested ? ' ci-has-multi': '') ?> <?php $html->out($ciThreeColumns->getAlignmentClass()) ?>">
 	<div class="col-md-4<?php $html->out($isMultiNested ? '' : ' d-flex') ?> ci-3-col-left">
 		<?php $ciHtml->contentItems($contentItems, NestedContentItem::NESTED_PANEL_NAME_1) ?>
 	</div>

@@ -6,6 +6,8 @@ use n2n\persistence\orm\annotation\AnnoMappedSuperclass;
 use rocket\impl\ei\component\prop\ci\model\ContentItem;
 
 abstract class ContentItemContainer extends ContentItem {
+	
+	
 	private static function _annos(AnnoInit $ai) {
 		$ai->c(new AnnoMappedSuperclass());
 	}
@@ -19,6 +21,11 @@ abstract class ContentItemContainer extends ContentItem {
 	 */
 	public abstract function getNestedCiType();
 	
+	/**
+	 * @return string
+	 */
+	public abstract function getAlignmentClass();
+
 	/**
 	 * @param int $orderIndex
 	 * @param string $panel

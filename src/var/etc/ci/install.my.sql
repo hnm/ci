@@ -63,9 +63,10 @@ CREATE TABLE IF NOT EXISTS `ci_image` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Daten Export vom Benutzer nicht ausgewählt
--- Exportiere Struktur von Tabelle mdl_template.ci_three_columns
+-- Exportiere Struktur von Tabelle mdl_ci.ci_three_columns
 CREATE TABLE IF NOT EXISTS `ci_three_columns` (
-  `id` int(10) unsigned NOT NULL,
+  `id` int(11) NOT NULL,
+  `alignment` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -78,11 +79,14 @@ CREATE TABLE IF NOT EXISTS `ci_three_columns_content_items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Daten Export vom Benutzer nicht ausgewählt
--- Exportiere Struktur von Tabelle mdl_template.ci_two_columns
+-- Exportiere Struktur von Tabelle mdl_ci.ci_two_columns
 CREATE TABLE IF NOT EXISTS `ci_two_columns` (
-  `id` int(10) unsigned NOT NULL,
+  `id` int(11) NOT NULL,
+  `alignment` varchar(255) DEFAULT NULL,
+  `splitting` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 CREATE TABLE IF NOT EXISTS `ci_nested_content_item` (
   `id` int(11) NOT NULL,
