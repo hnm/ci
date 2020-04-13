@@ -40,32 +40,35 @@
 		$containerAttrs = HtmlUtils::mergeAttrs($containerAttrs, array('class' => 'clearfix'));
 	}
 ?>
-<figure <?php $view->out(HtmlElement::buildAttrsHtml($containerAttrs)) ?>>
-	<?php if ($isOpenLytebox): ?>
-		<?php $tmplHtml->fancyImage($fileImage, $imgComposer, null, array('class' => 'd-none d-md-block'), array('alt' => $image->determineAltTag())) ?>
-	<?php endif ?>
-	<?php if (null !== $explUrl): ?>
-		<?php $html->linkStart($explUrl, array('target' => $target)) ?>
-	<?php endif ?>
-	
-	<?php if (null !== $fileImage): ?>
-		<?php $html->image($fileImage, $imgComposer, array(
-				'class' => 'img-fluid' . (true === $isOpenLytebox ? ' d-md-none' : ''), 
-				'alt' => $image->determineAltTag())) ?>
-	<?php endif ?>
+<div <?php $view->out(HtmlElement::buildAttrsHtml($containerAttrs)) ?>>
+	<figure >
+		<?php if ($isOpenLytebox): ?>
+			<?php $tmplHtml->fancyImage($fileImage, $imgComposer, null, array('class' => 'd-none d-md-block'), array('alt' => $image->determineAltTag())) ?>
+		<?php endif ?>
+		<?php if (null !== $explUrl): ?>
+			<?php $html->linkStart($explUrl, array('target' => $target)) ?>
+		<?php endif ?>
 		
-	<?php if (null !== $explUrl): ?>
-		<?php $html->linkEnd() ?>
-	<?php endif ?>
-	
-	<?php if (null !== ($caption = $image->getCaption()) || (null !== $explPageLink && $explPageLink->isShowExplicit() && null !== $explUrl)): ?>
-		<figcaption class="figure-caption">
-			<?php if (null !== $caption): ?>
-				<?php $html->out($caption) ?>
-			<?php endif ?>
-			<?php if (null !== $explPageLink && $explPageLink->isShowExplicit() && null !== $explUrl): ?>
-				<?php $html->link($explUrl, $explLabel, array('target' => $target)) ?>
-			<?php endif ?>
-		</figcaption>
-	<?php endif ?>
-</figure>
+		<?php if (null !== $fileImage): ?>
+			<?php $html->image($fileImage, $imgComposer, array(
+					'class' => 'img-fluid' . (true === $isOpenLytebox ? ' d-md-none' : ''), 
+					'alt' => $image->determineAltTag())) ?>
+		<?php endif ?>
+			
+		<?php if (null !== $explUrl): ?>
+			<?php $html->linkEnd() ?>
+		<?php endif ?>
+		
+		<?php if (null !== ($caption = $image->getCaption()) || (null !== $explPageLink && $explPageLink->isShowExplicit() && null !== $explUrl)): ?>
+			<figcaption class="figure-caption">
+				<?php if (null !== $caption): ?>
+					<?php $html->out($caption) ?>
+				<?php endif ?>
+				<?php if (null !== $explPageLink && $explPageLink->isShowExplicit() && null !== $explUrl): ?>
+					<?php $html->link($explUrl, $explLabel, array('target' => $target)) ?>
+				<?php endif ?>
+			</figcaption>
+		<?php endif ?>
+	</figure>
+
+</div>
