@@ -19,7 +19,7 @@
         "hnm/ch-hnm-util": "dev-master",
         "hnm/simplefile": "dev-master",
         "hnm/bstmpl": "dev-master",
-        "n2n/n2nutil-bootstrap": "dev-master"
+        "hnm/bootstrap": "dev-master"
     },
 	"require-dev" : {
 		"n2n/hangar" : "dev-master"

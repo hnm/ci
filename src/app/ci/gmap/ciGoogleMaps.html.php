@@ -2,6 +2,7 @@
 	use ci\gmap\CiGoogleMaps;
 	use n2n\util\StringUtils;
 	use n2n\impl\web\ui\view\html\HtmlView;
+	use bstmpl\model\BsTemplateModel;
 	
 	$view = HtmlView::view($view);
 	$html = HtmlView::html($view);
@@ -15,7 +16,7 @@
 	
 	
 	$meta->bodyEnd()->addJsUrl('https://maps.googleapis.com/maps/api/js?' . http_build_query($gmapsData));
-	$meta->bodyEnd()->addJs('js/gmaps.js', 'bstmpl');
+	$meta->bodyEnd()->addJs('js/gmaps.js?v=' . BsTemplateModel::ASSETS_VERSION, 'bstmpl');
 	
 ?>
 <div class="tmpl-map ci-item ci-gmaps" 

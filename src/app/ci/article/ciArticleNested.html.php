@@ -4,8 +4,9 @@
 	use rocket\impl\ei\component\prop\string\cke\ui\CkeHtmlBuilder;
 	use bstmpl\ui\TemplateHtmlBuilder;
 	use ch\hnm\util\page\bo\ExplPageLink;
-	use n2nutil\bootstrap\img\MimgBs;
+	use bootstrap\img\MimgBs;
 	use n2n\impl\web\ui\view\html\img\Mimg;
+use ci\ui\CiUtils;
 		
 	/**
 	 * @var HtmlView $view
@@ -39,7 +40,7 @@
 	$ckeHtml = new CkeHtmlBuilder($view);
 ?>
 
-<article class="ci-item-nested ci-article-nested<?php $html->out($title ? ' ci-article-nested--has-title' : '') ?> d-flex flex-column w-100">
+<article class="ci-item-nested ci-article-nested<?php $html->out($title ? ' ci-article-nested--has-title' : '') ?> d-flex flex-column w-100 flex-fill">
 	<figure class="ci-article-nested__image">	
 		<?php if ($isOpenLytebox): ?>
 			<?php $tmplHtml->fancyImage($fileImage, $imgComposer, null, array('class' => 'd-none d-sm-block'), 
@@ -66,7 +67,7 @@
 				<?php endif ?>
 			</h3>
 		<?php endif ?>
-		<?php $ckeHtml->out($article->getDescriptionHtml()) ?>
+		<?php $ckeHtml->out(CiUtils::getParsedHtml($article->getDescriptionHtml())) ?>
 		<?php if ($explUrl && $showExplicit): ?>
 			<?php $html->link($explUrl, '', array('class' => 'ci-article-nested__link','target' => $target)) ?>
 			<?php $html->link($explUrl, $explLabel, array('class' => 'btn btn-md btn-primary mt-auto align-self-start', 'target' => $target)) ?>
