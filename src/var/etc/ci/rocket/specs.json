@@ -51,7 +51,7 @@
             "dataSourceName": null,
             "label": "Youtube",
             "pluralLabel": "Youtubes",
-            "iconType": "fa fa-video-camera",
+            "iconType": "fab fa-youtube",
             "identityStringPattern": "Youtube: {youtubeId}",
             "filterData": {
                 "useAnd": true,
@@ -67,10 +67,15 @@
                         "displayInDetailView": true,
                         "displayInEditView": true,
                         "displayInAddView": true,
+                        "containerType": "item",
                         "constant": false,
                         "readOnly": false,
                         "mandatory": false,
-                        "draftable": false
+                        "minlength": null,
+                        "maxlength": null,
+                        "quickSearchable": true,
+                        "prefixAddons": [],
+                        "suffixAddons": []
                     },
                     "label": "Youtube Id",
                     "objectProperty": "youtubeId",
@@ -81,7 +86,7 @@
             "overviewOrder": [
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "youtubeId"
                 }
             ],
@@ -234,12 +239,12 @@
             "overviewOrder": [
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "fileImage"
                 },
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "title"
                 }
             ],
@@ -362,7 +367,7 @@
             "overviewOrder": [
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "file"
                 }
             ],
@@ -739,7 +744,7 @@
             "overviewOrder": [
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "fileImage"
                 }
             ],
@@ -872,7 +877,7 @@
             "overviewOrder": [
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "title"
                 }
             ],
@@ -950,7 +955,7 @@
             "overviewOrder": [
                 {
                     "label": null,
-                    "type": null,
+                    "type": "item",
                     "guiIdPath": "title"
                 }
             ],
