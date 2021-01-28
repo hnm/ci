@@ -74,7 +74,9 @@
                         "minlength": null,
                         "maxlength": null,
                         "quickSearchable": true,
-                        "prefixAddons": [],
+                        "prefixAddons": [
+                            "https:\/\/www.youtube.com\/watch?v="
+                        ],
                         "suffixAddons": []
                     },
                     "label": "Youtube Id",
