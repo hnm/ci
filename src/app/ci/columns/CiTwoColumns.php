@@ -93,12 +93,10 @@ class CiTwoColumns extends ContentItemContainer {
 	
 
 	public function getAlignment() {
-
 		return $this->alignment;
 	}
 
-	public function setAlignment(string $alignment) {
-
+	public function setAlignment(?string $alignment) {
 		$this->alignment = $alignment;
 	}
 
