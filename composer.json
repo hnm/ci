@@ -33,6 +33,7 @@
 		}
 	},
 	"require-dev" : {
-		"n2n/hangar" : "^8.0.0"
+		"n2n/hangar" : "^8.0.0",
+		"phpunit/phpunit" : "^9.5"
 	}
 }
