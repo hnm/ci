@@ -32,6 +32,11 @@
 			"ci\\" : "src/app/ci"
 		}
 	},
+	"autoload-dev" : {
+		"psr-4" : {
+			"ci\\" : "src/test/ci"
+		}
+	},
 	"require-dev" : {
 		"n2n/hangar" : "^8.0.0",
 		"phpunit/phpunit" : "^9.5"
