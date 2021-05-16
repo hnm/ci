@@ -70,7 +70,7 @@
                         "containerType": "item",
                         "constant": false,
                         "readOnly": false,
-                        "mandatory": false,
+                        "mandatory": true,
                         "minlength": null,
                         "maxlength": null,
                         "quickSearchable": true,
