@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS `ci_anchor` (
   `title` varchar(255) DEFAULT NULL,
   `path_part` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Exportiere Struktur von Tabelle mdl_template.ci_article
 CREATE TABLE IF NOT EXISTS `ci_article` (
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `ci_article` (
   `alt_tag` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `expl_page_link_id` (`expl_page_link_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 -- Daten Export vom Benutzer nicht ausgewählt
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `ci_image` (
   `open_lytebox` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `expl_page_link_id` (`expl_page_link_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Daten Export vom Benutzer nicht ausgewählt
 -- Exportiere Struktur von Tabelle mdl_ci.ci_three_columns
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `ci_three_columns` (
   `id` int(11) NOT NULL,
   `alignment` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Daten Export vom Benutzer nicht ausgewählt
 -- Exportiere Struktur von Tabelle mdl_template.ci_three_columns_content_items
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `ci_three_columns_content_items` (
   `ci_three_columns_id` int(10) unsigned NOT NULL,
   `nested_content_item_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`ci_three_columns_id`,`nested_content_item_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Daten Export vom Benutzer nicht ausgewählt
 -- Exportiere Struktur von Tabelle mdl_ci.ci_two_columns
@@ -85,24 +85,24 @@ CREATE TABLE IF NOT EXISTS `ci_two_columns` (
   `alignment` varchar(255) DEFAULT NULL,
   `splitting` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 CREATE TABLE IF NOT EXISTS `ci_nested_content_item` (
   `id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `ci_simple_map` (
   `id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `ci_two_columns_content_items` (
   `ci_two_columns_id` int(10) unsigned NOT NULL,
   `nested_content_item_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`ci_two_columns_id`,`nested_content_item_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `ci_youtube` (
   `id` int(10) unsigned NOT NULL,
