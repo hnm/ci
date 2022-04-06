@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS  `ci_accordion` (
 	`title` VARCHAR(255) NULL DEFAULT NULL,
 	PRIMARY KEY (`id`)
 )
-COLLATE='utf8_general_ci'
+COLLATE='utf8_unicode_ci'
 ENGINE=InnoDB
 ;
 
@@ -140,6 +140,16 @@ CREATE TABLE IF NOT EXISTS `ci_accordion_content_items` (
 	`content_item_id` INT(10) UNSIGNED NOT NULL,
 	PRIMARY KEY (`ci_accordion_id`, `content_item_id`)
 )
-COLLATE='utf8_general_ci'
+COLLATE='utf8_unicode_ci'
 ENGINE=InnoDB
 ;
+
+CREATE TABLE IF NOT EXISTS `ci_cta` ( 
+	`id` INT NOT NULL, 
+	`title` VARCHAR(255) NULL DEFAULT NULL, 
+	`intro` VARCHAR(255) NULL DEFAULT NULL, 
+	`phone` VARCHAR(255) NULL DEFAULT NULL, 
+	`email` VARCHAR(255) NULL DEFAULT NULL, 
+	`link_id` INT NULL DEFAULT NULL, 
+	PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci ;

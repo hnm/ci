@@ -1035,6 +1035,119 @@
             "partialControlOrder": [],
             "overallControlOrder": [],
             "entryControlOrder": []
+        },
+        "ci-ci-cta": {
+            "nature": "entity",
+            "entity": "ci\\cta\\CiCta",
+            "dataSourceName": null,
+            "label": "Call to Action",
+            "pluralLabel": "Call to Actions",
+            "iconType": "fa fa-bullhorn",
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
+            "props": {
+                "title": {
+                    "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
+                    "props": {
+                        "displayInOverview": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "constant": false,
+                        "readOnly": false,
+                        "mandatory": false,
+                        "draftable": false,
+                        "maxlength": "255",
+                        "multiline": false
+                    },
+                    "label": "Titel",
+                    "objectProperty": "title",
+                    "entityProperty": "title"
+                },
+                "intro": {
+                    "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
+                    "props": {
+                        "displayInOverview": false,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "constant": false,
+                        "readOnly": false,
+                        "mandatory": false,
+                        "draftable": false,
+                        "maxlength": "255",
+                        "multiline": true
+                    },
+                    "label": "Intro",
+                    "objectProperty": "intro",
+                    "entityProperty": "intro"
+                },
+                "phone": {
+                    "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
+                    "props": {
+                        "displayInOverview": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "constant": false,
+                        "readOnly": false,
+                        "mandatory": false,
+                        "draftable": false,
+                        "maxlength": "255",
+                        "multiline": false
+                    },
+                    "label": "Telefon",
+                    "objectProperty": "phone",
+                    "entityProperty": "phone"
+                },
+                "email": {
+                    "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
+                    "props": {
+                        "displayInOverview": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "constant": false,
+                        "readOnly": false,
+                        "mandatory": false,
+                        "draftable": false,
+                        "maxlength": "255",
+                        "multiline": false
+                    },
+                    "label": "E-Mail",
+                    "objectProperty": "email",
+                    "entityProperty": "email"
+                },
+                "link": {
+                    "class": "rocket\\impl\\ei\\component\\prop\\relation\\EmbeddedOneToOneEiProp",
+                    "props": {
+                        "displayInOverview": false,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "constant": false,
+                        "readOnly": false,
+                        "mandatory": false,
+                        "draftable": false,
+                        "targetExtensions": [],
+                        "replaceable": true,
+                        "targetRemovalStrategy": "prevent",
+                        "orphansAllowed": false,
+                        "reduced": true
+                    },
+                    "label": "Link",
+                    "objectProperty": "link",
+                    "entityProperty": "link"
+                }
+            },
+            "commands": [],
+            "partialControlOrder": [],
+            "overallControlOrder": [],
+            "entryControlOrder": []
         }
     },
     "eiTypeExtensions": [],
