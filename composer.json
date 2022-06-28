@@ -39,6 +39,7 @@
 	"require-dev" : {
 		"n2n/hangar" : "^8.0.0",
 		"phpunit/phpunit" : "^9.5",
-		"hnm/bstmpl" : "^2.0.15"
+		"hnm/bstmpl": "^3.0.0",
+		"n2n/n2nutil-jquery" : "^1.2.6"
 	}
 }

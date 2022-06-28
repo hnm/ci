@@ -326,5 +326,175 @@
                 "charset": null
             }
         }
+    },
+    "ci\\accordion\\CiAccordion": {
+        "title": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "accordions": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\relation\\OneToManyPropDef",
+            "props": {
+                "targetEntityClass": "ci\\accordion\\Accordion",
+                "mappedBy": null,
+                "cascadeType": {
+                    "1": "1",
+                    "2": "2",
+                    "4": "4",
+                    "8": "8",
+                    "16": "16"
+                },
+                "fetchType": "lazy",
+                "orphanRemoval": true
+            }
+        }
+    },
+    "ci\\attachment\\CiAttachment": {
+        "title": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "attachments": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\relation\\OneToManyPropDef",
+            "props": {
+                "targetEntityClass": "ci\\attachment\\Attachment",
+                "mappedBy": null,
+                "cascadeType": {
+                    "1": "1",
+                    "2": "2",
+                    "4": "4",
+                    "8": "8",
+                    "16": "16"
+                },
+                "fetchType": "lazy",
+                "orphanRemoval": true
+            }
+        }
+    },
+    "ci\\image\\CiImage": {
+        "fileImage": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\ManagedFilePropDef",
+            "props": {
+                "length": "255"
+            }
+        },
+        "title": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "caption": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "altTag": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "alignment": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "openLytebox": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\BooleanPropDef",
+            "props": {
+                "required": false
+            }
+        },
+        "format": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "explPageLink": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\relation\\OneToOnePropDef",
+            "props": {
+                "targetEntityClass": "ch\\hnm\\util\\page\\bo\\ExplPageLink",
+                "mappedBy": null,
+                "cascadeType": {
+                    "1": "1",
+                    "2": "2",
+                    "4": "4",
+                    "8": "8",
+                    "16": "16"
+                },
+                "fetchType": "lazy",
+                "orphanRemoval": true
+            }
+        }
+    },
+    "ci\\video\\CiYoutube": {
+        "title": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "youtubeId": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "nestedCiType": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        }
+    },
+    "ci\\accordion\\Accordion": {
+        "id": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\IntegerPropDef",
+            "props": {
+                "size": "32",
+                "signed": true
+            }
+        },
+        "title": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\scalar\\StringPropDef",
+            "props": {
+                "length": "255",
+                "charset": null
+            }
+        },
+        "contentItems": {
+            "prop-def": "n2n\\impl\\persistence\\orm\\property\\hangar\\relation\\OneToManyPropDef",
+            "props": {
+                "targetEntityClass": "rocket\\impl\\ei\\component\\prop\\ci\\model\\ContentItem",
+                "mappedBy": null,
+                "cascadeType": {
+                    "1": "1",
+                    "2": "2",
+                    "4": "4",
+                    "8": "8",
+                    "16": "16"
+                },
+                "fetchType": "lazy",
+                "orphanRemoval": true
+            }
+        }
     }
 }

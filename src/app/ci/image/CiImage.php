@@ -22,10 +22,10 @@ use n2n\util\type\CastUtils;
 class CiImage extends NestedContentItem {
 	private static function _annos(AnnoInit $ai) {
 		$ai->c(new AnnoEntityListeners(ResponseCacheClearer::getClass()));
-		$ai->p('explPageLink', new AnnoOneToOne(ExplPageLink::getClass(), null, CascadeType::ALL, null, true));
+		$ai->p('explPageLink', new AnnoOneToOne(ExplPageLink::getClass(), null, \n2n\persistence\orm\CascadeType::ALL, null, true));
 		$ai->p('fileImage', new AnnoManagedFile());
 	}
-	
+
 	const ALIGN_LEFT = 'left';
 	const ALIGN_CENTER = 'center';
 	const ALIGN_RIGHT = 'right';
@@ -33,108 +33,126 @@ class CiImage extends NestedContentItem {
 	const CSS_CLASS_PREFIX = 'ci-image-';
 	const FORMAT_LANDSCAPE = 'landscape';
 	const FORMAT_PORTRAIT = 'portrait';
-	
-	const IMAGE_FACTOR_SMALL= 0.6;
-	
+	const IMAGE_FACTOR_SMALL = 0.6;
 	const IMAGE_ASPEKT_RATIO_FULL_WIDTH = 4/1;
 	const IMAGE_ASPEKT_RATIO = 4/3;
-	
+
 	private $fileImage;
+	private $title;
 	private $caption;
 	private $altTag;
 	private $alignment;
 	private $openLytebox = false;
 	private $format;
 	private $explPageLink;
-	
+
 	/**
 	 * @return File
 	 */
 	public function getFileImage() {
+
 		return $this->fileImage;
 	}
-	
+
 	/**
 	 * @param File $fileImage
 	 */
 	public function setFileImage(File $fileImage) {
+
 		$this->fileImage = $fileImage;
 	}
-	
+
 	public function getCaption() {
+
 		return $this->caption;
 	}
-	
-	public function setCaption($caption) {
+
+	public function setCaption(string $caption = null) {
+
 		$this->caption = $caption;
 	}
-	
+
 	public function isOpenLytebox() {
+
 		return (bool) $this->openLytebox;
 	}
-	
-	public function setOpenLytebox($openLytebox) {
+
+	public function setOpenLytebox(bool $openLytebox = false) {
+
 		$this->openLytebox = $openLytebox;
 	}
-	
+
 	public function getAlignment() {
+
 		return $this->alignment;
 	}
-	
-	public function setAlignment($alignment) {
+
+	public function setAlignment(string $alignment = null) {
+
 		$this->alignment = $alignment;
 	}
-	
+
 	public function getAltTag() {
+
 		return $this->altTag;
 	}
-	
-	public function setAltTag($altTag) {
+
+	public function setAltTag(string $altTag = null) {
+
 		$this->altTag = $altTag;
 	}
-	
+
 	public function getFormat() {
+
 		return $this->format;
 	}
-	
-	public function setFormat($format) {
+
+	public function setFormat(string $format = null) {
+
 		$this->format = $format;
 	}
-	
+
 	public function getExplPageLink() {
+
 		return $this->explPageLink;
 	}
-	
+
 	public function setExplPageLink(ExplPageLink $explPageLink = null) {
+
 		$this->explPageLink = $explPageLink;
 	}
-	
+
 	public function determineTarget() {
+
 		if (null !== $this->explPageLink && $this->explPageLink->getType() == PageLink::TYPE_EXTERNAL) {
 			return '_blank';
 		}
 		return null;
 	}
-	
+
 	public function determineRel() {
+
 		if (null !== $this->explPageLink && $this->explPageLink->getType() == PageLink::TYPE_EXTERNAL) {
 			return 'noopener';
 		}
 		return null;
 	}
-	
+
 	public function determineAltTag() {
+
 		if ($this->altTag) return $this->altTag;
 		if ($this->caption) return $this->caption;
 		if ($this->fileImage && $this->fileImage->isValid()) return $this->fileImage->getOriginalName();
 		return '';
 	}
-	
+
 	public function isAlignmentApplied() {
+
 		return strlen($this->alignment) > 0;
 	}
-	
+
 	public function getContainerAttrs(array $attrs = null, $overwrite = false) {
+
 		$baseAttrs = array('class' => 'ci-image');
 		
 		if (!$this->isNested() && !$this->isAside() && $this->alignment === self::ALIGN_FULL_WIDTH) {
@@ -157,8 +175,9 @@ class CiImage extends NestedContentItem {
 		
 		return $baseAttrs;
 	}
-	
+
 	public function getCssAlignmentClass() {
+
 		$alignmentClass = null;
 		switch ($this->alignment) {
 			case CiImage::ALIGN_CENTER:
@@ -180,8 +199,9 @@ class CiImage extends NestedContentItem {
 		}
 		return $alignmentClass;
 	}
-	
+
 	public function getCssFormatClass() {
+
 		$formatClass = null;
 		
 		if($this->format === self::FORMAT_PORTRAIT) {
@@ -190,8 +210,9 @@ class CiImage extends NestedContentItem {
 		
 		return $formatClass;
 	}
-	
+
 	public function getImgComposer() {
+
 		$imgComposer = null;
 		
 		
@@ -250,8 +271,9 @@ class CiImage extends NestedContentItem {
 		
 		return $imgComposer;
 	}
-	
+
 	private function createImgComposer(array $widths) {
+
 		
 		$imgVariations = array();
 		foreach ($widths as $key => $width) {
@@ -267,14 +289,16 @@ class CiImage extends NestedContentItem {
 		
 		return $imgComposer;
 	}
-	
+
 	private function isCrop() {
+
 		if (null === $this->format) return false;
 		
 		return true;
 	}
-	
+
 	private function determineWidthMultiplier(string $resolution) {
+
 		// Immer wenn die auflösung grösser als md und
 		if (in_array($resolution, ['md', 'lg', 'xl'])) {
 			// das bild ausgerichtet ist dann auf eine bestimmte breite
@@ -286,15 +310,17 @@ class CiImage extends NestedContentItem {
 		
 		return 1;
 	}
-	
+
 	private function calcHeight(string $width) {
+
 		if ($this->format === self::FORMAT_LANDSCAPE) return $width / self::IMAGE_ASPEKT_RATIO;
 		
 		
 		return $width * self::IMAGE_ASPEKT_RATIO;
 	}
-	
+
 	private function createImgComposerVariations(array $variations, $crop = true) {
+
 		$xs = array_shift($variations);
 		
 		$imgComposer = MimgBs::xs($crop ?
@@ -319,21 +345,32 @@ class CiImage extends NestedContentItem {
 		
 		return $imgComposer;
 	}
-	
+
 	public function isPortrait() {
+
 		return $this->format === self::FORMAT_PORTRAIT;
 	}
-	
-	
+
 	public function isAside() {
+
 		return $this->getPanel() === 'aside';
 	}
-	
+
 	public function createUiComponent(HtmlView $view) {
+
 		return $view->getImport('\ci\image\ciImage.html', array('image' => $this));
 	}
-	
-	public function createEditablePreviewUiComponent(PreviewModel $previewModel,HtmlView $view) {
+
+	public function createEditablePreviewUiComponent(PreviewModel $previewModel, HtmlView $view) {
+
 		return null;
+	}
+
+	public function getTitle() {
+		return $this->title;
+	}
+
+	public function setTitle(string $title = null) {
+		$this->title = $title;
 	}
 }

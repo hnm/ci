@@ -1,21 +1,31 @@
-CREATE TABLE IF NOT EXISTS `ci_accordion` (
-  `id` int(11) NOT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- Mysql Backup of mdl_ci
+-- Date 2022-04-25T15:13:33+00:00
+-- Backup by 
 
-/*!40000 ALTER TABLE `ci_accordion` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ci_accordion` ENABLE KEYS */;
+DROP TABLE IF EXISTS `accordion_content_items`;
+CREATE TABLE `accordion_content_items` ( 
+	`accordion_id` INT NOT NULL, 
+	`content_item_id` INT NOT NULL, 
+	PRIMARY KEY (`accordion_id`, `content_item_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci ;
 
-CREATE TABLE IF NOT EXISTS `ci_accordion_content_items` (
-  `ci_accordion_id` int(10) unsigned NOT NULL,
-  `content_item_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`ci_accordion_id`,`content_item_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*!40000 ALTER TABLE `ci_accordion_content_items` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ci_accordion_content_items` ENABLE KEYS */;
+DROP TABLE IF EXISTS `accordion`;
+CREATE TABLE `accordion` ( 
+	`id` INT NOT NULL AUTO_INCREMENT, 
+	`title` VARCHAR(255) NULL DEFAULT NULL, 
+	PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci ;
 
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+-- Mysql Backup of mdl_ci
+-- Date 2022-04-25T15:13:58+00:00
+-- Backup by 
+
+DROP TABLE IF EXISTS `ci_accordion`;
+CREATE TABLE `ci_accordion` ( 
+	`id` INT NOT NULL, 
+	`title` VARCHAR(255) NULL DEFAULT NULL, 
+	`accordions_id` INT NULL DEFAULT NULL, 
+	PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci ;
+ALTER TABLE `ci_accordion` ADD INDEX `ci_accordion_index_1` (`accordions_id`);

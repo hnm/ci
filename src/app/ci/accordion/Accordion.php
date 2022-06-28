@@ -9,16 +9,30 @@ use n2n\persistence\orm\annotation\AnnoOneToMany;
 use n2n\persistence\orm\CascadeType;
 use n2n\persistence\orm\annotation\AnnoOrderBy;
 use rocket\impl\ei\component\prop\ci\model\ContentItem;
-use n2n\persistence\orm\annotation\AnnoManyToOne;
+use n2n\reflection\ObjectAdapter;
 
-class CiAccordion extends ContentItem {
+class Accordion extends ObjectAdapter {
 	private static function _annos(AnnoInit $ai) {
 		$ai->c(new AnnoEntityListeners(ResponseCacheClearer::getClass()));
-		$ai->p('accordions', new AnnoOneToMany(Accordion::getClass(), null, \n2n\persistence\orm\CascadeType::ALL, null, true));
+		$ai->p('contentItems', new AnnoOneToMany(ContentItem::getClass(), null, \n2n\persistence\orm\CascadeType::ALL, null, true), new AnnoOrderBy(array('orderIndex' => 'ASC')));
 	}
 
+	private $id;
 	private $title;
-	private $accordions;
+/**
+     * @var ContentItem[]
+     */
+	private $contentItems = array();
+
+	public function getId() {
+
+    	return $this->id;
+	}
+
+	public function setId(int $id = null) {
+
+    	$this->id = $id;
+	}
 
 	/**
      * @return string
@@ -36,19 +50,19 @@ class CiAccordion extends ContentItem {
         $this->title = $title;
 	}
 
-	public function createUiComponent(HtmlView $view) {
+	/**
+	 * @return ContentItem[]
+	 */
+	public function getContentItems() {
 
-        return $view->getImport('\ci\accordion\ciAccordion.html', array('ciAccordion' => $this));
+        return $this->contentItems;
 	}
 
 	/**
-	 * @return Accordion[]
-	 */
-	public function getAccordions() {
-		return $this->accordions;
-	}
+     * @param ContentItem[] $contentItems
+     */
+	public function setContentItems($contentItems) {
 
-	public function setAccordions($accordions) {
-		$this->accordions = $accordions;
+        $this->contentItems = $contentItems;
 	}
 }

@@ -7,50 +7,49 @@ use n2n\persistence\orm\annotation\AnnoManagedFile;
 use n2n\io\managed\File;
 use n2n\persistence\orm\annotation\AnnoEntityListeners;
 use n2n\web\http\orm\ResponseCacheClearer;
-use ci\columns\NestedContentItem;
+use n2n\persistence\orm\annotation\AnnoOneToMany;
+use rocket\impl\ei\component\prop\ci\model\ContentItem;
 
-class CiAttachment extends NestedContentItem {
+class CiAttachment extends ContentItem {
 	private static function _annos(AnnoInit $ai) {
 		$ai->c(new AnnoEntityListeners(ResponseCacheClearer::getClass()));
-		$ai->p('file', new AnnoManagedFile());
-	}
-	
-	private $name;
-	private $description;
-	private $file;
-	
-	public function getName() {
-		return $this->name;
+		$ai->p('attachments', new AnnoOneToMany(Attachment::getClass(), null, \n2n\persistence\orm\CascadeType::ALL, null, true));
 	}
 
-	public function setName($name = null) {
-		$this->name = $name;
-	}
+	private $title;
+	private $attachments;
 
-	public function getDescription() {
-		return $this->description;
-	}
-
-	public function setDescription($description = null) {
-		$this->description = $description;
-	}
-
-	public function getFile() {
-		return $this->file;
-	}
-
-	public function setFile(File $file) {
-		$this->file = $file;
-	}
-	
 	public function getLabel() {
-		if (null === $this->name && null !== $this->file && $this->file->isValid()) {
+
+		if (null === $this->title && null !== $this->file && $this->file->isValid()) {
 			return $this->file->getOriginalName();
 		}
-		return $this->name;
+		return $this->title;
 	}
 
 	public function createUiComponent(HtmlView $view) {
+
 		return $view->getImport('\ci\attachment\ciAttachment.html', array('ciAttachment' => $this));
+	}
+
+	public function getTitle() {
+
+		return $this->title;
+	}
+
+	public function setTitle(string $title = null) {
+
+		$this->title = $title;
+	}
+
+	/**
+	 * @return Attachment[]
+	 */
+	public function getAttachments() {
+		return $this->attachments;
+	}
+
+	public function setAttachments($attachments) {
+		$this->attachments = $attachments;
 	}
 }

@@ -60,6 +60,28 @@
             },
             "defaultSort": [],
             "props": {
+                "title": {
+                    "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
+                    "props": {
+                        "displayInOverview": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "containerType": "item",
+                        "constant": false,
+                        "readOnly": false,
+                        "mandatory": true,
+                        "minlength": null,
+                        "maxlength": "255",
+                        "quickSearchable": true,
+                        "prefixAddons": [],
+                        "suffixAddons": [],
+                        "multiline": false
+                    },
+                    "label": "\u00dcberschrift",
+                    "objectProperty": "title",
+                    "entityProperty": "title"
+                },
                 "youtubeId": {
                     "class": "ch\\hnm\\util\\rocket\\media\\YoutubeEiProp",
                     "props": {
@@ -297,10 +319,10 @@
             "nature": "entity",
             "entity": "ci\\attachment\\CiAttachment",
             "dataSourceName": null,
-            "label": "Anhang",
+            "label": "Anh\u00e4nge",
             "pluralLabel": "Anh\u00e4nge",
             "iconType": "fa fa-paperclip",
-            "identityStringPattern": "Anhang: {name}",
+            "identityStringPattern": "Anh\u00e4nge: {title}",
             "filterData": {
                 "useAnd": true,
                 "items": [],
@@ -308,61 +330,47 @@
             },
             "defaultSort": [],
             "props": {
-                "name": {
+                "title": {
                     "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
                     "props": {
                         "displayInOverview": true,
                         "displayInDetailView": true,
                         "displayInEditView": true,
                         "displayInAddView": true,
+                        "containerType": "item",
                         "constant": false,
                         "readOnly": false,
                         "mandatory": false,
-                        "draftable": false,
+                        "minlength": null,
                         "maxlength": "255",
+                        "quickSearchable": true,
+                        "prefixAddons": [],
+                        "suffixAddons": [],
                         "multiline": false
                     },
-                    "label": "Name",
-                    "objectProperty": "name",
-                    "entityProperty": "name"
+                    "label": "\u00dcberschrift",
+                    "objectProperty": "title",
+                    "entityProperty": "title"
                 },
-                "file": {
-                    "class": "rocket\\impl\\ei\\component\\prop\\file\\FileEiProp",
+                "attachments": {
+                    "class": "rocket\\impl\\ei\\component\\prop\\relation\\EmbeddedOneToManyEiProp",
                     "props": {
                         "displayInOverview": true,
                         "displayInDetailView": true,
                         "displayInEditView": true,
                         "displayInAddView": true,
+                        "containerType": "light-group",
                         "constant": false,
                         "readOnly": false,
-                        "mandatory": true,
-                        "draftable": false,
-                        "allowedExtensions": [],
-                        "extraThumbDimensions": [],
-                        "checkImageResourceMemory": true,
-                        "multiUploadAvailable": false
+                        "min": "1",
+                        "replaceable": true,
+                        "targetRemovalStrategy": "unset",
+                        "orphansAllowed": false,
+                        "reduced": false
                     },
-                    "label": "Datei",
-                    "objectProperty": "file",
-                    "entityProperty": "file"
-                },
-                "description": {
-                    "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
-                    "props": {
-                        "displayInOverview": true,
-                        "displayInDetailView": true,
-                        "displayInEditView": true,
-                        "displayInAddView": true,
-                        "constant": false,
-                        "readOnly": false,
-                        "mandatory": false,
-                        "draftable": false,
-                        "maxlength": "255",
-                        "multiline": false
-                    },
-                    "label": "Beschreibung",
-                    "objectProperty": "description",
-                    "entityProperty": "description"
+                    "label": "Attachments",
+                    "objectProperty": "attachments",
+                    "entityProperty": "attachments"
                 }
             },
             "commands": [],
@@ -597,6 +605,28 @@
             },
             "defaultSort": [],
             "props": {
+                "title": {
+                    "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
+                    "props": {
+                        "displayInOverview": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "containerType": "item",
+                        "constant": false,
+                        "readOnly": false,
+                        "mandatory": true,
+                        "minlength": null,
+                        "maxlength": "255",
+                        "quickSearchable": true,
+                        "prefixAddons": [],
+                        "suffixAddons": [],
+                        "multiline": false
+                    },
+                    "label": "\u00dcberschrift",
+                    "objectProperty": "title",
+                    "entityProperty": "title"
+                },
                 "fileImage": {
                     "class": "rocket\\impl\\ei\\component\\prop\\file\\FileEiProp",
                     "props": {
@@ -604,20 +634,22 @@
                         "displayInDetailView": true,
                         "displayInEditView": true,
                         "displayInAddView": true,
+                        "containerType": "item",
                         "constant": false,
                         "readOnly": false,
                         "mandatory": true,
-                        "draftable": false,
                         "allowedExtensions": [
                             "jpg",
                             "jpeg",
                             "png",
                             "gif"
                         ],
+                        "allowedMimeTypes": [],
                         "dimensionImportMode": "usedOnly",
                         "extraThumbDimensions": [],
-                        "checkImageResourceMemory": true,
-                        "multiUploadAvailable": false
+                        "imageRecognized": true,
+                        "multiUploadAvailable": false,
+                        "idExtNames": []
                     },
                     "label": "Bild",
                     "objectProperty": "fileImage",
@@ -630,16 +662,18 @@
                         "displayInDetailView": true,
                         "displayInEditView": true,
                         "displayInAddView": true,
+                        "containerType": "item",
                         "constant": false,
                         "readOnly": false,
                         "mandatory": false,
-                        "draftable": false,
                         "options": {
                             "": "Frei",
                             "landscape": "Querformat (zugeschnitten)",
                             "portrait": "Hochformat (zugeschnitten)"
                         },
-                        "associatedGuiProps": []
+                        "associatedGuiProps": [],
+                        "emptyLabel": null,
+                        "quickSearchable": true
                     },
                     "label": "Format",
                     "objectProperty": "format",
@@ -652,11 +686,15 @@
                         "displayInDetailView": true,
                         "displayInEditView": true,
                         "displayInAddView": true,
+                        "containerType": "item",
                         "constant": false,
                         "readOnly": false,
                         "mandatory": false,
-                        "draftable": false,
+                        "minlength": null,
                         "maxlength": "255",
+                        "quickSearchable": true,
+                        "prefixAddons": [],
+                        "suffixAddons": [],
                         "multiline": false
                     },
                     "label": "Bildunterschrift",
@@ -670,11 +708,15 @@
                         "displayInDetailView": true,
                         "displayInEditView": true,
                         "displayInAddView": true,
+                        "containerType": "item",
                         "constant": false,
                         "readOnly": false,
                         "mandatory": false,
-                        "draftable": false,
+                        "minlength": null,
                         "maxlength": "255",
+                        "quickSearchable": true,
+                        "prefixAddons": [],
+                        "suffixAddons": [],
                         "multiline": false
                     },
                     "label": "Alt Tag",
@@ -688,9 +730,9 @@
                         "displayInDetailView": true,
                         "displayInEditView": true,
                         "displayInAddView": true,
+                        "containerType": "item",
                         "constant": false,
-                        "readOnly": false,
-                        "draftable": false
+                        "readOnly": false
                     },
                     "label": "in Lightbox \u00f6ffnen?",
                     "objectProperty": "openLytebox",
@@ -703,10 +745,10 @@
                         "displayInDetailView": true,
                         "displayInEditView": true,
                         "displayInAddView": true,
+                        "containerType": "item",
                         "constant": false,
                         "readOnly": false,
                         "mandatory": false,
-                        "draftable": false,
                         "options": {
                             "": "Volle Container Breite",
                             "center": "Mitte",
@@ -714,7 +756,9 @@
                             "right": "Rechts",
                             "full-width": "Volle Browser-Breite"
                         },
-                        "associatedGuiProps": []
+                        "associatedGuiProps": [],
+                        "emptyLabel": null,
+                        "quickSearchable": true
                     },
                     "label": "Position",
                     "objectProperty": "alignment",
@@ -727,11 +771,10 @@
                         "displayInDetailView": true,
                         "displayInEditView": true,
                         "displayInAddView": true,
+                        "containerType": "simple-group",
                         "constant": false,
                         "readOnly": false,
                         "mandatory": false,
-                        "draftable": false,
-                        "targetExtensions": [],
                         "replaceable": true,
                         "targetRemovalStrategy": "prevent",
                         "orphansAllowed": false,
@@ -909,48 +952,40 @@
                         "displayInDetailView": true,
                         "displayInEditView": true,
                         "displayInAddView": true,
+                        "containerType": "item",
                         "constant": false,
                         "readOnly": false,
                         "mandatory": false,
-                        "draftable": false,
+                        "minlength": null,
                         "maxlength": "255",
+                        "quickSearchable": true,
+                        "prefixAddons": [],
+                        "suffixAddons": [],
                         "multiline": false
                     },
-                    "label": "Titel",
+                    "label": "\u00dcberschrift",
                     "objectProperty": "title",
                     "entityProperty": "title"
                 },
-                "contentItems": {
-                    "class": "rocket\\impl\\ei\\component\\prop\\ci\\ContentItemsEiProp",
+                "accordions": {
+                    "class": "rocket\\impl\\ei\\component\\prop\\relation\\EmbeddedOneToManyEiProp",
                     "props": {
                         "displayInOverview": true,
                         "displayInDetailView": true,
                         "displayInEditView": true,
                         "displayInAddView": true,
+                        "containerType": "item",
                         "constant": false,
                         "readOnly": false,
-                        "draftable": false,
-                        "targetExtensions": [],
-                        "targetRemovalStrategy": "prevent",
+                        "min": "1",
+                        "replaceable": true,
+                        "targetRemovalStrategy": "unset",
                         "orphansAllowed": false,
-                        "reduced": true,
-                        "panels": [
-                            {
-                                "panelName": "ci-accordion-panel-main",
-                                "panelLabel": "Inhalt",
-                                "allowedContentItemIds": {
-                                    "ci-ci-cke": "ci-ci-cke",
-                                    "ci-ci-youtube": "ci-ci-youtube",
-                                    "ci-ci-article": "ci-ci-article",
-                                    "ci-ci-image": "ci-ci-image"
-                                },
-                                "min": "0"
-                            }
-                        ]
+                        "reduced": true
                     },
-                    "label": "Content Items",
-                    "objectProperty": "contentItems",
-                    "entityProperty": "contentItems"
+                    "label": "Akkordeons",
+                    "objectProperty": "accordions",
+                    "entityProperty": "accordions"
                 }
             },
             "commands": [],
@@ -1142,6 +1177,154 @@
                     "label": "Link",
                     "objectProperty": "link",
                     "entityProperty": "link"
+                }
+            },
+            "commands": [],
+            "partialControlOrder": [],
+            "overallControlOrder": [],
+            "entryControlOrder": []
+        },
+        "ci-accordion": {
+            "nature": "entity",
+            "entity": "ci\\accordion\\Accordion",
+            "dataSourceName": null,
+            "label": "Akkordeon",
+            "pluralLabel": "Akkordeons",
+            "iconType": null,
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
+            "props": {
+                "title": {
+                    "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
+                    "props": {
+                        "displayInOverview": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "containerType": "item",
+                        "constant": false,
+                        "readOnly": false,
+                        "mandatory": true,
+                        "minlength": null,
+                        "maxlength": "255",
+                        "quickSearchable": true,
+                        "prefixAddons": [],
+                        "suffixAddons": [],
+                        "multiline": false
+                    },
+                    "label": "Titel",
+                    "objectProperty": "title",
+                    "entityProperty": "title"
+                },
+                "contentItems": {
+                    "class": "rocket\\impl\\ei\\component\\prop\\ci\\ContentItemsEiProp",
+                    "props": {
+                        "displayInOverview": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "containerType": "item",
+                        "constant": false,
+                        "readOnly": false,
+                        "min": "0",
+                        "replaceable": true,
+                        "targetRemovalStrategy": "unset",
+                        "orphansAllowed": false,
+                        "reduced": true
+                    },
+                    "label": "Inhalt",
+                    "objectProperty": "contentItems",
+                    "entityProperty": "contentItems"
+                }
+            },
+            "commands": [],
+            "partialControlOrder": [],
+            "overallControlOrder": [],
+            "entryControlOrder": []
+        },
+        "ci-attachment": {
+            "nature": "entity",
+            "entity": "ci\\attachment\\Attachment",
+            "dataSourceName": null,
+            "label": "Anhang",
+            "pluralLabel": "Anh\u00e4nge",
+            "iconType": null,
+            "filterData": {
+                "useAnd": true,
+                "items": [],
+                "groups": []
+            },
+            "defaultSort": [],
+            "props": {
+                "name": {
+                    "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
+                    "props": {
+                        "displayInOverview": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "containerType": "item",
+                        "constant": false,
+                        "readOnly": false,
+                        "mandatory": true,
+                        "minlength": null,
+                        "maxlength": "255",
+                        "quickSearchable": true,
+                        "prefixAddons": [],
+                        "suffixAddons": [],
+                        "multiline": false
+                    },
+                    "label": "Name",
+                    "objectProperty": "name",
+                    "entityProperty": "name"
+                },
+                "description": {
+                    "class": "rocket\\impl\\ei\\component\\prop\\string\\StringEiProp",
+                    "props": {
+                        "displayInOverview": false,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "containerType": "item",
+                        "constant": false,
+                        "readOnly": false,
+                        "mandatory": true,
+                        "minlength": null,
+                        "maxlength": null,
+                        "quickSearchable": true,
+                        "prefixAddons": [],
+                        "suffixAddons": [],
+                        "multiline": true
+                    },
+                    "label": "Beschreibung",
+                    "objectProperty": "description",
+                    "entityProperty": "description"
+                },
+                "file": {
+                    "class": "rocket\\impl\\ei\\component\\prop\\file\\FileEiProp",
+                    "props": {
+                        "displayInOverview": true,
+                        "displayInDetailView": true,
+                        "displayInEditView": true,
+                        "displayInAddView": true,
+                        "containerType": "item",
+                        "constant": false,
+                        "readOnly": false,
+                        "mandatory": true,
+                        "allowedExtensions": [],
+                        "allowedMimeTypes": [],
+                        "extraThumbDimensions": [],
+                        "imageRecognized": true,
+                        "multiUploadAvailable": false,
+                        "idExtNames": []
+                    },
+                    "label": "Datei",
+                    "objectProperty": "file",
+                    "entityProperty": "file"
                 }
             },
             "commands": [],
