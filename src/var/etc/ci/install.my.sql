@@ -143,3 +143,13 @@ CREATE TABLE IF NOT EXISTS `ci_accordion_content_items` (
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
+
+CREATE TABLE IF NOT EXISTS `ci_cta` ( 
+	`id` INT NOT NULL, 
+	`title` VARCHAR(255) NULL DEFAULT NULL, 
+	`intro` VARCHAR(255) NULL DEFAULT NULL, 
+	`phone` VARCHAR(255) NULL DEFAULT NULL, 
+	`email` VARCHAR(255) NULL DEFAULT NULL, 
+	`link_id` INT NULL DEFAULT NULL, 
+	PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci ;
