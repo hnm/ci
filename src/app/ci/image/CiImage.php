@@ -131,8 +131,7 @@ class CiImage extends NestedContentItem {
 	}
 	
 	public function isAlignmentApplied() {
-		if (null === $this->alignment) return false;
-		return strlen($this->alignment) > 0;
+		return !empty($this->alignment);
 	}
 	
 	public function getContainerAttrs(array $attrs = null, $overwrite = false) {
