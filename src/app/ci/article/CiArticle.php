@@ -11,7 +11,6 @@ use ch\hnm\util\page\bo\ExplPageLink;
 use n2n\persistence\orm\CascadeType;
 use n2n\l10n\N2nLocale;
 use page\bo\util\PageLink;
-use rocket\ei\manage\preview\model\PreviewModel;
 use ci\columns\NestedContentItem;
 use n2n\reflection\annotation\AnnoInit;
 
@@ -131,9 +130,5 @@ class CiArticle extends NestedContentItem {
 		}
 		
 		return $view->getImport('\ci\article\ciArticle.html', array('article' => $this));
-	}
-	
-	public function createEditablePreviewUiComponent(PreviewModel $previewModel, HtmlView $view) {
-		return null;
 	}
 }

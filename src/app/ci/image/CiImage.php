@@ -14,7 +14,6 @@ use n2n\persistence\orm\CascadeType;
 use n2n\impl\web\ui\view\html\HtmlUtils;
 use ch\hnm\util\page\bo\ExplPageLink;
 use page\bo\util\PageLink;
-use rocket\ei\manage\preview\model\PreviewModel;
 use ci\columns\NestedContentItem;
 use ci\columns\CiTwoColumns;
 use n2n\util\type\CastUtils;
@@ -331,9 +330,5 @@ class CiImage extends NestedContentItem {
 	
 	public function createUiComponent(HtmlView $view) {
 		return $view->getImport('\ci\image\ciImage.html', array('image' => $this));
-	}
-	
-	public function createEditablePreviewUiComponent(PreviewModel $previewModel,HtmlView $view) {
-		return null;
 	}
 }
