@@ -8,7 +8,9 @@ use n2n\io\managed\File;
 use n2n\persistence\orm\annotation\AnnoEntityListeners;
 use n2n\web\http\orm\ResponseCacheClearer;
 use ci\columns\NestedContentItem;
+use rocket\attribute\EiType;
 
+#[EiType(label:'Anhang')]
 class CiAttachment extends NestedContentItem {
 	private static function _annos(AnnoInit $ai) {
 		$ai->c(new AnnoEntityListeners(ResponseCacheClearer::getClass()));

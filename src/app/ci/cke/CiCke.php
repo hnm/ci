@@ -8,7 +8,9 @@ use n2n\persistence\orm\annotation\AnnoEntityListeners;
 use n2n\web\http\orm\ResponseCacheClearer;
 use ci\columns\NestedContentItem;
 use ci\ui\CiUtils;
+use rocket\attribute\EiType;
 
+#[EiType(label:'Text Editor')]
 class CiCke extends NestedContentItem {
 	private static function _annos(AnnoInit $ai) {
 		$ai->c(new AnnoEntityListeners(ResponseCacheClearer::getClass()));

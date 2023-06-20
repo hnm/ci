@@ -8,7 +8,9 @@ use n2n\persistence\orm\annotation\AnnoEntityListeners;
 use rocket\impl\ei\component\prop\ci\model\ContentItem;
 use bstmpl\bo\util\SimplePageLink;
 use n2n\persistence\orm\annotation\AnnoOneToOne;
+use rocket\attribute\EiType;
 
+#[EiType(label:'Call-to-Action')]
 class CiCta extends ContentItem {
 	private static function _annos(AnnoInit $ai) {
 		$ai->c(new AnnoEntityListeners(ResponseCacheClearer::getClass()));

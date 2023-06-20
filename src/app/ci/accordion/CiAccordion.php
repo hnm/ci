@@ -9,7 +9,9 @@ use n2n\persistence\orm\annotation\AnnoOneToMany;
 use n2n\persistence\orm\CascadeType;
 use n2n\persistence\orm\annotation\AnnoOrderBy;
 use rocket\impl\ei\component\prop\ci\model\ContentItem;
+use rocket\attribute\EiType;
 
+#[EiType(label:'Accordion')]
 class CiAccordion extends ContentItem {
     
     private static function _annos(AnnoInit $ai) {

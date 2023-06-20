@@ -6,7 +6,9 @@ use n2n\reflection\annotation\AnnoInit;
 use n2n\persistence\orm\annotation\AnnoEntityListeners;
 use n2n\web\http\orm\ResponseCacheClearer;
 use ci\columns\NestedContentItem;
+use rocket\attribute\EiType;
 
+#[EiType(label:'Youtube Video')]
 class CiYoutube extends NestedContentItem {
 	private static function _annos(AnnoInit $ai) {
 		$ai->c(new AnnoEntityListeners(ResponseCacheClearer::getClass()));

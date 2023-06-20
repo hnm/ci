@@ -6,7 +6,9 @@ use n2n\impl\web\ui\view\html\HtmlView;
 use n2n\reflection\annotation\AnnoInit;
 use n2n\persistence\orm\annotation\AnnoEntityListeners;
 use rocket\impl\ei\component\prop\ci\model\ContentItem;
+use rocket\attribute\EiType;
 
+#[EiType(label:'Einfache Google Karte')]
 class CiSimpleMap extends ContentItem {
 	private static function _annos(AnnoInit $ai) {
 		$ai->c(new AnnoEntityListeners(ResponseCacheClearer::getClass()));

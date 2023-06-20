@@ -13,7 +13,9 @@ use n2n\l10n\N2nLocale;
 use page\bo\util\PageLink;
 use ci\columns\NestedContentItem;
 use n2n\reflection\annotation\AnnoInit;
+use rocket\attribute\EiType;
 
+#[EiType(label:'Artikel')]
 class CiArticle extends NestedContentItem {
 	private static function _annos(AnnoInit $ai) {
 		$ai->c(new AnnoEntityListeners(ResponseCacheClearer::getClass()));

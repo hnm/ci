@@ -17,7 +17,9 @@ use page\bo\util\PageLink;
 use ci\columns\NestedContentItem;
 use ci\columns\CiTwoColumns;
 use n2n\util\type\CastUtils;
+use rocket\attribute\EiType;
 
+#[EiType(label:'Bild')]
 class CiImage extends NestedContentItem {
 	private static function _annos(AnnoInit $ai) {
 		$ai->c(new AnnoEntityListeners(ResponseCacheClearer::getClass()));

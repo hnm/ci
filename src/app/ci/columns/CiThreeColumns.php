@@ -10,7 +10,9 @@ use n2n\persistence\orm\annotation\AnnoTable;
 use n2n\persistence\orm\annotation\AnnoEntityListeners;
 use n2n\web\http\orm\ResponseCacheClearer;
 use n2n\reflection\annotation\AnnoInit;
+use rocket\attribute\EiType;
 
+#[EiType(label:'3 Spalten')]
 class CiThreeColumns extends ContentItemContainer {
 	private static function _annos(AnnoInit $ai) {
 		$ai->c(new AnnoTable('ci_three_columns'), new AnnoEntityListeners(ResponseCacheClearer::getClass()));

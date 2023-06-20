@@ -10,7 +10,9 @@ use n2n\persistence\orm\annotation\AnnoTable;
 use n2n\persistence\orm\annotation\AnnoEntityListeners;
 use n2n\web\http\orm\ResponseCacheClearer;
 use n2n\util\type\CastUtils;
+use rocket\attribute\EiType;
 
+#[EiType(label:'2 Spalten')]
 class CiTwoColumns extends ContentItemContainer {
 	
 			
