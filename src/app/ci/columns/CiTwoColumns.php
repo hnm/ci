@@ -106,7 +106,7 @@ class CiTwoColumns extends ContentItemContainer {
 		return $this->splitting;
 	}
 
-	public function setSplitting(string $splitting = null) {
+	public function setSplitting(?string $splitting = null) {
 		$this->splitting = $splitting;
 	}
 }

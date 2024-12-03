@@ -53,7 +53,7 @@ abstract class NestedContentItem extends ContentItem {
 		return $this->contentItemContainer;
 	}
 
-	public function setContentItemContainer(ContentItemContainer $contentItemContainer = null) {
+	public function setContentItemContainer(?ContentItemContainer $contentItemContainer = null) {
 		$this->contentItemContainer = $contentItemContainer;
 	}
 

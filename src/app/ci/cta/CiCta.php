@@ -31,7 +31,7 @@ class CiCta extends ContentItem {
 		return $this->title;
 	}
 
-	public function setTitle(string $title = null) {
+	public function setTitle(?string $title = null) {
 		$this->title = $title;
 	}
 
@@ -39,7 +39,7 @@ class CiCta extends ContentItem {
 		return $this->intro;
 	}
 
-	public function setIntro(string $intro = null) {
+	public function setIntro(?string $intro = null) {
 		$this->intro = $intro;
 	}
 
@@ -47,7 +47,7 @@ class CiCta extends ContentItem {
 		return $this->phone;
 	}
 
-	public function setPhone(string $phone = null) {
+	public function setPhone(?string $phone = null) {
 		$this->phone = $phone;
 	}
 
@@ -55,7 +55,7 @@ class CiCta extends ContentItem {
 		return $this->email;
 	}
 
-	public function setEmail(string $email = null) {
+	public function setEmail(?string $email = null) {
 		$this->email = $email;
 	}
 
@@ -63,7 +63,7 @@ class CiCta extends ContentItem {
 		return $this->link;
 	}
 
-	public function setLink(SimplePageLink $link = null) {
+	public function setLink(?SimplePageLink $link = null) {
 		$this->link = $link;
 	}
 	

@@ -70,7 +70,7 @@ class CiArticle extends NestedContentItem {
 		return $this->explPageLink;
 	}
 	
-	public function setExplPageLink(ExplPageLink $explPageLink = null) {
+	public function setExplPageLink(?ExplPageLink $explPageLink = null) {
 		$this->explPageLink = $explPageLink;
 	}
 	

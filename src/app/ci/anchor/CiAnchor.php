@@ -22,7 +22,7 @@ class CiAnchor extends ContentItem {
 		return $this->pathPart;
 	}
 
-	public function setPathPart(string $pathPart = null) {
+	public function setPathPart(?string $pathPart = null) {
 		$this->pathPart = $pathPart;
 	}
 
@@ -38,7 +38,7 @@ class CiAnchor extends ContentItem {
 		return $this->title;
 	}
 
-	public function setTitle(string $title = null) {
+	public function setTitle(?string $title = null) {
 		$this->title = $title;
 	}
 }

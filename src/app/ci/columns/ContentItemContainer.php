@@ -31,7 +31,7 @@ abstract class ContentItemContainer extends ContentItem {
 	 * @param string $panel
 	 * @return ContentItem|null;
 	 */
-	public function getPrevContentItem(int $orderIndex, string $panel = null) {
+	public function getPrevContentItem(int $orderIndex, ?string $panel = null) {
 		$tContentItem = null;
 		foreach ($this->getContentItems() as $contentItem) {
 			if ($contentItem->getOrderIndex() >= $orderIndex) continue;
@@ -45,7 +45,7 @@ abstract class ContentItemContainer extends ContentItem {
 	}
 	
 	
-	public function hasPrevContentItem(int $orderIndex, string $panel = null) {
+	public function hasPrevContentItem(int $orderIndex, ?string $panel = null) {
 		return null !== $this->getNextContentItem($orderIndex, $panel);
 	}
 	
@@ -54,7 +54,7 @@ abstract class ContentItemContainer extends ContentItem {
 	 * @param string $panel
 	 * @return ContentItem|null;
 	 */
-	public function getNextContentItem(int $orderIndex, string $panel = null) {
+	public function getNextContentItem(int $orderIndex, ?string $panel = null) {
 		$tContentItem = null;
 		foreach ($this->getContentItems() as $contentItem) {
 			if ($contentItem->getOrderIndex() <= $orderIndex) continue;
@@ -67,7 +67,7 @@ abstract class ContentItemContainer extends ContentItem {
 		return $tContentItem;
 	}
 	
-	public function hasNextContentItem(int $orderIndex, string $panel = null) {
+	public function hasNextContentItem(int $orderIndex, ?string $panel = null) {
 		return null !== $this->getNextContentItem($orderIndex, $panel);
 	}
 }

@@ -106,7 +106,7 @@ class CiImage extends NestedContentItem {
 		return $this->explPageLink;
 	}
 	
-	public function setExplPageLink(ExplPageLink $explPageLink = null) {
+	public function setExplPageLink(?ExplPageLink $explPageLink = null) {
 		$this->explPageLink = $explPageLink;
 	}
 	
@@ -135,7 +135,7 @@ class CiImage extends NestedContentItem {
 		return strlen($this->alignment) > 0;
 	}
 	
-	public function getContainerAttrs(array $attrs = null, $overwrite = false) {
+	public function getContainerAttrs(?array $attrs = null, $overwrite = false) {
 		$baseAttrs = array('class' => 'ci-image');
 		
 		if (!$this->isNested() && !$this->isAside() && $this->alignment === self::ALIGN_FULL_WIDTH) {
